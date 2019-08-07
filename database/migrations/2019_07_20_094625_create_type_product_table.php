@@ -17,6 +17,8 @@ class CreateTypeProductTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->text('description');
+            $table->string('abbreviation', 2);
+            $table->integer('active')->default(1);
             $table->timestamps();
         });
     }

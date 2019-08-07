@@ -23,6 +23,7 @@ class CreateBillsTable extends Migration
             $table->string('deliveryType');
             $table->integer('status')->default(0);
             $table->text('note');
+            $table->integer('active')->default(1);
             $table->timestamps();
         });
     }

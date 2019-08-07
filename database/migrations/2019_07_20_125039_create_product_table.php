@@ -24,6 +24,7 @@ class CreateProductTable extends Migration
             $table->string('image');
             $table->string('unit');
             $table->integer('new')->default(0);
+            $table->integer('active')->default(1);
             $table->timestamps();
         });
     }
