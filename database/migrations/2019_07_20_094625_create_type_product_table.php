@@ -15,8 +15,12 @@ class CreateTypeProductTable extends Migration
     {
         Schema::create('type_products', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->text('description');
+            $table->integer('id_whole')->unsigned();
+            $table->foreign('id_whole')->references('id')->on('whole_products');
+            $table->string('name')->unique();
+            $table->text('description')->nullable();
+            $table->string('abbreviation', 2)->unique();
+            $table->integer('active')->default(1);
             $table->timestamps();
         });
     }

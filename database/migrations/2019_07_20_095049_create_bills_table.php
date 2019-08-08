@@ -14,7 +14,7 @@ class CreateBillsTable extends Migration
     public function up()
     {
         Schema::create('bills', function (Blueprint $table){
-            $table->string('id', 16)->unique();
+            $table->increments('id');
             $table->integer('id_customer')->unsigned();
             $table->foreign('id_customer')->references('id')->on('customer');
             $table->date('date_order');
@@ -23,6 +23,7 @@ class CreateBillsTable extends Migration
             $table->string('deliveryType');
             $table->integer('status')->default(0);
             $table->text('note');
+            $table->integer('active')->default(1);
             $table->timestamps();
         });
     }

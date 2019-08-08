@@ -14,13 +14,14 @@ class CreateBillDetailTable extends Migration
     public function up()
     {
         Schema::create('bill_detail', function (Blueprint $table){
-            $table->increments('id');
-            $table->string('id_bill', 16);
+            $table->string('id', 16)->unique();
+            $table->integer('id_bill')->unsigned();
             $table->foreign('id_bill')->references('id')->on('bills');
             $table->string('id_product', 7);
             $table->foreign('id_product')->references('id')->on('products');
             $table->integer('quantity');
             $table->double('unit_price');
+            $table->integer('active')->default(1);
             $table->timestamps();
         });
     }
