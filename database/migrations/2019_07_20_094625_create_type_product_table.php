@@ -18,8 +18,8 @@ class CreateTypeProductTable extends Migration
             $table->integer('id_whole')->unsigned();
             $table->foreign('id_whole')->references('id')->on('whole_products');
             $table->string('name')->unique();
-            $table->text('description');
-            $table->string('abbreviation', 2);
+            $table->text('description')->nullable();
+            $table->string('abbreviation', 2)->unique();
             $table->integer('active')->default(1);
             $table->timestamps();
         });

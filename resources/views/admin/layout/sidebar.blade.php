@@ -31,15 +31,40 @@
         <ul class="sidebar-menu" data-widget="tree">
             <li class="header">HEADER</li>
             <!-- Optionally, you can add icons to the links -->
+            <!-- WHOLE PRODUCT -->
+            <li class="treeview">
+                <a href="#"><i class="fa fa-link"></i> <span>Whole Product</span>
+                <span class="pull-right-container">
+                    <i class="fa fa-angle-left pull-right"></i>
+                </span>
+                </a>
+                <ul class="treeview-menu ">
+                    <li><a href="admin/wholeproduct/list">List whole product</a></li>
+                    <li><a href="admin/wholeproduct/add">Add new whole product</a></li>
+                </ul>
+            </li>
+            <!-- TYPE PRODUCT -->
             <li class="treeview">
                 <a href="#"><i class="fa fa-link"></i> <span>Type Product</span>
-                    <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-              </span>
+                <span class="pull-right-container">
+                    <i class="fa fa-angle-left pull-right"></i>
+                </span>
                 </a>
-                <ul class="treeview-menu active">
+                <ul class="treeview-menu">
                     <li><a href="admin/typeproduct/list">List type product</a></li>
                     <li><a href="admin/typeproduct/add">Add new type product</a></li>
+                </ul>
+            </li>
+            <!-- PRODUCT -->
+            <li class="treeview">
+                <a href="#"><i class="fa fa-link"></i> <span>Product</span>
+                <span class="pull-right-container">
+                    <i class="fa fa-angle-left pull-right"></i>
+                </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="admin/product/list">List product</a></li>
+                    <li><a href="admin/product/add">Add new product</a></li>
                 </ul>
             </li>
         </ul>

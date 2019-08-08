@@ -17,10 +17,11 @@
                     <tr>
                         <th>ID</th>
                         <th>Name</th>
+                        <th>Whole Product</th>
                         <th>Description</th>
                         <th>Abbreviation</th>
-                        <th>UPDATE</th>
-                        <th>DELETE</th>
+                        <th>Update</th>
+                        <th>Delete</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -28,6 +29,7 @@
                     <tr>
                         <td>{{$item->id}}</td>
                         <td>{{$item->name}}</td>
+                        <td>{{$item->WholeProducts->name}}</td>
                         <td>{!! $item->description !!}</td>
                         <td>{{ $item->abbreviation }}</td>
                         <td>

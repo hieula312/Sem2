@@ -1,5 +1,5 @@
 @extends('admin.layout.index')
-@section('title', 'Trang chủ')
+@section('title', 'HomePage')
 @section('content')
     <section class="content-header">
         <h1>
