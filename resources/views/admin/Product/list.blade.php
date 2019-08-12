@@ -28,7 +28,7 @@
                         <th>Delete</th>
                     </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="dataCon">
                     @foreach($products as $item)
                     <tr>
                         <td>{{$item->id}}</td>
@@ -52,10 +52,11 @@
                             ?>
                         </td>
                         <td>
-                            <a  href="admin/typeproduct/update/{{$item->id}}"><button type="submit" class="btn btn-block btn-primary">Update</button></a>
+                            <a  href="admin/product/update/{{$item->id}}"><button type="submit" class="btn btn-block btn-primary">Update</button></a>
                         </td>
                         <td>
-                            <a onclick="return confirm('Are you sure to delete?')" href="admin/typeproduct/delete/{{$item->id}}"><button type="button" class="btn btn-block btn-danger">Delete</button></a>
+                            {{csrf_field()}}
+                           <button data-id = "{{$item->id}} " id="checkDelete{{$item->id}}"  type="button" class="btn btn-block btn-danger checkDel">Delete</button>
                         </td>
                     </tr>
                     @endforeach
@@ -80,10 +81,59 @@
     <script src="admin_asset/dist/js/demo.js"></script>
     <!-- page script -->
     <script>
-        $(function () {
-            $('#example1').DataTable({
+        // $(document).ready(function () {
 
+            $(function () {
+                $('#example1').DataTable({
+                })
             })
-        })
+            $('.checkDel').on('click', function (e) {
+                e.preventDefault();
+                Swal.fire({
+                    title: 'Are you sure?',
+                    text: "You won't be able to revert this!",
+                    type: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, delete it!'
+                }).then((result) => {
+                    if (result.value) {
+                        Swal.fire(
+                            'Deleted!',
+                            'Your file has been deleted.',
+                            'success'
+                        )
+                        var id = this.getAttribute('data-id')
+                        var _token = $('input[name="_token"]').val()
+                        $.ajaxSetup({
+                            headers: {
+                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                            }
+                        });
+                        $.ajax({
+                            url: "{{route('updateProduct')}}",
+                            method: 'POST',
+                            data: {id:id, token:_token},
+                            dataType: 'json',
+                            success: function (data) {
+                                $('#dataCon').html(data.output);
+                                location.reload();
+                            },
+                            error: function(jqXHR, textStatus, errorThrown) {
+                                alert('An error occurred... Look at the console (F12 or Ctrl+Shift+I, Console tab) for more information!');
+
+                                $('#result').html('<p>status code: '+jqXHR.status+'</p><p>errorThrown: ' + errorThrown + '</p><p>jqXHR.responseText:</p><div>'+jqXHR.responseText + '</div>');
+                                console.log('jqXHR:');
+                                console.log(jqXHR);
+                                console.log('textStatus:');
+                                console.log(textStatus);
+                                console.log('errorThrown:');
+                                console.log(errorThrown);
+                            }
+                        })
+                    }
+                })
+            })
     </script>
 @endsection

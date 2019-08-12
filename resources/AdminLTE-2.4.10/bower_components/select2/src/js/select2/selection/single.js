@@ -47,11 +47,11 @@ define([
     });
 
     this.$selection.on('focus', function (evt) {
-      // User focuses on the container
+      // Customer focuses on the container
     });
 
     this.$selection.on('blur', function (evt) {
-      // User exits the container
+      // Customer exits the container
     });
 
     container.on('focus', function (evt) {

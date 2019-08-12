@@ -12,7 +12,7 @@ class TypeProductSeeder extends Seeder
     public function run()
     {
         DB::table('type_products')->insert([
-            ['id_whole' => 1, 'name' => 'Hot Product', 'abbreviation' => 'HP'],
+            ['id_whole' => 1, 'name' => 'Hot product', 'abbreviation' => 'HP'],
             ['id_whole' => 1, 'name' => 'Teddy Bear', 'abbreviation' => 'TB'],
             ['id_whole' => 1, 'name' => 'Doraemon', 'abbreviation' => 'DR'],
             ['id_whole' => 1, 'name' => 'Pillow', 'abbreviation' => 'PL'],

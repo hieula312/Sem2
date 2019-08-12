@@ -20,7 +20,7 @@ class CreateBillDetailTable extends Migration
             $table->string('id_product', 7);
             $table->foreign('id_product')->references('id')->on('products');
             $table->integer('quantity');
-            $table->double('unit_price');
+            $table->double('price');
             $table->integer('active')->default(1);
             $table->timestamps();
         });

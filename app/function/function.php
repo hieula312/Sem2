@@ -13,7 +13,6 @@ function changeTitle($str,$strSymbol='-',$case=MB_CASE_LOWER){// MB_CASE_UPPER /
     if ($str=="") return "";
     $str =str_replace('"','',$str);
     $str =str_replace("'",'',$str);
-    $str = stripUnicode($str);
     $str = mb_convert_case($str,$case,'utf-8');
     $str = preg_replace('/[\W|_]+/',$strSymbol,$str);
     return $str;

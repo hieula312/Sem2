@@ -13,7 +13,7 @@ class ProductSeeder extends Seeder
     {
         DB::table('products')->insert([
             //StuffedAnimals
-            //Hot Product
+            //Hot product
             ['id' => 'HP'.rand(10000,99999), 'id_type' => 1, 'name' => 'Teddy Bear Baby Dog', 'description' => 'Teddy bear baby dog beautiful', 'unit_price' => 5, 'promotion_price' => 4, 'image' => 'HP1.jpg', 'unit' => 20],
             ['id' => 'HP'.rand(10000,99999), 'id_type' => 1, 'name' => 'Teddy Bear Baby Dog', 'description' => 'Teddy bear baby dog beautiful', 'unit_price' => 5, 'promotion_price' => 4, 'image' => 'HP2.jpg', 'unit' => 20],
             ['id' => 'HP'.rand(10000,99999), 'id_type' => 1, 'name' => 'Teddy Bear Baby Dog', 'description' => 'Teddy bear baby dog beautiful', 'unit_price' => 5, 'promotion_price' => 4, 'image' => 'HP3.jpg', 'unit' => 20],

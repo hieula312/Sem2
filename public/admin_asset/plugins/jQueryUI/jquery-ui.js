@@ -11662,7 +11662,7 @@ var effectShake = $.effects.effect.shake = function( o, done ) {
 
 
 /*!
- * jQuery UI Effects Slide 1.11.4
+ * jQuery UI Effects slide 1.11.4
  * http://jqueryui.com
  *
  * Copyright jQuery Foundation and other contributors
