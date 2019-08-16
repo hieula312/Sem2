@@ -1,0 +1,32 @@
+.aa-prod-view-bottom {
+    border-top: 1px solid #ddd;
+    margin-top: 10px;
+    padding-top: 10px;
+}
+.aa-product-avilability span {
+    color: #ff6666;
+}
+.modal-dialog {
+    margin: 120px auto;
+}
+
+.aa-product-img img {
+    width: 250px;
+    height: 300px;
+}
+
+.slick-slide img {
+    display: inline-block;
+}
+.aa-cartbox-img img{
+    width: 150px;
+    height: 150px;
+}
+/*@media only screen and (max-width: 480px){*/
+    /*.large{*/
+        /*display: none;*/
+    /*}*/
+/*}*/
+a:hover{
+    cursor: pointer;
+}

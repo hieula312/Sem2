@@ -1,7 +1,11 @@
 @if(session('alert'))
     <script>
         window.onload = function(){
-            alert('{{session('alert')}}');
+            Swal.fire(
+                '{{session('alert')}}',
+                '',
+                'success',
+            );
         };
     </script>
 @endif

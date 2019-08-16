@@ -14,11 +14,17 @@
 Route::get('/', function () {
     return view('welcome');
 });
+//ADMIN
+Route::get('admin/signin', 'UserController@getSignInAdmin');
+Route::post('admin/signin', 'UserController@postSignInAdmin');
+Route::get('admin/signout', 'UserController@SignOutAdmin');
 
-Route::group(['prefix'=>'admin'], function (){
+Route::group(['prefix'=>'admin', 'middleware'=>'adminLogin'], function (){
+
     Route::get('homepage', function (){
         return view('admin.homepage');
-    });
+    })->name('adminHomepage');
+
     Route::group(['prefix'=>'wholeproduct'],function() {
         Route::get('list', 'WholeProductController@getList');
         Route::get('add', 'WholeProductController@getAdd');
@@ -27,6 +33,7 @@ Route::group(['prefix'=>'admin'], function (){
         Route::post('update/{id}', 'WholeProductController@postUpdate');
         Route::get('delete/{id}', 'WholeProductController@getDelete');
     });
+
     Route::group(['prefix'=>'typeproduct'],function() {
         Route::get('list', 'TypeProductController@getList');
         Route::get('add', 'TypeProductController@getAdd');
@@ -35,6 +42,7 @@ Route::group(['prefix'=>'admin'], function (){
         Route::post('update/{id}', 'TypeProductController@postUpdate');
         Route::get('delete/{id}', 'TypeProductController@getDelete');
     });
+
     Route::group(['prefix'=>'product'],function() {
         Route::get('list', 'ProductController@getList');
         Route::get('add', 'ProductController@getAdd');
@@ -43,7 +51,49 @@ Route::group(['prefix'=>'admin'], function (){
         Route::post('update/{id}', 'ProductController@postUpdate');
         Route::get('delete/{id}', 'ProductController@getDelete');
     });
+
+    Route::group(['prefix'=>'slide'],function() {
+        Route::get('list', 'SlideController@getList');
+        Route::get('add', 'SlideController@getAdd');
+        Route::post('add', 'SlideController@postAdd');
+        Route::get('update/{id}', 'SlideController@getUpdate');
+        Route::post('update/{id}', 'SlideController@postUpdate');
+        Route::get('delete/{id}', 'SlideController@getDelete');
+    });
+
+    Route::group(['prefix'=>'bill'],function() {
+        Route::get('list', 'BillController@getList');
+    });
+
+    Route::group(['prefix'=>'billdetail'],function() {
+        Route::get('list', 'BillDetailController@getList');
+    });
+
+    Route::group(['prefix'=>'customer'],function() {
+        Route::get('list', 'UserController@getListCustomer');
+    });
+
+    Route::group(['prefix'=>'employee'],function() {
+        Route::get('list', 'EmployeeController@getList');
+        Route::get('add', 'EmployeeController@getAdd');
+        Route::post('add', 'EmployeeController@postAdd');
+        Route::get('update/{id}', 'EmployeeController@getUpdate');
+        Route::post('update/{id}', 'EmployeeController@postUpdate');
+        Route::get('delete/{id}', 'EmployeeController@getDelete')->name('deleteEmployee');
+    });
+
     Route::group(['prefix'=>'ajax'],function (){
        Route::post('typeProduct', 'AjaxController@getTypeProduct')->name('getTypeProduct');
+       Route::post('deleteProduct', 'AjaxController@deleteProduct')->name('deleteProduct');
+       Route::post('deleteEmployee', 'AjaxController@deleteEmployee')->name('deleteEmployee');
     });
 });
+
+//CLIENT
+Route::get('homepage', 'PageController@getHomepage');
+Route::get('typeProduct/{id}', 'PageController@getTypeProductPage');
+Route::get('product/{id}', 'PageController@getProductDetail');
+Route::post('addCart', 'AjaxController@postAddCart')->name('addCart');
+Route::post('addManyCart', 'AjaxController@postAddCart')->name('addManyCart');
+Route::get('cart', 'PageController@showCart')->name('showCart');
+Route::get('checkout', 'PageController@getCheckout')->name('getCheckout');

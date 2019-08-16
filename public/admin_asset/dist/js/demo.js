@@ -227,7 +227,7 @@ $(function () {
         + '<div class="form-group">'
         + '<label class="control-sidebar-subheading">'
         + '<input type="checkbox"data-controlsidebar="control-sidebar-open"class="pull-right"/> '
-        + 'Toggle Right Sidebar Slide'
+        + 'Toggle Right Sidebar slide'
         + '</label>'
         + '<p>Toggle between slide over content and push content effects</p>'
         + '</div>'

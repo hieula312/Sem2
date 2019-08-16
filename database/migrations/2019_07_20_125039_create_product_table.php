@@ -26,6 +26,9 @@ class CreateProductTable extends Migration
             $table->integer('new')->default(0);
             $table->integer('active')->default(1);
             $table->timestamps();
+            $table->integer('feature')->default(1);
+            $table->integer('sellIndex')->default(0);
+            $table->integer('id_whole');
         });
     }
 

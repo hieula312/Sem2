@@ -625,7 +625,7 @@
 			}
 		}
 	
-		/* User specified column options */
+		/* Customer specified column options */
 		if ( oOptions !== undefined && oOptions !== null )
 		{
 			// Backwards compatibility
