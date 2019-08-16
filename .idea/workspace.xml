@@ -2,332 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="87f68fb3-a7a6-4687-842e-4d9a2c18adaa" name="Default Changelist" comment="New">
-      <change afterPath="$PROJECT_DIR$/public/client_asset/.sass-cache/3fcd99d0c8b91f50f06b0715ce73ad297a6fc258/_base.scssc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/.sass-cache/3fcd99d0c8b91f50f06b0715ce73ad297a6fc258/_mixins.scssc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/.sass-cache/3fcd99d0c8b91f50f06b0715ce73ad297a6fc258/_variables.scssc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/.sass-cache/58d96aa2f3ca6831ea65d734678a63e337572170/style.scssc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/.sass-cache/8d96c3a14a0bb8e118b2f4f0ff234b926fa1678e/_buttons.scssc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/.sass-cache/8d96c3a14a0bb8e118b2f4f0ff234b926fa1678e/_responsive.scssc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/.sass-cache/8d96c3a14a0bb8e118b2f4f0ff234b926fa1678e/_sections.scssc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/.sass-cache/8d96c3a14a0bb8e118b2f4f0ff234b926fa1678e/_typography.scssc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/.sass-cache/ef29edb4d21face4cdada241cd6b836dafbe5b2a/_footer.scssc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/.sass-cache/ef29edb4d21face4cdada241cd6b836dafbe5b2a/_header.scssc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/.sass-cache/ef29edb4d21face4cdada241cd6b836dafbe5b2a/_nav.scssc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/css/bootstrap.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/css/font-awesome.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/css/jquery.simpleLens.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/css/jquery.smartmenus.bootstrap.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/css/nouislider.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/css/sequence-theme.modern-slide-in.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/css/slick.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/css/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/css/theme-color/bridge-theme.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/css/theme-color/dark-red-theme.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/css/theme-color/default-theme.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/css/theme-color/green-theme.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/css/theme-color/lite-blue-theme.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/css/theme-color/orange-theme.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/css/theme-color/pink-theme.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/css/theme-color/purple-theme.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/css/theme-color/red-theme.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/css/theme-color/yellow-theme.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/fonts/FontAwesome.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/fonts/fontawesome-webfont.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/fonts/fontawesome-webfont.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/fonts/fontawesome-webfont.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/fonts/fontawesome-webfont.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/fonts/fontawesome-webfont.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/fonts/glyphicons-halflings-regular.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/fonts/glyphicons-halflings-regular.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/fonts/glyphicons-halflings-regular.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/fonts/glyphicons-halflings-regular.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/fonts/glyphicons-halflings-regular.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/img/client-brand-css3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/img/client-brand-html5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/img/client-brand-java.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/img/client-brand-joomla.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/img/client-brand-jquery.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/img/client-brand-wordpress.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/img/close-icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/img/electronics/electronic-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/img/electronics/electronic-2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/img/electronics/electronic-3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/img/electronics/electronic-4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/img/electronics/electronic-5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/img/electronics/electronic-6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/img/electronics/electronic-7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/img/electronics/electronic-8.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/img/fashion-banner.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/img/fashion/1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/img/fashion/2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/img/fashion/3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/img/fashion/4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/img/fashion/5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/img/fashion/fashion-header-bg-8.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/img/flag/english.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/img/flag/french.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/img/logo.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/img/man-small-1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/img/man/polo-shirt-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/img/man/polo-shirt-2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/img/man/polo-shirt-3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/img/man/polo-shirt-4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/img/man/polo-shirt-5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/img/man/polo-shirt-6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/img/man/t-shirt-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/img/paypal.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/img/promo-banner-1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/img/promo-banner-2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/img/promo-banner-3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/img/promo-banner-4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/img/promo-banner-5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/img/slider/1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/img/slider/2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/img/slider/3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/img/slider/4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/img/slider/5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/img/slider/ajax-loader.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/img/slider/bt-next.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/img/slider/bt-next@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/img/slider/bt-prev.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/img/slider/bt-prev@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/img/sports/sport-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/img/sports/sport-2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/img/sports/sport-3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/img/sports/sport-4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/img/sports/sport-5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/img/sports/sport-6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/img/sports/sport-7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/img/sports/sport-8.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/img/testimonial-bg-1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/img/testimonial-img-1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/img/testimonial-img-2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/img/testimonial-img-3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/img/view-slider/large/polo-shirt-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/img/view-slider/large/polo-shirt-2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/img/view-slider/large/polo-shirt-3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/img/view-slider/large/polo-shirt-4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/img/view-slider/loading.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/img/view-slider/medium/polo-shirt-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/img/view-slider/medium/polo-shirt-2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/img/view-slider/medium/polo-shirt-3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/img/view-slider/medium/polo-shirt-4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/img/view-slider/thumbnail/polo-shirt-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/img/view-slider/thumbnail/polo-shirt-2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/img/view-slider/thumbnail/polo-shirt-3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/img/view-slider/thumbnail/polo-shirt-4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/img/woman-small-1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/img/woman-small-2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/img/women/girl-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/img/women/girl-2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/img/women/girl-3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/img/women/girl-4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/img/women/girl-5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/img/women/girl-6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/img/women/girl-7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/js/bootstrap.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/js/custom.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/js/jquery.simpleGallery.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/js/jquery.simpleLens.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/js/jquery.smartmenus.bootstrap.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/js/jquery.smartmenus.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/js/nouislider.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/js/sequence-theme.modern-slide-in.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/js/sequence.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/js/slick.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/scss/base/_base.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/scss/base/_mixins.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/scss/base/_variables.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/scss/layouts/_footer.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/scss/layouts/_header.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/scss/layouts/_nav.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/scss/modules/_buttons.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/scss/modules/_responsive.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/scss/modules/_sections.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/scss/modules/_typography.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/client_asset/scss/style.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/Mystyle.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/.sass-cache/3fcd99d0c8b91f50f06b0715ce73ad297a6fc258/_base.scssc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/.sass-cache/3fcd99d0c8b91f50f06b0715ce73ad297a6fc258/_mixins.scssc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/.sass-cache/3fcd99d0c8b91f50f06b0715ce73ad297a6fc258/_variables.scssc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/.sass-cache/58d96aa2f3ca6831ea65d734678a63e337572170/style.scssc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/.sass-cache/8d96c3a14a0bb8e118b2f4f0ff234b926fa1678e/_buttons.scssc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/.sass-cache/8d96c3a14a0bb8e118b2f4f0ff234b926fa1678e/_responsive.scssc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/.sass-cache/8d96c3a14a0bb8e118b2f4f0ff234b926fa1678e/_sections.scssc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/.sass-cache/8d96c3a14a0bb8e118b2f4f0ff234b926fa1678e/_typography.scssc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/.sass-cache/ef29edb4d21face4cdada241cd6b836dafbe5b2a/_footer.scssc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/.sass-cache/ef29edb4d21face4cdada241cd6b836dafbe5b2a/_header.scssc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/.sass-cache/ef29edb4d21face4cdada241cd6b836dafbe5b2a/_nav.scssc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/404.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/account.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/blog-archive-2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/blog-archive.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/blog-single.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/cart.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/checkout.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/contact.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/css/bootstrap.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/css/font-awesome.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/css/jquery.simpleLens.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/css/jquery.smartmenus.bootstrap.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/css/nouislider.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/css/sequence-theme.modern-slide-in.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/css/slick.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/css/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/css/theme-color/bridge-theme.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/css/theme-color/dark-red-theme.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/css/theme-color/default-theme.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/css/theme-color/green-theme.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/css/theme-color/lite-blue-theme.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/css/theme-color/orange-theme.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/css/theme-color/pink-theme.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/css/theme-color/purple-theme.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/css/theme-color/red-theme.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/css/theme-color/yellow-theme.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/debug.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/fonts/FontAwesome.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/fonts/fontawesome-webfont.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/fonts/fontawesome-webfont.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/fonts/fontawesome-webfont.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/fonts/fontawesome-webfont.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/fonts/fontawesome-webfont.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/fonts/glyphicons-halflings-regular.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/fonts/glyphicons-halflings-regular.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/fonts/glyphicons-halflings-regular.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/fonts/glyphicons-halflings-regular.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/fonts/glyphicons-halflings-regular.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/img/client-brand-css3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/img/client-brand-html5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/img/client-brand-java.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/img/client-brand-joomla.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/img/client-brand-jquery.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/img/client-brand-wordpress.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/img/close-icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/img/electronics/electronic-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/img/electronics/electronic-2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/img/electronics/electronic-3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/img/electronics/electronic-4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/img/electronics/electronic-5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/img/electronics/electronic-6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/img/electronics/electronic-7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/img/electronics/electronic-8.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/img/fashion-banner.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/img/fashion/1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/img/fashion/2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/img/fashion/3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/img/fashion/4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/img/fashion/5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/img/fashion/fashion-header-bg-8.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/img/flag/english.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/img/flag/french.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/img/logo.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/img/man-small-1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/img/man/polo-shirt-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/img/man/polo-shirt-2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/img/man/polo-shirt-3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/img/man/polo-shirt-4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/img/man/polo-shirt-5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/img/man/polo-shirt-6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/img/man/t-shirt-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/img/paypal.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/img/promo-banner-1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/img/promo-banner-2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/img/promo-banner-3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/img/promo-banner-4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/img/promo-banner-5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/img/slider/1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/img/slider/2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/img/slider/3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/img/slider/4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/img/slider/5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/img/slider/ajax-loader.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/img/slider/bt-next.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/img/slider/bt-next@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/img/slider/bt-prev.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/img/slider/bt-prev@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/img/sports/sport-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/img/sports/sport-2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/img/sports/sport-3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/img/sports/sport-4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/img/sports/sport-5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/img/sports/sport-6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/img/sports/sport-7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/img/sports/sport-8.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/img/testimonial-bg-1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/img/testimonial-img-1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/img/testimonial-img-2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/img/testimonial-img-3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/img/view-slider/large/polo-shirt-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/img/view-slider/large/polo-shirt-2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/img/view-slider/large/polo-shirt-3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/img/view-slider/large/polo-shirt-4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/img/view-slider/loading.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/img/view-slider/medium/polo-shirt-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/img/view-slider/medium/polo-shirt-2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/img/view-slider/medium/polo-shirt-3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/img/view-slider/medium/polo-shirt-4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/img/view-slider/thumbnail/polo-shirt-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/img/view-slider/thumbnail/polo-shirt-2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/img/view-slider/thumbnail/polo-shirt-3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/img/view-slider/thumbnail/polo-shirt-4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/img/woman-small-1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/img/woman-small-2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/img/women/girl-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/img/women/girl-2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/img/women/girl-3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/img/women/girl-4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/img/women/girl-5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/img/women/girl-6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/img/women/girl-7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/js/bootstrap.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/js/custom.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/js/jquery.simpleGallery.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/js/jquery.simpleLens.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/js/jquery.smartmenus.bootstrap.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/js/jquery.smartmenus.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/js/nouislider.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/js/sequence-theme.modern-slide-in.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/js/sequence.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/js/slick.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/product-detail.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/product.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/scss/base/_base.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/scss/base/_mixins.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/scss/base/_variables.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/scss/layouts/_footer.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/scss/layouts/_header.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/scss/layouts/_nav.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/scss/modules/_buttons.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/scss/modules/_responsive.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/scss/modules/_sections.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/scss/modules/_typography.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/scss/style.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/dailyShop/wishlist.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/layout/CartScript.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/layout/footer.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/layout/header.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/layout/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/layout/loginModal.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/layout/menubar.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/layout/slide.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/layout/subscribe.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pages/cart.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pages/checkout.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pages/homepage.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pages/product.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pages/typeProduct.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Cart.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AjaxController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AjaxController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CustomerController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_07_20_125039_create_product_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_07_20_125039_create_product_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/ProductSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/ProductSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/product/AK16.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/product/AK16.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/Product/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/Product/list.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layout/CartScript.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layout/CartScript.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layout/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layout/header.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layout/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layout/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/cart.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/cart.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/homepage.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/homepage.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <list id="fdd5cd49-6e6b-4c01-b99e-24ec2218eeec" name="Revert: Create migration" comment="" />
@@ -356,32 +38,35 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/pages/homepage.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret selection-end-line="365" selection-end-column="11" />
+            <state relative-caret-position="760">
+              <caret line="99" column="114" selection-start-line="99" selection-start-column="114" selection-end-line="99" selection-end-column="114" />
               <folding>
                 <element signature="e#0#28038#0#Blade" />
+                <element signature="e#15106#15570#0#HTML" />
+                <element signature="e#15604#26082#0#HTML" />
+                <element signature="e#26138#27833#0#HTML" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/layout/index.blade.php">
+        <entry file="file://$PROJECT_DIR$/public/css/Mystyle.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="471">
-              <caret line="82" column="37" selection-start-line="82" selection-start-column="37" selection-end-line="82" selection-end-column="37" />
+            <state relative-caret-position="340">
+              <caret line="27" column="9" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="9" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/pages/checkout.blade.php">
+        <entry file="file://$PROJECT_DIR$/resources/views/layout/footer.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="457">
-              <caret line="95" column="85" selection-start-line="95" selection-start-column="81" selection-end-line="95" selection-end-column="85" />
+            <state relative-caret-position="335">
+              <caret line="78" column="55" selection-start-line="78" selection-start-column="55" selection-end-line="78" selection-end-column="55" />
             </state>
           </provider>
         </entry>
@@ -389,38 +74,29 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Cart.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="33" column="23" selection-start-line="33" selection-start-column="23" selection-end-line="33" selection-end-column="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/views/pages/cart.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="544">
-              <caret line="89" column="44" lean-forward="true" selection-start-line="89" selection-start-column="44" selection-end-line="89" selection-end-column="66" />
+            <state relative-caret-position="374">
+              <caret line="33" column="24" selection-start-line="33" selection-start-column="24" selection-end-line="33" selection-end-column="24" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Providers/AppServiceProvider.php">
+        <entry file="file://$PROJECT_DIR$/app/Products.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="471">
-              <caret line="68" column="40" selection-start-line="68" selection-start-column="40" selection-end-line="68" selection-end-column="40" />
+            <state relative-caret-position="153">
+              <caret line="9" column="13" lean-forward="true" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProductController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="11" column="30" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
               <folding>
-                <element signature="e#33#50#0#PHP" expanded="true" />
+                <element signature="e#40#57#0#PHP" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/web.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="539">
-              <caret line="96" column="12" selection-start-line="96" selection-start-column="12" selection-end-line="96" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -429,12 +105,32 @@
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PageController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="187">
-              <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="46" />
+              <caret line="11" selection-start-line="11" selection-start-column="2" selection-end-line="11" selection-end-column="46" />
               <folding>
                 <element signature="e#39#60#0#PHP" expanded="true" />
-                <element signature="e#1850#2201#0#PHP" />
-                <element signature="e#2207#2581#0#PHP" />
+                <element signature="e#1913#2264#0#PHP" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AjaxController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="352">
+              <caret line="117" column="17" selection-start-line="117" selection-start-column="17" selection-end-line="117" selection-end-column="17" />
+              <folding>
+                <element signature="e#40#53#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/web.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="290">
+              <caret line="96" column="75" selection-start-line="96" selection-start-column="75" selection-end-line="96" selection-end-column="75" />
             </state>
           </provider>
         </entry>
@@ -442,8 +138,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/layout/CartScript.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="65" selection-start-line="15" selection-start-column="65" selection-end-line="15" selection-end-column="65" />
+            <state relative-caret-position="102">
+              <caret line="36" column="61" selection-start-line="36" selection-start-column="61" selection-end-line="36" selection-end-column="61" />
             </state>
           </provider>
         </entry>
@@ -455,7 +151,6 @@
       <find>small box</find>
       <find>sign</find>
       <find>tab-conten</find>
-      <find>quick view</find>
       <find>pagi</find>
       <find>price ra</find>
       <find>clien</find>
@@ -463,6 +158,10 @@
       <find>product-inner</find>
       <find>add</find>
       <find>Add To Cart</find>
+      <find>quick</find>
+      <find>input</find>
+      <find>buy</find>
+      <find>quick view</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -502,7 +201,6 @@
         <option value="$PROJECT_DIR$/resources/views/layout/slide.blade.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_07_20_125039_create_product_table.php" />
         <option value="$PROJECT_DIR$/database/seeds/ProductSeeder.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/Product/list.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/layout/Subscribe.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/layout/slideType.blade.php" />
@@ -511,18 +209,19 @@
         <option value="$PROJECT_DIR$/resources/views/pages/product.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/layout/menubar.blade.php" />
         <option value="$PROJECT_DIR$/public/css/Mystyle.css" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/AjaxController.php" />
-        <option value="$PROJECT_DIR$/resources/views/pages/homepage.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/layout/CartScript.blade.php" />
         <option value="$PROJECT_DIR$/resources/dailyShop/checkout.html" />
-        <option value="$PROJECT_DIR$/resources/views/layout/index.blade.php" />
-        <option value="$PROJECT_DIR$/routes/web.php" />
-        <option value="$PROJECT_DIR$/resources/views/pages/cart.blade.php" />
         <option value="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" />
-        <option value="$PROJECT_DIR$/resources/views/layout/header.blade.php" />
-        <option value="$PROJECT_DIR$/app/Cart.php" />
         <option value="$PROJECT_DIR$/resources/views/pages/checkout.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/layout/header.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/layout/index.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/pages/cart.blade.php" />
+        <option value="$PROJECT_DIR$/app/Cart.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/PageController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/AjaxController.php" />
+        <option value="$PROJECT_DIR$/routes/web.php" />
+        <option value="$PROJECT_DIR$/resources/views/layout/CartScript.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/pages/homepage.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" />
       </list>
     </option>
   </component>
@@ -612,7 +311,7 @@
       <path value="$PROJECT_DIR$/vendor/filp/whoops" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="525" />
     <option name="y" value="45" />
     <option name="width" value="1190" />
@@ -626,6 +325,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -665,26 +365,47 @@
             <path>
               <item name="Sem2" type="b2602c69:ProjectViewProjectNode" />
               <item name="Sem2" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Sem2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Sem2" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Sem2" type="b2602c69:ProjectViewProjectNode" />
               <item name="Sem2" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="dailyShop" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Sem2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Sem2" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="dailyShop" type="462c0819:PsiDirectoryNode" />
-              <item name="scss" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Sem2" type="b2602c69:ProjectViewProjectNode" />
               <item name="Sem2" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Sem2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Sem2" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Sem2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Sem2" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="layout" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Sem2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Sem2" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="Product" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Sem2" type="b2602c69:ProjectViewProjectNode" />
@@ -709,7 +430,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -777,6 +497,7 @@
       <workItem from="1565749648891" duration="29056000" />
       <workItem from="1565841560863" duration="12530000" />
       <workItem from="1565874832228" duration="8143000" />
+      <workItem from="1565924569638" duration="12182000" />
     </task>
     <task id="LOCAL-00001" summary="New">
       <created>1565065706499</created>
@@ -789,13 +510,12 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="214385000" />
+    <option name="totallyTimeSpent" value="226567000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4978903" visible="true" weight="0.2" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4978903" visible="true" weight="0.20268457" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" sideWeight="0.5021097" side_tool="true" weight="0.24966443" />
@@ -810,8 +530,8 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.3286119" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49932885" weight="0.21671388" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50067115" side_tool="true" weight="0.3286119" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.4986577" visible="true" weight="0.21671388" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5013423" side_tool="true" weight="0.21671388" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -935,13 +655,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/layout/footer.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1326">
-          <caret line="78" column="55" selection-start-line="78" selection-start-column="55" selection-end-line="78" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/layout/loginModal.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
@@ -961,23 +674,8 @@
         <state relative-caret-position="-1687" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProductController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="121" column="61" lean-forward="true" selection-start-line="121" selection-start-column="61" selection-end-line="121" selection-end-column="61" />
-          <folding>
-            <element signature="e#40#57#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2019_07_20_135355_create_bill_detail_table.php">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/homepage.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-424" />
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/database/seeds/ProductSeeder.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -1024,13 +722,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/layout/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="64" column="5" lean-forward="true" selection-start-line="64" selection-start-column="5" selection-end-line="64" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/dailyShop/product.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="7569">
@@ -1050,24 +741,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/Product/list.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="18" lean-forward="true" selection-start-line="1" selection-start-column="18" selection-end-line="1" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/admin/layout/header.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1463">
           <caret line="3" column="24" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Products.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="31" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="31" />
         </state>
       </provider>
     </entry>
@@ -1128,23 +805,6 @@
     <entry file="file://$PROJECT_DIR$/resources/views/success.blade.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/Mystyle.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="17" selection-start-line="22" selection-start-column="17" selection-end-line="22" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AjaxController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="454">
-          <caret line="123" column="30" selection-start-line="123" selection-start-column="30" selection-end-line="123" selection-end-column="30" />
-          <folding>
-            <element signature="e#40#53#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/dailyShop/cart.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="304">
@@ -1167,16 +827,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/pages/homepage.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="365" selection-end-column="11" />
-          <folding>
-            <element signature="e#0#28038#0#Blade" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/dailyShop/checkout.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="106">
@@ -1190,23 +840,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/layout/header.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="32">
-          <caret line="100" column="41" selection-start-line="100" selection-start-column="41" selection-end-line="100" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Cart.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="33" column="23" selection-start-line="33" selection-start-column="23" selection-end-line="33" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Providers/AppServiceProvider.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="471">
+        <state relative-caret-position="1071">
           <caret line="68" column="40" selection-start-line="68" selection-start-column="40" selection-end-line="68" selection-end-column="40" />
           <folding>
             <element signature="e#33#50#0#PHP" expanded="true" />
@@ -1214,29 +850,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/layout/CartScript.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/homepage.blade.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/Product/list.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="65" selection-start-line="15" selection-start-column="65" selection-end-line="15" selection-end-column="65" />
+        <state relative-caret-position="632">
+          <caret line="81" column="6" selection-start-line="70" selection-start-column="11" selection-end-line="81" selection-end-column="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/layout/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="539">
-          <caret line="96" column="12" selection-start-line="96" selection-start-column="12" selection-end-line="96" selection-end-column="12" />
+        <state relative-caret-position="-345">
+          <caret line="40" column="4" lean-forward="true" selection-start-line="40" selection-start-column="4" selection-end-line="40" selection-end-column="57" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PageController.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/layout/header.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="46" />
-          <folding>
-            <element signature="e#39#60#0#PHP" expanded="true" />
-            <element signature="e#1850#2201#0#PHP" />
-            <element signature="e#2207#2581#0#PHP" />
-          </folding>
+        <state relative-caret-position="83">
+          <caret line="96" column="50" selection-start-line="96" selection-start-column="50" selection-end-line="96" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/pages/cart.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="556">
+          <caret line="119" selection-start-line="119" selection-end-line="119" />
         </state>
       </provider>
     </entry>
@@ -1249,15 +890,94 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/layout/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="471">
-          <caret line="82" column="37" selection-start-line="82" selection-start-column="37" selection-end-line="82" selection-end-column="37" />
+        <state relative-caret-position="564">
+          <caret line="89" column="11" selection-start-line="89" selection-start-column="11" selection-end-line="89" selection-end-column="11" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/pages/cart.blade.php">
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AjaxController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="89" column="44" lean-forward="true" selection-start-line="89" selection-start-column="44" selection-end-line="89" selection-end-column="66" />
+        <state relative-caret-position="352">
+          <caret line="117" column="17" selection-start-line="117" selection-start-column="17" selection-end-line="117" selection-end-column="17" />
+          <folding>
+            <element signature="e#40#53#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PageController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" selection-start-line="11" selection-start-column="2" selection-end-line="11" selection-end-column="46" />
+          <folding>
+            <element signature="e#39#60#0#PHP" expanded="true" />
+            <element signature="e#1913#2264#0#PHP" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="96" column="75" selection-start-line="96" selection-start-column="75" selection-end-line="96" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/layout/footer.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="335">
+          <caret line="78" column="55" selection-start-line="78" selection-start-column="55" selection-end-line="78" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/layout/CartScript.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="36" column="61" selection-start-line="36" selection-start-column="61" selection-end-line="36" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/Mystyle.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="27" column="9" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Cart.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="33" column="24" selection-start-line="33" selection-start-column="24" selection-end-line="33" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Products.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="13" lean-forward="true" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProductController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="11" column="30" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
+          <folding>
+            <element signature="e#40#57#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/pages/homepage.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="760">
+          <caret line="99" column="114" selection-start-line="99" selection-start-column="114" selection-end-line="99" selection-end-column="114" />
+          <folding>
+            <element signature="e#0#28038#0#Blade" />
+            <element signature="e#15106#15570#0#HTML" />
+            <element signature="e#15604#26082#0#HTML" />
+            <element signature="e#26138#27833#0#HTML" />
+          </folding>
         </state>
       </provider>
     </entry>

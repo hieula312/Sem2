@@ -41,8 +41,10 @@
                                                     </figcaption>
                                                 </figure>
                                                 <div class="aa-product-hvr-content">
+                                                    {{csrf_field()}}
                                                     <a id="buy" href="#" data-toggle="modal" data-placement="top" title="Add to Cart"  data-target="#add-cart-view-modal{{$item->id}}">
-                                                        <input type="hidden" value="{{$item->id}}">
+                                                        <input type="hidden" value="{{$item->id}}" id="idProduct">
+                                                        <input type="hidden" value="1" id="num">
                                                         <span class="fa fa-shopping-cart"></span>
                                                     </a>
                                                     <a href="#" data-toggle2="tooltip" data-placement="top" title="Quick View" data-toggle="modal" data-target="#quick-view-modal{{$item->id}}"><span class="fa fa-search"></span></a>
@@ -90,21 +92,15 @@
                                                                         <p class="aa-product-avilability">Avilability: <span>In stock</span></p>
                                                                     </div>
                                                                     <p>{!!  $item->description !!}</p>
-                                                                    <div class="aa-prod-quantity">
-                                                                        <form action="">
-                                                                            <span>Quantity: </span>
-                                                                            <select name="" id="">
-                                                                                <option value="0" selected="1">1</option>
-                                                                                <option value="1">2</option>
-                                                                                <option value="2">3</option>
-                                                                                <option value="3">4</option>
-                                                                                <option value="4">5</option>
-                                                                                <option value="5">6</option>
-                                                                            </select>
-                                                                        </form>
-                                                                    </div>
                                                                     <div class="aa-prod-view-bottom">
-                                                                        <a href="product/{{$item->id}}" class="aa-add-to-cart-btn"><span class="fa fa-shopping-cart"></span>Add To Cart</a>
+                                                                        {{csrf_field()}}
+                                                                        <span>Quantity: </span>
+                                                                        <input class="aa-cart-quantity" min="1" id="productNum" type="number" value="1">
+                                                                        <input type="hidden" value="{{$item->id}}" id="idProduct">
+                                                                        <a data-dismiss="modal" aria-hidden="true id="selectCart" class="aa-add-to-cart-btn">
+                                                                            <span class="fa fa-shopping-cart"></span>
+                                                                            Add To Cart
+                                                                        </a>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -227,8 +223,10 @@
                                                 </figcaption>
                                             </figure>
                                             <div class="aa-product-hvr-content">
+                                                {{csrf_field()}}
                                                 <a id="buy" href="#" data-toggle="modal" data-placement="top" title="Add to Cart"  data-target="#add-cart-view-modal{{$popular->id}}">
-                                                    <input type="hidden" value="{{$popular->id}}">
+                                                    <input type="hidden" value="{{$popular->id}}" id="idProduct">
+                                                    <input type="hidden" value="1" id="num">
                                                     <span class="fa fa-shopping-cart"></span>
                                                 </a>
                                                 <a href="#" data-placement="top" title="Quick View" data-toggle="modal" data-target="#quick-view-modal{{$popular->id}}"><span class="fa fa-search"></span></a>
@@ -262,8 +260,10 @@
                                                     </figcaption>
                                                 </figure>
                                                 <div class="aa-product-hvr-content">
+                                                    {{csrf_field()}}
                                                     <a id="buy" href="#" data-toggle="modal" data-placement="top" title="Add to Cart"  data-target="#add-cart-view-modal{{$feature->id}}">
-                                                        <input type="hidden" value="{{$feature->id}}">
+                                                        <input type="hidden" value="{{$feature->id}}"id="idProduct">
+                                                        <input type="hidden" value="1" id="num">
                                                         <span class="fa fa-shopping-cart"></span>
                                                     </a>
                                                     <a href="#" data-placement="top" title="Quick View" data-toggle="modal" data-target="#quick-view-modal{{$feature->id}}"><span class="fa fa-search"></span></a>
@@ -297,8 +297,10 @@
                                                     </figcaption>
                                                 </figure>
                                                 <div class="aa-product-hvr-content">
+                                                    {{csrf_field()}}
                                                     <a id="buy" href="#" data-toggle="modal" data-placement="top" title="Add to Cart"  data-target="#add-cart-view-modal{{$latest->id}}">
-                                                        <input type="hidden" value="{{$latest->id}}">
+                                                        <input type="hidden" value="{{$latest->id}}" id="idProduct">
+                                                        <input type="hidden" value="1" id="num">
                                                         <span class="fa fa-shopping-cart"></span>
                                                     </a>
                                                     <a href="#" data-placement="top" title="Quick View" data-toggle="modal" data-target="#quick-view-modal{{$latest->id}}"><span class="fa fa-search"></span></a>
@@ -363,4 +365,11 @@
 @endsection
 @section('script')
     @include('layout.CartScript')
+@endsection
+@section('css')
+    <style>
+        .aa-cart-quantity {
+            padding: 5px;
+            width: 50px;
+    </style>
 @endsection

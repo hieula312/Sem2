@@ -103,7 +103,7 @@ class AjaxController extends Controller
         $product = Products::find($request->id);
         $oldCart = Session('cart')?$request->session()->get('cart'):null;
         $cart = new Cart($oldCart);
-        $cart->addCart($product, $request->id);
+        $cart->addCart($product, $request->id, $request->num);
         $request->session()->put('cart', $cart);
         $output = '';
         $outputQty = $cart->totalQty;

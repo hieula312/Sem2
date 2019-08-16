@@ -35,6 +35,7 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <!-- My Style -->
     <link rel="stylesheet" href="css/Mystyle.css">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <!--[endif]-->
 </head>
 <body>
@@ -86,4 +87,5 @@
     })
 </script>
 </body>
+@yield('css')
 </html>

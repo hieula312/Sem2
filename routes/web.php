@@ -94,5 +94,6 @@ Route::get('homepage', 'PageController@getHomepage');
 Route::get('typeProduct/{id}', 'PageController@getTypeProductPage');
 Route::get('product/{id}', 'PageController@getProductDetail');
 Route::post('addCart', 'AjaxController@postAddCart')->name('addCart');
+Route::post('addManyCart', 'AjaxController@postAddCart')->name('addManyCart');
 Route::get('cart', 'PageController@showCart')->name('showCart');
 Route::get('checkout', 'PageController@getCheckout')->name('getCheckout');

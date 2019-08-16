@@ -19,8 +19,8 @@ class Cart extends Model
         }
     }
 
-    public function addCart($item, $id){
-        $cart = [ 'qty' => 0, 'price' => 0, 'item' => $item, 'total' => 0];
+    public function addCart($item, $id, $num){
+        $cart = [ 'qty' => 0, 'price' => 0, 'item' => $item];
         if($item->promotion_price == 0){
             $cart['price'] = $item->unit_price;
         }else{
@@ -31,17 +31,17 @@ class Cart extends Model
                 $cart = $this->items[$id];
             }
         }
-        $cart['qty']++;
+        $cart['qty'] += $num;
         if($item->promotion_price == 0){
-            $cart['price'] = $cart['qty'] * $item->unit_price;
+            $cart['price'] = $cart['qty'] * $item->unit_price * $num;
         }else{
-            $cart['price'] = $cart['qty'] * $item->promotion_price;
+            $cart['price'] = $cart['qty'] * $item->promotion_price * $num;
         }
         $this->items[$id] = $cart;
         if($item->promotion_price == 0){
-            $this->totalPrice += $item->unit_price;
+            $this->totalPrice += $item->unit_price * $num;
         }else{
-            $this->totalPrice += $item->promotion_price;
+            $this->totalPrice += $item->promotion_price * $num;
         }
         $this->totalQty++;
     }
