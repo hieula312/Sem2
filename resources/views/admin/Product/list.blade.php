@@ -112,7 +112,7 @@
                             }
                         });
                         $.ajax({
-                            url: "{{route('updateProduct')}}",
+                            url: "{{route('deleteProduct')}}",
                             method: 'POST',
                             data: {id:id, token:_token},
                             dataType: 'json',

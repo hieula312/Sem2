@@ -20,7 +20,7 @@ class Cart extends Model
     }
 
     public function addCart($item, $id){
-        $cart = [ 'qty' => 0, 'price' => 0, 'item' => $item];
+        $cart = [ 'qty' => 0, 'price' => 0, 'item' => $item, 'total' => 0];
         if($item->promotion_price == 0){
             $cart['price'] = $item->unit_price;
         }else{

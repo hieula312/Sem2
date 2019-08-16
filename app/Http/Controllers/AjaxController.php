@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Cart;
 use App\Products;
 use App\User;
 use App\WholeProducts;
@@ -19,7 +20,7 @@ class AjaxController extends Controller
         return response()->json(['output'=>$output]);
     }
 
-    public function updateProduct(Request $request){
+    public function deleteProduct(Request $request){
         $product = Products::find($request->id);
         foreach($product->BillDetail as $BillDetail){
             $BillDetail->active = 0;
@@ -96,5 +97,35 @@ class AjaxController extends Controller
                 ';
         }
         return response()->json(['output'=>$output]);
+    }
+
+    public function postAddCart(Request $request){
+        $product = Products::find($request->id);
+        $oldCart = Session('cart')?$request->session()->get('cart'):null;
+        $cart = new Cart($oldCart);
+        $cart->addCart($product, $request->id);
+        $request->session()->put('cart', $cart);
+        $output = '';
+        $outputQty = $cart->totalQty;
+        $outputPrice = $cart->totalPrice;
+        foreach($cart->items as $Product){
+            if($Product['item']['promotion_price'] == 0){
+                $price = $Product['item']['unit_price'];
+            }else{
+                $price = $Product['item']['promotion_price'];
+            }
+            $output .=
+                '
+                    <li>
+                        <a class="aa-cartbox-img" href="#"><img src="images/product/'.$Product['item']['image'].'" alt="ProductImage"></a>
+                        <div class="aa-cartbox-info">
+                            <h4><a>'.$Product['item']['name'].'</a></h4>
+                            <p>'.$Product['qty'].' x '.$price.'$</p>
+                        </div>
+                        <a class="aa-remove-product"><span class="fa fa-times"></span></a>
+                    </li>
+                ';
+        }
+        return response()->json(['output'=>$output, 'outputQty' => $outputQty, 'outputPrice' => $outputPrice]);
     }
 }

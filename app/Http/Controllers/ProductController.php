@@ -62,6 +62,7 @@ class ProductController extends Controller
         $product->promotion_price = $request->promotionprice;
         $product->unit = $request->quantity;
         $product->new = $request->new;
+        $product->id_whole = $typeProduct->WholeProducts->id;
         $file = $request->file('image');
         $extens = $file->getClientOriginalExtension();
         $imageName = $a.".".$extens;
@@ -113,6 +114,7 @@ class ProductController extends Controller
             return redirect()->back()->withInput()->withErrors("The promotion price must be lower than the unit price");
         }
         $product = Products::find($id);
+        $typeProduct = TypeProducts::find($request->typeproduct);
         $product->id_type = $request->typeproduct;
         $product->name = $request->name;
         $product->description = $request->description;
@@ -120,6 +122,7 @@ class ProductController extends Controller
         $product->promotion_price = $request->promotionprice;
         $product->unit = $request->quantity;
         $product->new = $request->new;
+        $product->id_whole = $typeProduct->WholeProducts->id;
         if($request->checkImg == 1){
             $this->validate($request,
                 [

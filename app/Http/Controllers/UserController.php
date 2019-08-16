@@ -43,4 +43,12 @@ class UserController extends Controller
             return redirect('admin/signin');
         }
     }
+
+    public function getListCustomer(){
+        $customers = User::where([
+            ['active', 1],
+            ['level', 1]
+        ])->get();
+        return view('admin.customer.list')->with(['customers' => $customers]);
+    }
 }

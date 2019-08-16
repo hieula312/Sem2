@@ -14,12 +14,14 @@
 Route::get('/', function () {
     return view('welcome');
 });
+//ADMIN
 Route::get('admin/signin', 'UserController@getSignInAdmin');
 Route::post('admin/signin', 'UserController@postSignInAdmin');
 Route::get('admin/signout', 'UserController@SignOutAdmin');
+
 Route::group(['prefix'=>'admin', 'middleware'=>'adminLogin'], function (){
 
-    Route::get('admin/homepage', function (){
+    Route::get('homepage', function (){
         return view('admin.homepage');
     })->name('adminHomepage');
 
@@ -68,7 +70,7 @@ Route::group(['prefix'=>'admin', 'middleware'=>'adminLogin'], function (){
     });
 
     Route::group(['prefix'=>'customer'],function() {
-        Route::get('list', 'CustomerController@getList');
+        Route::get('list', 'UserController@getListCustomer');
     });
 
     Route::group(['prefix'=>'employee'],function() {
@@ -82,7 +84,15 @@ Route::group(['prefix'=>'admin', 'middleware'=>'adminLogin'], function (){
 
     Route::group(['prefix'=>'ajax'],function (){
        Route::post('typeProduct', 'AjaxController@getTypeProduct')->name('getTypeProduct');
-       Route::post('updateProduct', 'AjaxController@updateProduct')->name('updateProduct');
+       Route::post('deleteProduct', 'AjaxController@deleteProduct')->name('deleteProduct');
        Route::post('deleteEmployee', 'AjaxController@deleteEmployee')->name('deleteEmployee');
     });
 });
+
+//CLIENT
+Route::get('homepage', 'PageController@getHomepage');
+Route::get('typeProduct/{id}', 'PageController@getTypeProductPage');
+Route::get('product/{id}', 'PageController@getProductDetail');
+Route::post('addCart', 'AjaxController@postAddCart')->name('addCart');
+Route::get('cart', 'PageController@showCart')->name('showCart');
+Route::get('checkout', 'PageController@getCheckout')->name('getCheckout');
