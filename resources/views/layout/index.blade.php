@@ -35,6 +35,8 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <!-- My Style -->
     <link rel="stylesheet" href="css/Mystyle.css">
+    <!-- SWEET ALERT -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!--[endif]-->
 </head>
@@ -78,6 +80,7 @@
 <script type="text/javascript" src="client_asset/js/nouislider.js"></script>
 <!-- Custom js -->
 <script src="client_asset/js/custom.js"></script>
+
 @yield('script')
 <script>
     $(document).ready(function () {

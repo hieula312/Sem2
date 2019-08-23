@@ -64,7 +64,7 @@
                                 <!-- quick view modal -->
                                 @foreach($bigsArray as $bigArray)
                                 @foreach($bigArray as $item)
-                                        <div class="modal fade" id="quick-view-modal{{$item->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                        <div data-id="{{$item->id}}" class="modal fade quick-modal" id="quick-view-modal{{$item->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
                                                     <div class="modal-body">
@@ -78,6 +78,13 @@
                                                             </div>
                                                             <!-- Modal view content -->
                                                             <div class="col-md-6 col-sm-6 col-xs-12">
+                                                                <div id="showError{{$item->id}}" class="alert alert-danger" style="display: none;">
+                                                                    <b>
+                                                                        <span class="fa fa-times"></span>
+                                                                    </b>
+                                                                    Product is only has <span id="UnitProduct{{$item->id}}"></span> left
+
+                                                                </div>
                                                                 <div class="aa-product-view-content">
                                                                     <h3><b>{{$item->name}}</b></h3>
                                                                     <div class="aa-price-block">
@@ -95,9 +102,9 @@
                                                                     <div class="aa-prod-view-bottom">
                                                                         {{csrf_field()}}
                                                                         <span>Quantity: </span>
-                                                                        <input class="aa-cart-quantity" min="1" id="productNum" type="number" value="1">
+                                                                        <input class="aa-cart-quantity productNum" min="1" id="productNum{{$item->id}}" type="number" value="1">
                                                                         <input type="hidden" value="{{$item->id}}" id="idProduct">
-                                                                        <a data-dismiss="modal" aria-hidden="true id="selectCart" class="aa-add-to-cart-btn">
+                                                                        <a data-dismiss="modal" aria-hidden="true" id="selectCart" class="aa-add-to-cart-btn">
                                                                             <span class="fa fa-shopping-cart"></span>
                                                                             Add To Cart
                                                                         </a>

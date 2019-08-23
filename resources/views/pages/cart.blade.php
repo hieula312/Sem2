@@ -30,38 +30,34 @@
                                     <table class="table">
                                         <thead>
                                         <tr>
-                                            <th>No</th>
                                             <th>Image</th>
                                             <th>Product</th>
                                             <th>Price</th>
                                             <th>Quantity</th>
                                             <th>Total</th>
+                                            <th>Delete</th>
                                         </tr>
                                         </thead>
                                         @if(request()->session()->has('cart'))
                                         <tbody>
-                                        <?php $count = 0; $price=0; ?>
                                         @foreach($cart->items as $item)
-                                        <?php
-                                            $count++;
-                                            if($item['item']['promotion_price'] == 0){
-                                                $price = $item['item']['unit_price'];
-                                            }
-                                            else{
-                                                $price = $item['item']['promotion_price'];
-                                            }
-                                        ?>
-                                        <tr>
-                                            <td><a>{{$count}}</fa></a></td>
+                                        <tr id="Container{{$item['item']['id']}}">
                                             <td><a href="#"><img src="images/product/{{$item['item']['image']}}" alt="ProductImage"></a></td>
                                             <td><a class="aa-cart-title">{{$item['item']['name']}}</a></td>
                                             <td>
-                                                {{$price}}$
+                                                {{$item['price']}}$
                                             </td>
-                                            <td><input class="aa-cart-quantity" type="number" value="{{$item['qty']}}"></td>
+                                            <td >
+                                                {{csrf_field()}}
+                                                <input data-id = "{{$item['item']['id']}}" class="aa-cart-quantity" min="1" type="number" value="{{$item['qty']}}">
+                                            </td>
                                             <td>
-                                                <?php $total= $price * $item['qty']; ?>
-                                                {{$total}}$
+                                                <span id="PriceContainer{{$item['item']['id']}}"> <?php $total= $item['price'] * $item['qty']; ?>
+                                                    {{$total}}$</span>
+                                            </td>
+                                            <td>
+                                                    {{csrf_field()}}
+                                                    <span data-id="{{$item['item']['id']}}" class="fa fa-trash-o deleteProduct" id="deleteProduct{{$item['item']['id']}}"></span>
                                             </td>
                                         </tr>
                                         @endforeach
@@ -87,7 +83,9 @@
                                     <tbody>
                                     <tr>
                                         <th>Subtotal</th>
-                                        <td>{{$cart->totalPrice}}$</td>
+                                        <td>
+                                            <span id="totalSubPrice">{{$cart->totalPrice}}$</span>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <th>Shipping fee</th>
@@ -97,7 +95,7 @@
                                         <th>Total</th>
                                         <td>
                                             <b>
-                                                {{$cart->totalPrice}}$
+                                                <span id="totalPrice">{{$cart->totalPrice}}$</span>
                                             </b>
                                         </td>
                                     </tr>
@@ -115,5 +113,5 @@
     <!-- / Cart view section -->
 @endsection
 @section('script')
-
+    @include('layout.ChangeValueProductScript')
 @endsection

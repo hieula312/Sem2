@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\City;
+use App\DeliveryType;
 use App\Products;
 use App\Slide;
 use App\WholeProducts;
@@ -71,6 +73,9 @@ class AppServiceProvider extends ServiceProvider
                 $cart = \request()->session()->get('cart');
                 $view->with(['cart' => $cart]);
             }
+            $citys = City::all();
+            $deliveryTypes = DeliveryType::all();
+            $view->with(['citys' => $citys, 'deliveryTypes' => $deliveryTypes]);
         });
 
         view()->composer('homepage', function ($view){
@@ -84,8 +89,6 @@ class AppServiceProvider extends ServiceProvider
                 }
                 $count++;
             }
-            print_r($x);
-            die();
             $view->with(['wholeProducts' => $wholeProducts]);
         });
     }
