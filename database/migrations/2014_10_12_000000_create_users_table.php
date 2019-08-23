@@ -24,6 +24,10 @@ class CreateUsersTable extends Migration
             $table->string('phoneNumber', 10)->unique();
             $table->char('sex');
             $table->date('birthday');
+            $table->string('customerCity')->default('Ha Noi');
+            $table->string('customerDistrict')->default('Long Bien');
+            $table->string('customerSubdistrict')->default('Sai Dong');
+            $table->string('address')->default('No 33, Lane 416, Nguyen Van Linh Road');
             $table->rememberToken();
             $table->timestamps();
         });

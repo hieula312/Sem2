@@ -32,40 +32,21 @@ class Cart extends Model
             }
         }
         $cart['qty'] += $num;
-        if($item->promotion_price == 0){
-            $cart['price'] = $cart['qty'] * $item->unit_price * $num;
-        }else{
-            $cart['price'] = $cart['qty'] * $item->promotion_price * $num;
-        }
         $this->items[$id] = $cart;
-        if($item->promotion_price == 0){
-            $this->totalPrice += $item->unit_price * $num;
-        }else{
-            $this->totalPrice += $item->promotion_price * $num;
-        }
-        $this->totalQty++;
+        $this->totalPrice += $cart['price'] * $num;
+        $this->totalQty += $num;
     }
 
     public function removeOneCart($id){
         $this->items[$id]['qty']--;
-        if($this->items[$id]['item']['promotion_price'] == 0){
-            $this->items[$id]['price'] -= $this->items[$id]['item']['unit_price'];
-        }else{
-            $this->items[$id]['price'] -= $this->items[$id]['item']['promotion_price'];
-        }
-        $this->totalQty--;
-        if($this->items[$id]['item']['promotion_price'] == 0){
-            $this->totalPrice -= $this->items[$id]['item']['unit_price'];
-        }else{
-            $this->totalPrice -= $this->items[$id]['item']['promotion_price'];
-        }
+        $this->totalPrice -= $this->items[$id]['price'];
         if($this->items[$id]['qty'] <= 0){
             unset($this->items[$id]);
         }
     }
 
     public function removeCart($id){
-        $this->totalPrice -= $this->items[$id]['price'];
+        $this->totalPrice -= $this->items[$id]['price']*$this->items[$id]['qty'];
         $this->totalQty -= $this->items[$id]['qty'];
         unset($this->items[$id]);
     }
