@@ -1,7 +1,7 @@
 <script>
     (function ($) {
         $(document).ready(function() {
-            $(document).on('click','#buy', function (e) {
+            $(document).on('click','.buyProduct', function (e) {
                 e.preventDefault();
                 var idProduct = $(this).find('#idProduct').val();
                 var num = $(this).find('#num').val();
@@ -12,9 +12,14 @@
                     data: {id:idProduct, _token:_token, num:num},
                     dataType: 'json',
                     success: function (data) {
-                        $('#CartContainer').html(data.output);
-                        $('#NumCart').html(data.outputQty);
-                        $('#NumPrice').html(data.outputPrice + '$');
+                        if(data.check == 1){
+                            $('#success'+idProduct).css('display', 'none');
+                            $('#error'+idProduct).css('display', 'block');
+                        }else{
+                            $('#CartContainer').html(data.output);
+                            $('#NumCart').html(data.outputQty);
+                            $('#NumPrice').html(data.outputPrice + '$');
+                        }
                     },
                     error: function(jqXHR, textStatus, errorThrown) {
                         alert('An error occurred... Look at the console (F12 or Ctrl+Shift+I, Console tab) for more information!');
@@ -50,7 +55,6 @@
                         if(data.unit <= data.sumCart && data.add > 0) {
                             $('#showError' + idProduct).css('display', 'block');
                             $('#productNum' + idProduct).attr('max', data.unit - data.qtyCart);
-                            $('#productNum' + idProduct).attr('value', data.unit - data.qtyCart);
                             $('#UnitProduct' + idProduct).html(data.unit - data.qtyCart);
                         }else{
                             $('#showError' + idProduct).css('display', 'none');
@@ -82,9 +86,30 @@
                     data: {id:idProduct, _token:_token, num:num},
                     dataType: 'json',
                     success: function (data) {
-                         $('#CartContainer').html(data.output);
-                         $('#NumCart').html(data.outputQty);
-                         $('#NumPrice').html(data.outputPrice + '$');
+                            if(data.check == 1){
+                                if(data.left == 0){
+                                    Swal.fire(
+                                        'Product is out of stock!',
+                                        '',
+                                        'error',
+                                    );
+                                }else{
+                                    Swal.fire(
+                                        'Product is only has '+data.left+' unit left. Please select reasonalbe quantity!',
+                                        '',
+                                        'error',
+                                    );
+                                }
+                            }else{
+                                $('#CartContainer').html(data.output);
+                                $('#NumCart').html(data.outputQty);
+                                $('#NumPrice').html(data.outputPrice + '$');
+                                Swal.fire(
+                                    'Product is added to your cart!',
+                                    '',
+                                    'success',
+                                );
+                            }
                     },
                     error: function(jqXHR, textStatus, errorThrown) {
                         alert('An error occurred... Look at the console (F12 or Ctrl+Shift+I, Console tab) for more information!');

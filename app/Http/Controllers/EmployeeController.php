@@ -26,7 +26,7 @@ class EmployeeController extends Controller
                 'phoneNumber' => 'required|unique:users',
                 'email' => 'required|email|unique:users',
                 'password' => 'required|min:6',
-                'birthday' => 'required|date'
+                'checkTel' => 'numeric|min:1',
             ],
             [
                 'name.required' => 'Your must fill out the name of employee',
@@ -37,20 +37,15 @@ class EmployeeController extends Controller
                 'email.unique' => 'Your email is used',
                 'password.required' => 'Your must fill out the password of employee',
                 'password.min' => 'Password length is at least 6 characters',
-                'birthday.required' => 'Your must fill out the birthday of employee',
-                'birthday.date' => 'Your birthday is incorrect format',
+                'checkTel.min' =>'Your phone number is incorrect format',
             ]
         );
-        if($request->checkTel == 0){
-            return redirect()->back()->withInput()->withErrors('Your phone number is incorrect format');
-        }
         $employee = new User();
         $employee->level = 2;
         $employee->name = $request->name;
         $employee->phoneNumber = $request->phoneNumber;
         $employee->email = $request->email;
-        $employee->password = bcrypt($employee->password);
-        $employee->birthday = $request->birthday;
+        $employee->password = bcrypt($request->password);
         $employee->sex = $request->sex;
         $employee->save();
         return redirect('admin/employee/add')->with('success', 'New product type is created success');
@@ -68,7 +63,7 @@ class EmployeeController extends Controller
                 'phoneNumber' => 'required',
                 'email' => 'required|email',
                 'password' => 'required|min:6',
-                'birthday' => 'required|date'
+                'checkTel' => 'numeric|min:1',
             ],
             [
                 'name.required' => 'Your must fill out the name of employee',
@@ -77,22 +72,16 @@ class EmployeeController extends Controller
                 'email.email' => 'Your email is incorrect format',
                 'password.required' => 'Your must fill out the password of employee',
                 'password.min' => 'Password length is at least 6 characters',
-                'birthday.required' => 'Your must fill out the birthday of employee',
-                'birthday.date' => 'Your birthday is incorrect format',
+                'checkTel.min' =>'Your phone number is incorrect format',
             ]
         );
-        if($request->checkTel == 0){
-            return redirect()->back()->withInput()->withErrors('Your phone number is incorrect format');
-        }
         $employee = User::find($id);
         $DbTelEmployee = User::where([
-            ['phoneNumber', '!=', $employee->phoneNumber],
-            ['level', 2]
+            ['phoneNumber', '!=', $employee->phoneNumber]
         ])->get();
 
         $DbEmailEmployee = User::where([
-            ['email', '!=', $employee->email],
-            ['level', 2]
+            ['email', '!=', $employee->email]
         ])->get();
         foreach($DbEmailEmployee as $DbEmail){
             if($DbEmail->email == $request->email){
@@ -110,7 +99,6 @@ class EmployeeController extends Controller
         if($request->checkPassword == 1){
             $employee->password = bcrypt($employee->password);
         }
-        $employee->birthday = $request->birthday;
         $employee->sex = $request->sex;
         $employee->save();
         return redirect('admin/employee/list')->with('alert', 'Update information of employee is success');

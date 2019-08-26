@@ -35,3 +35,35 @@ a:hover{
     transition: 0.3s;
     cursor: pointer;
 }
+#Hieu-dropdown{
+    min-width: 67px;
+    padding: 5px 0px;
+    margin: 0px -5px 0px;
+}
+#Hieu-dropdown li a{
+    width: 100%;
+}
+#Hieu-dropdown li {
+    text-align: center !important;
+}
+.aa-login-form input[type="text"], .aa-login-form input[type="password"] {
+    margin-bottom: 8px;
+}
+#login-modal .modal-dialog {
+    margin: 170px auto;
+    width: 335px;
+}
+.aa-login-form .alert-danger{
+    margin-bottom: 0px !important;
+}
+/*.aa-cartbox-summary{*/
+    /*height: 380px;*/
+    /*overflow-y: scroll;*/
+/*}*/
+.Hieu-cart{
+    padding: 5px 10px !important;
+}
+.swal2-styled.swal2-confirm {
+    background-color: #ff6666 !important;
+    font-size: 1.4625em !important;
+}

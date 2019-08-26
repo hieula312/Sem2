@@ -53,89 +53,152 @@
                         <div class="aa-product-catg-body">
                             <ul class="aa-product-catg">
                                 <!-- start single product item -->
-                                @foreach($products as $product)
+                                @foreach($products as $item)
                                 <li>
                                     <figure>
-                                        <a class="aa-product-img" href="product/{{$product->id}}"><img src="images/product/{{$product->image}}" alt="{{$product->name}}"></a>
-                                        <a class="aa-add-card-btn"href="#"><span class="fa fa-shopping-cart"></span>Add To Cart</a>
+                                        <a href="product/{{$item->id}}"  class="aa-product-img" ><img src="images/product/{{$item->image}}" alt="{{$item->name}}"></a>
                                         <figcaption>
-                                            <h4 class="aa-product-title"><a href="#">{{$product->name}}</a></h4>
-                                            <?php $product->unit_price = number_format($product->unit_price, 2)?>
-                                            <span class="aa-product-price">{{$product->unit_price}}$</span>
-                                            @if($product->promotion_price > 0)
-                                                <?php $product->promotion_price = number_format($product->promotion_price, 2)?>
-                                                <span class="aa-product-price"><del>{{$product->promotion_price}}$</del></span>
+                                            <h4 class="aa-product-title"><a href="#">{{$item->name}}</a></h4>
+                                            <?php $item->unit_price = number_format($item->unit_price, 2)?>
+                                            <span class="aa-product-price">{{$item->unit_price}}$</span>
+                                            @if($item->promotion_price > 0)
+                                                <?php $item->promotion_price = number_format($item->promotion_price, 2)?>
+                                                <span class="aa-product-price"><del>{{$item->promotion_price}}$</del></span>
                                             @endif
-                                            <p class="aa-product-descrip">{{$product->description}}.</p>
                                         </figcaption>
                                     </figure>
                                     <div class="aa-product-hvr-content">
-                                        <a href="#" data-toggle="tooltip" data-placement="top" title="Add to Wishlist"><span class="fa fa-heart-o"></span></a>
-                                        <a href="#" data-toggle2="tooltip" data-placement="top" title="Quick View" data-toggle="modal" data-target="#quick-view-modal{{$product->id}}"><span class="fa fa-search"></span></a>
-                                        <a href="product/{{$product->id}}" data-toggle="tooltip" data-placement="top" title="View detail"><span class="fa fa-align-center"></span></a>
+                                        {{csrf_field()}}
+                                        <a class="buyProduct" id="buy{{$item->id}}" href="#" data-toggle="modal"   data-placement="top" title="Add to Cart"  data-target="#add-cart-view-modal{{$item->id}}">
+                                            <input type="hidden" value="{{$item->id}}" id="idProduct">
+                                            <input type="hidden" value="1" id="num">
+                                            <span class="fa fa-shopping-cart"></span>
+                                        </a>
+                                        <a href="#" data-toggle2="tooltip" data-placement="top" title="Quick View" data-toggle="modal" data-target="#quick-view-modal{{$item->id}}"><span class="fa fa-search"></span></a>
+                                        <a href="product/{{$item->id}}" data-toggle="modal" data-placement="top" title="View detail"><span class="fa fa-align-center"></span></a>
                                     </div>
                                     <!-- product badge -->
-                                    @if($product->promotion_price > 0)
-                                        <span class="aa-badge aa-sale">SALE!</span>
+                                    @if($item->promotion_price > 0)
+                                        <span class="aa-badge aa-sale" href="#">SALE!</span>
                                     @endif
                                 </li>
                                 @endforeach
                             </ul>
                             <!-- quick view modal -->
-                            @foreach($products as $product)
-                            <div class="modal fade" id="quick-view-modal{{$product->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-body">
-                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                            <div class="row">
-                                                <!-- Modal view slider -->
-                                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                                    <a href="product/{{$product->id}}" class="aa-product-img">
-                                                        <img src="images/product/{{$product->image}}" class="simpleLens-big-image">
-                                                    </a>
-                                                </div>
-                                                <!-- Modal view content -->
-                                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                                    <div class="aa-product-view-content">
-                                                        <h3><b>{{$product->name}}</b></h3>
-                                                        <div class="aa-price-block">
-                                                                <span class="aa-product-view-price">
-                                                                    <?php $product->unit_price = number_format($product->unit_price, 2)?>
-                                                                    <span class="aa-product-price">{{$product->unit_price}}$</span>
-                                                                    @if($product->promotion_price > 0)
-                                                                        <?php $product->promotion_price = number_format($product->promotion_price, 2)?>
-                                                                        <span class="aa-product-price"><del>{{$product->promotion_price}}$</del></span>
-                                                                    @endif
-                                                                </span>
-                                                            <p class="aa-product-avilability">Avilability: <span>In stock</span></p>
+                            @foreach($products as $item)
+                                <div data-id="{{$item->id}}" class="modal fade quick-modal" id="quick-view-modal{{$item->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-body">
+                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                <div class="row">
+                                                    <!-- Modal view slider -->
+                                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                                        <a  class="aa-product-img" >
+                                                            <img src="images/product/{{$item->image}}" class="simpleLens-big-image">
+                                                        </a>
+                                                    </div>
+                                                    <!-- Modal view content -->
+                                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                                        <div id="showError{{$item->id}}" class="alert alert-danger" style="display: none;">
+                                                            <b>
+                                                                <span class="fa fa-times"></span>
+                                                            </b>
+                                                            Product is only has <span id="UnitProduct{{$item->id}}"></span> left!
                                                         </div>
-                                                        <p>{{$product->description}}</p>
-                                                        <div class="aa-prod-quantity">
-                                                            <form action="">
+                                                        <div class="aa-product-view-content">
+                                                            <h3><b>{{$item->name}}</b></h3>
+                                                            <div class="aa-price-block">
+                                                                        <span class="aa-product-view-price">
+                                                                            <?php $item->unit_price = number_format($item->unit_price, 2)?>
+                                                                            <span class="aa-product-price">{{$item->unit_price}}$</span>
+                                                                            @if($item->promotion_price > 0)
+                                                                                <?php $item->promotion_price = number_format($item->promotion_price, 2)?>
+                                                                                <span class="aa-product-price"><del>{{$item->promotion_price}}$</del></span>
+                                                                            @endif
+                                                                        </span>
+                                                                <p class="aa-product-avilability">Avilability: <span>In stock</span></p>
+                                                            </div>
+                                                            <p>{!!  $item->description !!}</p>
+                                                            <div class="aa-prod-view-bottom">
+                                                                {{csrf_field()}}
                                                                 <span>Quantity: </span>
-                                                                <select name="" id="">
-                                                                    <option value="0" selected="1">1</option>
-                                                                    <option value="1">2</option>
-                                                                    <option value="2">3</option>
-                                                                    <option value="3">4</option>
-                                                                    <option value="4">5</option>
-                                                                    <option value="5">6</option>
-                                                                </select>
-                                                            </form>
-                                                        </div>
-                                                        <div class="aa-prod-view-bottom">
-                                                            <a href="#" class="aa-add-to-cart-btn"><span class="fa fa-shopping-cart"></span>Add To Cart</a>
+                                                                <input class="aa-cart-quantity productNum" min="1" id="productNum{{$item->id}}" type="number" value="1">
+                                                                <input type="hidden" value="{{$item->id}}" id="idProduct">
+                                                                <a data-dismiss="modal" aria-hidden="true" id="selectCart" class="aa-add-to-cart-btn">
+                                                                    <span class="fa fa-shopping-cart"></span>
+                                                                    Add To Cart
+                                                                </a>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div><!-- /.modal-content -->
-                                </div><!-- /.modal-dialog -->
-                            </div>
+                                        </div><!-- /.modal-content -->
+                                    </div><!-- /.modal-dialog -->
+                                </div>
                             <!-- / quick view modal -->
                             @endforeach
+                        <!-- add cart modal -->
+                            @foreach($products as $item)
+                                    <div  class="modal fade" id="add-cart-view-modal{{$item->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-body">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                    <div class="row">
+                                                        <!-- Modal view slider -->
+                                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                                            <a  class="aa-product-img" >
+                                                                <img src="images/product/{{$item->image}}" class="simpleLens-big-image">
+                                                            </a>
+                                                        </div>
+                                                        <!-- Modal view content -->
+                                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                                            <div class="alert alert-success" id="success{{$item->id}}">
+                                                                <b>
+                                                                    <span class="fa fa-check"></span>
+                                                                </b>
+                                                                Product is added to cart
+
+                                                            </div>
+                                                            <div class="alert alert-danger" id="error{{$item->id}}" style="display: none;">
+                                                                <b>
+                                                                    <span class="fa fa-times"></span>
+                                                                </b>
+                                                                Product is out of stock
+
+                                                            </div>
+                                                            <div class="aa-product-view-content">
+                                                                <h3><b>{{$item->name}}</b></h3>
+                                                                <div class="aa-price-block">
+                                                                    @if($item->promotion_price > 0)
+                                                                        <?php $item->promotion_price = number_format($item->promotion_price, 2)?>
+                                                                        <span class="aa-product-price">{{$item->promotion_price}}$</span>
+                                                                    @else
+                                                                        <?php $item->unit_price = number_format($item->unit_price, 2)?>
+                                                                        <span class="aa-product-price">{{$item->unit_price}}$</span>
+                                                                    @endif
+                                                                    <span>x&nbsp;1</span>
+                                                                </div>
+                                                                <div class="aa-prod-view-bottom">
+                                                                    {{csrf_field()}}
+                                                                    <a class="aa-add-to-cart-btn" data-dismiss="modal" aria-hidden="true">
+                                                                        <span class="fa fa-shopping-cart">Continue</span>
+                                                                    </a>
+                                                                    <a class="aa-add-to-cart-btn" href="{{route('getCheckout')}}">
+                                                                        <span class="fa fa-shopping-cart">Check out</span>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div><!-- /.modal-content -->
+                                        </div><!-- /.modal-dialog -->
+                                    </div>
+                            @endforeach
+                        <!-- / add cart modal -->
                         </div>
                         <!-- END BODY CONTENT -->
                         <!-- pagination -->
@@ -147,4 +210,14 @@
         </div>
     </section>
     <!-- / product category -->
+@endsection
+@section('script')
+    @include('layout.CartScript')
+@endsection
+@section('css')
+    <style>
+        .aa-cart-quantity {
+            padding: 5px;
+            width: 50px;
+    </style>
 @endsection

@@ -80,15 +80,8 @@
 <script type="text/javascript" src="client_asset/js/nouislider.js"></script>
 <!-- Custom js -->
 <script src="client_asset/js/custom.js"></script>
-
 @yield('script')
-<script>
-    $(document).ready(function () {
-        if($('#hideBar').val() == 1){
-            $('.aa-cartbox-summary').css('display', 'none');
-        }
-    })
-</script>
+@include('layout.logInModalScript')
 </body>
 @yield('css')
 </html>

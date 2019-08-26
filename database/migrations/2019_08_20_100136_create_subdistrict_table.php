@@ -19,6 +19,7 @@ class CreateSubdistrictTable extends Migration
             $table->foreign('id_district')->references('id')->on('district');
             $table->string('name');
             $table->float('shippingfee');
+            $table->integer('active')->default(1);
             $table->timestamps();
         });
     }

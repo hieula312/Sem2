@@ -42,7 +42,7 @@
                                                 </figure>
                                                 <div class="aa-product-hvr-content">
                                                     {{csrf_field()}}
-                                                    <a id="buy" href="#" data-toggle="modal" data-placement="top" title="Add to Cart"  data-target="#add-cart-view-modal{{$item->id}}">
+                                                    <a class="buyProduct" id="buy{{$item->id}}" href="#" data-toggle="modal"   data-placement="top" title="Add to Cart"  data-target="#add-cart-view-modal{{$item->id}}">
                                                         <input type="hidden" value="{{$item->id}}" id="idProduct">
                                                         <input type="hidden" value="1" id="num">
                                                         <span class="fa fa-shopping-cart"></span>
@@ -82,8 +82,7 @@
                                                                     <b>
                                                                         <span class="fa fa-times"></span>
                                                                     </b>
-                                                                    Product is only has <span id="UnitProduct{{$item->id}}"></span> left
-
+                                                                    Product is only has <span id="UnitProduct{{$item->id}}"></span> left!
                                                                 </div>
                                                                 <div class="aa-product-view-content">
                                                                     <h3><b>{{$item->name}}</b></h3>
@@ -122,7 +121,7 @@
                                 <!-- add cart modal -->
                                 @foreach($bigsArray as $bigArray)
                                     @foreach($bigArray as $item)
-                                        <div class="modal fade" id="add-cart-view-modal{{$item->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                        <div  class="modal fade" id="add-cart-view-modal{{$item->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
                                                     <div class="modal-body">
@@ -136,11 +135,18 @@
                                                             </div>
                                                             <!-- Modal view content -->
                                                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                                                <div class="alert alert-success">
+                                                                <div class="alert alert-success" id="success{{$item->id}}">
                                                                     <b>
                                                                         <span class="fa fa-check"></span>
                                                                     </b>
                                                                         Product is added to cart
+
+                                                                </div>
+                                                                <div class="alert alert-danger" id="error{{$item->id}}" style="display: none;">
+                                                                    <b>
+                                                                        <span class="fa fa-times"></span>
+                                                                    </b>
+                                                                    Product is out of stock
 
                                                                 </div>
                                                                 <div class="aa-product-view-content">
@@ -160,8 +166,8 @@
                                                                          <a class="aa-add-to-cart-btn" data-dismiss="modal" aria-hidden="true">
                                                                              <span class="fa fa-shopping-cart">Continue</span>
                                                                          </a>
-                                                                         <a class="aa-add-to-cart-btn" href="">
-                                                                             <span class="fa fa-shopping-cart">Purchase</span>
+                                                                         <a class="aa-add-to-cart-btn" href="{{route('getCheckout')}}">
+                                                                             <span class="fa fa-shopping-cart">Check out</span>
                                                                          </a>
                                                                     </div>
                                                                 </div>
@@ -173,7 +179,7 @@
                                         </div>
                                 @endforeach
                             @endforeach
-                            <!-- / add cart modal -->
+                                <!-- / add cart modal -->
                             </div>
                         </div>
                     </div>

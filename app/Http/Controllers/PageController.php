@@ -5,18 +5,28 @@ use App\BillDetail;
 use App\Bills;
 use App\Cart;
 use App\City;
+use App\User;
 use App\DeliveryType;
 use App\District;
 use App\SubDistrict;
 use App\TypeProducts;
 use App\WholeProducts;
 use App\Products;
+use http\Env\Response;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class PageController extends Controller
 {
+    public function __construct(){
+        $links = session()->has('links') ? session('links') : [];
+        $currentLink = request()->path(); // Getting current URI like 'category/books/'
+        array_unshift($links, $currentLink); // Putting it in the beginning of links array
+        session(['links' => $links]); // Saving links array to the session
+    }
     public function getHomepage(Request $request){
-//        $request->session()->forget('cart');
+        $request->session()->forget('cart');
         $wholeProducts = WholeProducts::where('active', 1)->get();
         $productsArray = null;
         $bigsArray = null;
@@ -100,6 +110,7 @@ class PageController extends Controller
                 'subdistrict' => 'numeric|min:1',
                 'address' => 'required',
                 'deliveryType' => 'numeric|min:1',
+                'checkTel' => 'numeric|min:1',
 
             ],
             [
@@ -112,9 +123,13 @@ class PageController extends Controller
                 'subdistrict.min' => 'Please select your subdistrict',
                 'address.required' => 'Please fill out your address',
                 'deliveryType.min' => 'Please select your delivery type',
+                'checkTel.min' =>'Your phone number is incorrect format',
             ]
         );
         $bill = new Bills();
+        if($request->checkUser == 1){
+            $bill->id_user = Auth::user()->id;
+        }
         $bill->customerName = $request->name;
         $bill->customerEmail = $request->email;
         $bill->customerPhoneNumber = $request->tel;
@@ -150,4 +165,97 @@ class PageController extends Controller
     public function getRegister(){
         return view('pages.register');
     }
+
+    public function postRegister(Request $request){
+        $this->validate($request,
+            [
+                'name' => 'required',
+                'email' => 'required|email|unique:users',
+                'password' => 'required|min:6',
+                'refillpassword' => 'required|same:password',
+                'sex' => 'min:1|numeric',
+                'phoneNumber' => 'required|unique:users',
+                'city' => 'numeric|min:1',
+                'district' => 'numeric|min:1',
+                'subdistrict' => 'numeric|min:1',
+                'address' => 'required',
+                'checkTel' => 'numeric|min:1',
+            ],
+            [
+                'name.required' => 'Please fill out your name',
+                'email.required' => 'Please fill out your email',
+                'email.email' => 'Your email is incorrect format',
+                'email.unique' => 'Your email is already used',
+                'password.required' => 'Please fill out your password',
+                'password.min' => 'Your password must be at least 6 characters',
+                'refillpassword.required' => 'Please fill out your refill password',
+                'refillpassword.same' => 'Your refill password isn\'t match',
+                'phoneNumber.required' => 'Please fill out your telephone number',
+                'phoneNumber.unique' => 'Your phone number is already used',
+                'city.min' => 'Please select your city',
+                'sex.min' => 'Please select your sex',
+                'district.min' => 'Please select your district',
+                'subdistrict.min' => 'Please select your subdistrict',
+                'address.required' => 'Please fill out your address',
+                'checkTel.min' =>'Your phone number is incorrect format',
+            ]
+        );
+        $user = new User();
+        $user->level = 1;
+        $user->name = $request->name;
+        $user->phoneNumber = $request->phoneNumber;
+        $user->email = $request->email;
+        $user->password = bcrypt($request->password);
+        if($request->sex == 1){
+            $user->sex = 'M';
+        }elseif($request->sex == 2){
+            $user->sex = 'F';
+        }
+        $user->address = $request->address;
+        $user->customerCity = City::find($request->city)->name;
+        $user->customerDistrict = District::find($request->district)->name;
+        $user->customerSubdistrict = SubDistrict::find($request->city)->name;
+        $user->save();
+        Auth::login($user);
+        return redirect()->back()->with('alert', 'Register success!');
+    }
+
+    public function postSignIn(Request $request){
+        $validator = Validator::make($request->all(), [
+            'information' => 'required',
+            'password' => 'required|min:6'
+        ]);
+        if ($validator->fails()) {
+            return response()->json(['error'=>$validator->errors()->all()]);
+        }else {
+            if($request->filter == 2){
+                if(Auth::attempt(['phoneNumber' => $request->information, 'password' => $request->password])){
+                    $user = Auth::user();
+                    Auth::login($user);
+                    return response()->json(['success'=>'Ok']);
+                }else{
+                    return response()->json(['error1'=>'At least one input isn\'t not correct']);
+                }
+            }else if($request->filter == 3){
+                if(Auth::attempt(['email' => $request->information, 'password' => $request->password])){
+                    $user = Auth::user();
+                    Auth::login($user);
+                    return response()->json(['success'=>'Ok']);
+                }else{
+                    return response()->json(['error1'=>'At least one input isn\'t not correct']);
+                }
+            }else if($request->filter == 0){
+                return response()->json(['error1'=>'Your information isn\'t correct format']);
+            }
+        }
+    }
+
+    public function SignOut(){
+        if(Auth::check()){
+            Auth::logout();
+            return redirect()->back();
+        }
+    }
+
+
 }

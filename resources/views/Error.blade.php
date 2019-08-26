@@ -3,7 +3,7 @@
         <ul>
             @foreach($errors->all() as $error)
                 <li>
-                    {{$error}}
+                    <span class="fa fa-times">{{$error}}
                 </li>
              @endforeach
         </ul>
