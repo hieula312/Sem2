@@ -18,6 +18,7 @@ class CreateDistrictTable extends Migration
             $table->integer('id_city')->unsigned();
             $table->foreign('id_city')->references('id')->on('city');
             $table->string('name');
+            $table->integer('active')->default(1);
             $table->timestamps();
         });
     }

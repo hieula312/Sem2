@@ -27,7 +27,6 @@ class UserSeeder extends Seeder
                     'level'=> $level,
                     'phoneNumber'=> '09'.getRandomStringNumber(8),
                     'sex'=> $sex[rand(0,1)],
-                    'birthday' => Carbon::create('2019','8', rand(0,2).rand(1,9))
                 ]
             );
         }

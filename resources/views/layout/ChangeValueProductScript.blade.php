@@ -13,12 +13,30 @@
                         data: {id:idSanPham, _token:_token, newQty:newQty},
                         dataType: 'json',
                         success: function (data) {
-                            $('#CartContainer').html(data.output);
-                            $('#NumCart').html(data.outputQty);
-                            $('#NumPrice').html(data.outputPrice + '$');
-                            $('#totalSubPrice').html(data.outputPrice + '$');
-                            $('#totalPrice').html(data.outputPrice + '$');
-                            $('#PriceContainer'+idSanPham).html(data.price + '$');
+                            if(data.check == 1){
+                                if(data.left == 0){
+                                    Swal.fire(
+                                        'Product is out of stock!',
+                                        '',
+                                        'error',
+                                    );
+                                    $('#quantity'+idSanPham).val(data.oldQty);
+                                }else{
+                                    Swal.fire(
+                                        'Product is only has '+data.left+' unit left. Please select reasonalbe quantity!',
+                                        '',
+                                        'error',
+                                    );
+                                    $('#quantity'+idSanPham).val(data.oldQty);
+                                }
+                            }else{
+                                $('#CartContainer').html(data.output);
+                                $('#NumCart').html(data.outputQty);
+                                $('#NumPrice').html(data.outputPrice + '$');
+                                $('#totalSubPrice').html(data.outputPrice + '$');
+                                $('#totalPrice').html(data.outputPrice + '$');
+                                $('#PriceContainer'+idSanPham).html(data.price + '$');
+                            }
                             if(newQty == 0){
                                 $('#item'+idSanPham).html('');
                             }

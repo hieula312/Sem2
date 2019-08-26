@@ -11,7 +11,7 @@
                         <form action="order" method="post">
                             {{csrf_field()}}
                             <div class="row">
-                            <div class="col-md-8">
+                                <div class="col-md-8">
                                     <div class="checkout-left">
                                         <div class="panel-group" id="accordion">
                                             <!-- Billing Details -->
@@ -30,20 +30,22 @@
                                                             <div class="row">
                                                                 <div class="col-md-12">
                                                                     <div class="aa-checkout-single-bill">
-                                                                        <input value="{{old('name')}}" name="name" type="text" placeholder="Name*">
+                                                                        <input value="@if(isset($user)){{$user->name}}@else{{old('name')}}@endif" name="name" type="text" placeholder="Name*">
                                                                         <input type="hidden" name="totalPrice" id="totalPrice">
+                                                                        <input type="hidden" name="checkUser" id="checkUser" value=@if(isset($user)){{1}}@else{{0}}@endif>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                             <div class="row">
                                                                 <div class="col-md-6">
                                                                     <div class="aa-checkout-single-bill">
-                                                                        <input value="{{old('email')}}" name="email" type="email" placeholder="Email Address*">
+                                                                        <input value="@if(isset($user)){{$user->email}}@else{{old('email')}}@endif" name="email" type="email" placeholder="Email Address*">
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-6">
                                                                     <div class="aa-checkout-single-bill">
-                                                                        <input value="{{old('tel')}}" name="tel" type="tel" placeholder="Phone*">
+                                                                        <input value="@if(isset($user)){{$user->phoneNumber}}@else{{old('tel')}}@endif" id="tel" name="tel" type="tel" placeholder="Phone*">
+                                                                        <input type="hidden" value="0" name="checkTel" id="checkTel">
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -54,7 +56,7 @@
                                                                         <select name="city" id="city">
                                                                             <option value="0">Select Your City</option>
                                                                             @foreach($citys as $city)
-                                                                            <option @if(old('city') == $city->id) selected @endif value="{{$city->id}}">{{$city->name}}</option>
+                                                                            <option @if(isset($user)) @if($user->customerCity == $city->name) selected @endif @endif  value="{{$city->id}}">{{$city->name}}</option>
                                                                             @endforeach
                                                                         </select>
                                                                     </div>
@@ -62,7 +64,15 @@
                                                                 <div class="col-md-6">
                                                                     <div class="aa-checkout-single-bill">
                                                                         <select name="district" id="district">
-                                                                            <option value="0">Select Your District</option>
+                                                                            @if(isset($user))
+                                                                                @foreach($districts as $district)
+                                                                                    @if($user->customerDistrict == $district->name)
+                                                                                        <option value={{$district->id}}>{{$district->name}}</option>
+                                                                                    @endif
+                                                                                @endforeach
+                                                                            @else
+                                                                                <option value="0">Select Your District</option>
+                                                                            @endif
                                                                         </select>
                                                                     </div>
                                                                 </div>
@@ -71,7 +81,15 @@
                                                                 <div class="col-md-6">
                                                                     <div class="aa-checkout-single-bill">
                                                                         <select name="subdistrict" id="subdistrict">
-                                                                            <option value="0">Select Your Sub District</option>
+                                                                            @if(isset($user))
+                                                                                @foreach($subdistricts as $subdistrict)
+                                                                                    @if($user->customerSubdistrict == $subdistrict->name)
+                                                                                        <option data-num={{$subdistrict->shippingfee}} value={{$subdistrict->id}}>{{$subdistrict->name}}</option>
+                                                                                    @endif
+                                                                                @endforeach
+                                                                            @else
+                                                                                <option value="0">Select Your Sub District</option>
+                                                                            @endif
                                                                         </select>
                                                                     </div>
                                                                 </div>
@@ -113,7 +131,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            <div class="col-md-4">
+                                <div class="col-md-4">
                                     <div class="checkout-right">
                                         <h4><b>Order Summary</b></h4>
                                         <div class="aa-order-summary-area">
@@ -177,7 +195,7 @@
                                         </div>
                                     </div>
                                 </div>
-                        </div>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -187,105 +205,5 @@
     <!-- / Cart view section -->
 @endsection
 @section('script')
-    <script>
-        $(document).ready(function () {
-
-            $('#deliveryType').change(function (e) {
-                e.preventDefault();
-                var x = parseFloat($('#deliveryType').find(':selected').data('num')) * parseFloat($('#subdistrict').find(':selected').data('num'));
-                counting(x);
-            });
-
-            $('#subdistrict').change(function (e) {
-                e.preventDefault();
-                var x = parseFloat($('#deliveryType').find(':selected').data('num')) * parseFloat($('#subdistrict').find(':selected').data('num'));
-                counting(x);
-            });
-
-            $('#city').change(function (e) {
-                e.preventDefault();
-                var idCity = $(this).val();
-                if(idCity == 0){
-                    $('#district').val(0);
-                    $('#district').html('<option selected value="0">Select Your District</option>');
-                    $('#subdistrict').html('<option selected value="0">Select Your Sub District</option>');
-                    $('#shippingfee').val(0);
-                    $('#shippingfee').html(0 + '$');
-                    counting(0);
-                    return false;
-                };
-                var _token = $('input[name="_token"]').val();
-                $.ajax({
-                    url: "{{route('getDistrict')}}",
-                    method: 'POST',
-                    data: {id:idCity, _token:_token},
-                    dataType: 'json',
-                    success: function (data) {
-                       $('#district').html(data.output);
-
-                    },
-                    error: function(jqXHR, textStatus, errorThrown) {
-                        alert('An error occurred... Look at the console (F12 or Ctrl+Shift+I, Console tab) for more information!');
-
-                        $('#result').html('<p>status code: '+jqXHR.status+'</p><p>errorThrown: ' + errorThrown + '</p><p>jqXHR.responseText:</p><div>'+jqXHR.responseText + '</div>');
-                        console.log('jqXHR:');
-                        console.log(jqXHR);
-                        console.log('textStatus:');
-                        console.log(textStatus);
-                        console.log('errorThrown:');
-                        console.log(errorThrown);
-                    },
-                });
-            })
-
-            $('#district').change(function (e) {
-                e.preventDefault();
-                var idDistrict = $(this).val();
-                if(idDistrict == 0){
-                    $('#subdistrict').html('<option selected value="0">Select Your Sub District</option>');
-                    $('#shippingfee').val(0);
-                    $('#shippingfee').html(0 + '$');
-                    counting(0);
-                    return false;
-                };
-                var _token = $('input[name="_token"]').val();
-                $.ajax({
-                    url: "{{route('getSubDistrict')}}",
-                    method: 'POST',
-                    data: {id:idDistrict, _token:_token},
-                    dataType: 'json',
-                    success: function (data) {
-                        $('#subdistrict').html(data.output);
-                        $('#shippingfee').val(0);
-                        $('#shippingfee').html(0 + '$');
-                        counting(0);
-                    },
-                    error: function(jqXHR, textStatus, errorThrown) {
-                        alert('An error occurred... Look at the console (F12 or Ctrl+Shift+I, Console tab) for more information!');
-
-                        $('#result').html('<p>status code: '+jqXHR.status+'</p><p>errorThrown: ' + errorThrown + '</p><p>jqXHR.responseText:</p><div>'+jqXHR.responseText + '</div>');
-                        console.log('jqXHR:');
-                        console.log(jqXHR);
-                        console.log('textStatus:');
-                        console.log(textStatus);
-                        console.log('errorThrown:');
-                        console.log(errorThrown);
-                    },
-                });
-            })
-        })
-        function counting(x) {
-            x = x.toFixed(2);
-            x = parseFloat(x);
-            var y = parseFloat($('#inputSubTotal').val());
-            y = y.toFixed(2);
-            y = parseFloat(y);
-            var z = x + y;
-            $('#shippingfee').val(x);
-            $('#shippingfee').html(x + '$');
-            $('#total').val(z);
-            $('#totalPrice').val(z);
-            $('#total').html(z + '$');
-        }
-    </script>
+    @include('layout.SelectLocationScript')
 @endsection

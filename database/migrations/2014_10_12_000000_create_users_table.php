@@ -14,7 +14,7 @@ class CreateUsersTable extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('id')->unique();
             $table->string('name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
@@ -23,11 +23,10 @@ class CreateUsersTable extends Migration
             $table->integer('level')->default(1);
             $table->string('phoneNumber', 10)->unique();
             $table->char('sex');
-            $table->date('birthday');
-            $table->string('customerCity')->default('Ha Noi');
-            $table->string('customerDistrict')->default('Long Bien');
-            $table->string('customerSubdistrict')->default('Sai Dong');
-            $table->string('address')->default('No 33, Lane 416, Nguyen Van Linh Road');
+            $table->string('customerCity')->nullable();
+            $table->string('customerDistrict')->nullable();
+            $table->string('customerSubdistrict')->nullable();
+            $table->string('address')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

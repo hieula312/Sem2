@@ -11,14 +11,13 @@
                             <!-- start language -->
                             <div class="aa-language">
                                 <div class="dropdown">
-                                    <a class="btn dropdown-toggle" href="#" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    <a class="btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                                         <img src="client_asset/img/flag/english.jpg" alt="english flag">ENGLISH
-                                        <span class="caret"></span>
                                     </a>
-                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                        <li><a href="#"><img src="client_asset/img/flag/french.jpg" alt="">FRENCH</a></li>
-                                        <li><a href="#"><img src="client_asset/img/flag/english.jpg" alt="">ENGLISH</a></li>
-                                    </ul>
+                                    {{--<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">--}}
+                                        {{--<li><a href="#"><img src="client_asset/img/flag/french.jpg" alt="">FRENCH</a></li>--}}
+                                        {{--<li><a href="#"><img src="client_asset/img/flag/english.jpg" alt="">ENGLISH</a></li>--}}
+                                    {{--</ul>--}}
                                 </div>
                             </div>
                             <!-- / language -->
@@ -26,14 +25,13 @@
                             <!-- start currency -->
                             <div class="aa-currency">
                                 <div class="dropdown">
-                                    <a class="btn dropdown-toggle" href="#" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    <a class="btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                                         <i class="fa fa-usd"></i>USD
-                                        <span class="caret"></span>
                                     </a>
-                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                        <li><a href="#"><i class="fa fa-euro"></i>EURO</a></li>
-                                        <li><a href="#"><i class="fa fa-jpy"></i>YEN</a></li>
-                                    </ul>
+                                    {{--<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">--}}
+                                        {{--<li><a href="#"><i class="fa fa-euro"></i>EURO</a></li>--}}
+                                        {{--<li><a href="#"><i class="fa fa-jpy"></i>YEN</a></li>--}}
+                                    {{--</ul>--}}
                                 </div>
                             </div>
                             <!-- / currency -->
@@ -46,11 +44,23 @@
                         <!-- / header top left -->
                         <div class="aa-header-top-right">
                             <ul class="aa-head-top-nav-right">
-                                <li><a href="account.html">My Account</a></li>
-                                <li class="hidden-xs"><a href="wishlist.html">Wishlist</a></li>
-                                <li class="hidden-xs"><a href="cart.html">My Cart</a></li>
-                                <li class="hidden-xs"><a href="checkout.html">Checkout</a></li>
+                                <li><a href="">Check Your Order</a></li>
+                                @if(!\Illuminate\Support\Facades\Auth::check())
                                 <li><a href="" data-toggle="modal" data-target="#login-modal">Login</a></li>
+                                @endif
+                                @if(\Illuminate\Support\Facades\Auth::check())
+                                <li class="dropdown">
+                                    <a class="btn dropdown-toggle" href="#" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                        <?php $name = getName($user->name) ?>
+                                        <span>Hi {{$name}}</span>
+                                        <span class="caret"></span>
+                                    </a>
+                                    <ul id="Hieu-dropdown" class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                        <li style="width: 100%"><a href="#">Edit Inf</a></li>
+                                        <li style="width: 100%"><a href="logout">Log out</a></li>
+                                    </ul>
+                                </li>
+                                 @endif
                             </ul>
                         </div>
                     </div>
@@ -108,7 +118,17 @@
                                         </span>
                                     </li>
                                 </ul>
-                                <a class="aa-cartbox-checkout aa-primary-btn" href="{{route('showCart')}}">Checkout</a>
+                                <div class="col-lg-12 no-padding">
+                                    <div class="row">
+                                        <div class="col-lg-6 ">
+                                            <a class="aa-cartbox-checkout aa-primary-btn Hieu-cart" href="{{route('showCart')}}">Cart Detail</a>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <a class="aa-cartbox-checkout aa-primary-btn Hieu-cart" href="{{route('getCheckout')}}">Check Out</a>
+                                        </div>
+                                    </div>
+
+                                </div>
                             </div>
                         </div>
                         <!-- / cart box -->

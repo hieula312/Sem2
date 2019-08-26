@@ -20,7 +20,6 @@
                         <th>Phone Number</th>
                         <th>Email</th>
                         <th>Sex</th>
-                        <th>Birthday</th>
                         <th>Update</th>
                         <th>Delete</th>
                     </tr>
@@ -33,7 +32,6 @@
                         <td>{{$employee->phoneNumber}}</td>
                         <td>{{$employee->email}}</td>
                         <td>{{$employee->sex}}</td>
-                        <td>{{$employee->birthday}}</td>
                         <td>
                             <a  href="admin/employee/update/{{$employee->id}}"><button type="submit" class="btn btn-block btn-primary">Update</button></a>
                         </td>

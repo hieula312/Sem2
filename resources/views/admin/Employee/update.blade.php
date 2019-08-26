@@ -34,10 +34,6 @@
                         <input disabled value=""  name="password" id="password" type="password" class="form-control" placeholder="Enter password of employee" >
                     </div>
                     <div class="form-group">
-                        <label>Birthday</label>
-                        <input value="{{$employee->birthday}}"  name="birthday" type="date" class="form-control" placeholder="Enter birthday of employee" >
-                    </div>
-                    <div class="form-group">
                         <label>Sex:&nbsp</label>
                         <label class="radio-inline">
                             <input name="sex" value="F" <?php if($employee->sex == 'F'){ echo "checked";} ?> type="radio">Female

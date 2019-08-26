@@ -104,3 +104,7 @@ Route::post('getDistrict', 'AjaxController@getDistrict')->name('getDistrict');
 Route::post('getSubDistrict', 'AjaxController@getSubDistrict')->name('getSubDistrict');
 Route::post('order', 'PageController@postOrder');
 Route::get('register', 'PageController@getRegister');
+Route::post('register', 'PageController@postRegister');
+Route::get('logout', 'PageController@SignOut');
+Route::get('editProfile', 'PageController@editProfile');
+Route::post('signIn', 'PageController@postSignIn')->name('signIn');

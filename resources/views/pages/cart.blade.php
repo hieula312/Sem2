@@ -49,7 +49,7 @@
                                             </td>
                                             <td >
                                                 {{csrf_field()}}
-                                                <input data-id = "{{$item['item']['id']}}" class="aa-cart-quantity" min="1" type="number" value="{{$item['qty']}}">
+                                                <input id="quantity{{$item['item']['id']}}" data-id = "{{$item['item']['id']}}" class="aa-cart-quantity" min="1" max="{{$item['item']['unit']}}" type="number" value="{{$item['qty']}}">
                                             </td>
                                             <td>
                                                 <span id="PriceContainer{{$item['item']['id']}}"> <?php $total= $item['price'] * $item['qty']; ?>

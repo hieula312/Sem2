@@ -32,6 +32,13 @@ function trimStr($str){
     return $output;
 }
 
+function getName($str){
+    $a = explode(' ',$str);
+    $name = array_pop($a);
+    return $name;
+
+}
+
 function getRandomStringNumber($num){
     $ran='';
     $count=0;

@@ -8,6 +8,7 @@ use App\District;
 use App\Products;
 use App\User;
 use App\WholeProducts;
+use http\Env\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
@@ -105,6 +106,24 @@ class AjaxController extends Controller
         $product = Products::find($request->id);
         $oldCart = Session('cart')?$request->session()->get('cart'):null;
         $cart = new Cart($oldCart);
+        if(intval($product->unit) - intval($request->num) < 0){
+            $left = intval($product->unit);
+            if($request->session()->has('cart')) {
+                $cart = $request->session()->get('cart');
+                $oldQty = $cart->items[$request->id]['qty'];
+                $left = intval($product->unit) - intval($oldQty);
+            }
+            return response()->json(['left' => $left, 'check'=> 1]);
+        }
+        if($request->session()->has('cart')){
+            if(array_key_exists($request->id,$cart->items)){
+                $num = $cart->items[$request->id]['qty'];
+                if(intval($product->unit) - intval($num) - intval($request->num) < 0){
+                    $left = intval($product->unit) - intval($num);
+                    return response()->json(['left' => $left, 'check'=> 1]);
+                }
+            }
+        }
         $cart->addCart($product, $request->id, $request->num);
         $request->session()->put('cart', $cart);
         $output = '';
@@ -122,7 +141,7 @@ class AjaxController extends Controller
                     </li>
                 ';
         }
-        return response()->json(['output'=>$output, 'outputQty' => $outputQty, 'outputPrice' => $outputPrice]);
+        return response()->json(['output'=>$output, 'outputQty' => $outputQty, 'outputPrice' => $outputPrice, 'check'=> 0]);
     }
 
     public function postCheckNumProduct(Request $request){
@@ -147,6 +166,16 @@ class AjaxController extends Controller
     }
 
     public function changeQty(Request $request){
+        $product = Products::find($request->id);
+        if(intval($product->unit) - intval($request->newQty) < 0){
+            $left = intval($product->unit);
+            if($request->session()->has('cart')) {
+                $cart = $request->session()->get('cart');
+                $oldQty = $cart->items[$request->id]['qty'];
+                $left = intval($product->unit) - intval($oldQty);
+            }
+            return response()->json(['left' => $left, 'check'=> 1, 'oldQty' => $oldQty]);
+        }
         if($request->session()->has('cart')){
             $cart = $request->session()->get('cart');
             $oldQty = $cart->items[$request->id]['qty'];
@@ -154,7 +183,7 @@ class AjaxController extends Controller
                 $cart->removeOneCart($request->id);
             }elseif($oldQty < $request->newQty ){
                 $product = Products::find($request->id);
-                $cart->addCart($product, $request->id, 1);
+                $cart->addCart($product, $request->id, $request->newQty - $oldQty);
             }elseif($request->newQty == 0){
                 $cart->removeCart($request->id);
             }
@@ -181,7 +210,7 @@ class AjaxController extends Controller
                     </li>
                 ';
             }
-            return response()->json(['output'=>$output,'outputQty' => $outputQty, 'outputPrice' => $outputPrice, 'price'=>$price]);
+            return response()->json(['output'=>$output,'outputQty' => $outputQty, 'outputPrice' => $outputPrice, 'price'=>$price, 'check' => 0]);
         }
     }
 

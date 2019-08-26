@@ -4,8 +4,10 @@ namespace App\Providers;
 
 use App\City;
 use App\DeliveryType;
+use App\District;
 use App\Products;
 use App\Slide;
+use App\SubDistrict;
 use App\WholeProducts;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\ServiceProvider;
@@ -61,6 +63,13 @@ class AppServiceProvider extends ServiceProvider
             }
         });
 
+        view()->composer('layout.header', function ($view){
+            if(Auth::check()){
+                $user = Auth::user();
+                $view->with(['user' => $user]);
+            }
+        });
+
         view()->composer('pages.cart', function ($view){
             if(\request()->session()->has('cart')){
                 $cart = \request()->session()->get('cart');
@@ -73,9 +82,23 @@ class AppServiceProvider extends ServiceProvider
                 $cart = \request()->session()->get('cart');
                 $view->with(['cart' => $cart]);
             }
-            $citys = City::all();
+            $citys = City::where('active', 1)->get();
+            $districts = District::where('active', 1)->get();
+            $subdistricts = SubDistrict::where('active', 1)->get();
             $deliveryTypes = DeliveryType::all();
-            $view->with(['citys' => $citys, 'deliveryTypes' => $deliveryTypes]);
+            $view->with(['citys' => $citys, 'deliveryTypes' => $deliveryTypes, 'districts' => $districts, 'subdistricts' => $subdistricts]);
+        });
+
+        view()->composer('pages.checkout', function ($view){
+            if(Auth::check()){
+                $user = Auth::user();
+                $view->with(['user' => $user]);
+            }
+        });
+
+        view()->composer('pages.register', function ($view){
+            $citys = City::where('active', 1)->get();
+            $view->with(['citys' => $citys]);
         });
 
         view()->composer('homepage', function ($view){

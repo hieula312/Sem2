@@ -40,6 +40,7 @@ class Cart extends Model
     public function removeOneCart($id){
         $this->items[$id]['qty']--;
         $this->totalPrice -= $this->items[$id]['price'];
+        $this->totalQty--;
         if($this->items[$id]['qty'] <= 0){
             unset($this->items[$id]);
         }
