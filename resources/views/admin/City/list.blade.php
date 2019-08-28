@@ -3,7 +3,7 @@
     @include('alert')
     <section class="content-header">
         <h1>
-            <span>Customer</span>
+            <span>City</span>
             <small>List</small>
         </h1>
     </section>
@@ -17,24 +17,22 @@
                     <tr>
                         <th>ID</th>
                         <th>Name</th>
-                        <th>Phone Number</th>
-                        <th>Email</th>
-                        <th>Sex</th>
-                        <th>Address</th>
+                        <th>Update</th>
+                        <th>Delete</th>
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($customers as $customer)
-                        <tr>
-                            <td>{{$customer->id}}</td>
-                            <td>{{$customer->name}}</td>
-                            <td>{{$customer->phoneNumber}}</td>
-                            <td>{{$customer->email}}</td>
-                            <td>{{$customer->sex}}</td>
-                            <td>
-                                {{$customer->address}} - {{$customer->customerSubdistrict}} - {{$customer->customerDistrict}} - {{$customer->customerCity}}
-                            </td>
-                        </tr>
+                    @foreach($citys as $city)
+                    <tr>
+                        <td>{{$city->id}}</td>
+                        <td>{{$city->name}}</td>
+                        <td>
+                            <a  href="admin/city/update/{{$city->id}}"><button type="submit" class="btn btn-block btn-primary">Update</button></a>
+                        </td>
+                        <td>
+                            <a href="admin/city/delete/{{$city->id}}"><button type="button" class="btn btn-block btn-danger">Delete</button></a>
+                        </td>
+                    </tr>
                     @endforeach
                     </tbody>
                 </table>

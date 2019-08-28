@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDeliverytypeTable extends Migration
+class CreateCommentTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,18 @@ class CreateDeliverytypeTable extends Migration
      */
     public function up()
     {
-        Schema::create('deliverytype', function (Blueprint $table) {
+        Schema::create('comment', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('id_user')->unsigned()->nullable();
+            $table->foreign('id_user')->references('id')->on('users');
+            $table->string('id_product', 7);
+            $table->foreign('id_product')->references('id')->on('products');
             $table->string('name');
-            $table->char('abbr');
-            $table->float('factor');
+            $table->integer('rate')->default(5);
+            $table->string('message');
             $table->integer('active')->default(1);
             $table->timestamps();
+
         });
     }
 
@@ -30,6 +35,6 @@ class CreateDeliverytypeTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('deliverytype');
+        Schema::dropIfExists('comment');
     }
 }

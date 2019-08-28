@@ -92,3 +92,20 @@ desired effect
 </body>
 @yield('css')
 </html>
+<style>
+    .treeview span:hover{
+        cursor: pointer;
+    }
+    ul{
+        text-decoration: none;
+    }
+    li{
+        list-style-type: none;
+    }
+    .alert-success ul{
+        padding-left: 0px;
+    }
+    .alert-danger ul{
+        padding-left: 0px;
+    }
+</style>

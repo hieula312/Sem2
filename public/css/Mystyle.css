@@ -51,7 +51,7 @@ a:hover{
 }
 #login-modal .modal-dialog {
     margin: 170px auto;
-    width: 335px;
+    width: 340px;
 }
 .aa-login-form .alert-danger{
     margin-bottom: 0px !important;
@@ -66,4 +66,13 @@ a:hover{
 .swal2-styled.swal2-confirm {
     background-color: #ff6666 !important;
     font-size: 1.4625em !important;
+}
+.swal2-popup {
+    width: 40em !important;
+}
+input[type="text"], input[type="password"], textarea, select {
+    outline: none !important;
+}
+#aa-product-details .aa-product-details-area .aa-product-details-bottom .aa-product-review-area .aa-review-nav li .media-body .aa-product-rating span {
+    color: #ff6600;
 }

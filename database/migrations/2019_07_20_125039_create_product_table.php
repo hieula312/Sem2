@@ -23,7 +23,7 @@ class CreateProductTable extends Migration
             $table->float('promotion_price');
             $table->string('image');
             $table->integer('unit');
-            $table->integer('new')->default(0);
+            $table->integer('new')->default(1);
             $table->integer('active')->default(1);
             $table->timestamps();
             $table->integer('feature')->default(1);

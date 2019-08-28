@@ -35,7 +35,9 @@ class ProductController extends Controller
                 'name.required' => 'You must fill out the name of product',
                 'name.min' => 'The name of product must be at least 3 characters',
                 'unitprice.required' => 'You must fill out the unit price of product',
-                'promotionprice.required' => 'You must fill out the promotionprice price of product',
+                'unitprice.numeric' => 'The unit price of product must be number',
+                'promotionprice.required' => 'You must fill out the promotion price price of product',
+                'promotionprice.numeric' => 'The promotion price of product must be number',
                 'quantity.required' => 'The quantity of product must be at greater than 1',
                 'quantity.min' => 'The quantity of product must be fill out',
                 'description.required' => 'The description of product must be fill out',
@@ -62,6 +64,7 @@ class ProductController extends Controller
         $product->promotion_price = $request->promotionprice;
         $product->unit = $request->quantity;
         $product->new = $request->new;
+        $product->feature = $request->feature;
         $product->id_whole = $typeProduct->WholeProducts->id;
         $file = $request->file('image');
         $extens = $file->getClientOriginalExtension();
@@ -104,7 +107,9 @@ class ProductController extends Controller
                 'name.required' => 'You must fill out the name of product',
                 'name.min' => 'The name of product must be at least 3 characters',
                 'unitprice.required' => 'You must fill out the unit price of product',
-                'promotionprice.required' => 'You must fill out the promotionprice price of product',
+                'unitprice.numeric' => 'The unit price of product must be number',
+                'promotionprice.required' => 'You must fill out the promotion price price of product',
+                'promotionprice.numeric' => 'The promotion price of product must be number',
                 'quantity.required' => 'The quantity of product must be at greater than 1',
                 'quantity.min' => 'The quantity of product must be fill out',
                 'description.required' => 'The description of product must be fill out',
@@ -122,6 +127,7 @@ class ProductController extends Controller
         $product->promotion_price = $request->promotionprice;
         $product->unit = $request->quantity;
         $product->new = $request->new;
+        $product->feature = $request->feature;
         $product->id_whole = $typeProduct->WholeProducts->id;
         if($request->checkImg == 1){
             $this->validate($request,

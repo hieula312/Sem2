@@ -15,21 +15,9 @@
                 <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
         </div>
-        <!-- search form (Optional) -->
-        <form action="#" method="get" class="sidebar-form">
-            <div class="input-group">
-                <input type="text" name="q" class="form-control" placeholder="Search...">
-                <span class="input-group-btn">
-              <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
-              </button>
-            </span>
-            </div>
-        </form>
-        <!-- /.search form -->
-
         <!-- Sidebar Menu -->
         <ul class="sidebar-menu" data-widget="tree">
-            <li class="header">HEADER</li>
+            <li class="header">LIST OPTION</li>
             <!-- Optionally, you can add icons to the links -->
             <!-- WHOLE PRODUCT -->
             <li class="treeview">
@@ -99,6 +87,54 @@
                 <ul class="treeview-menu">
                     <li><a href="admin/slide/list">List Slide</a></li>
                     <li><a href="admin/slide/add">Add new Slide</a></li>
+                </ul>
+            </li>
+            <!-- CITY -->
+            <li class="treeview">
+                <a><i class="fa fa-link"></i> <span>City</span>
+                    <span class="pull-right-container">
+                    <i class="fa fa-angle-left pull-right"></i>
+                </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="admin/city/list">List City</a></li>
+                    <li><a href="admin/city/add">Add new City</a></li>
+                </ul>
+            </li>
+            <!-- DISTRICT -->
+            <li class="treeview">
+                <a><i class="fa fa-link"></i> <span>District</span>
+                    <span class="pull-right-container">
+                    <i class="fa fa-angle-left pull-right"></i>
+                </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="admin/district/list">List District</a></li>
+                    <li><a href="admin/district/add">Add new District</a></li>
+                </ul>
+            </li>
+            <!-- SUBDISTRICT -->
+            <li class="treeview">
+                <a><i class="fa fa-link"></i> <span>Subdistrict</span>
+                    <span class="pull-right-container">
+                    <i class="fa fa-angle-left pull-right"></i>
+                </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="admin/subdistrict/list">List Subdistrict</a></li>
+                    <li><a href="admin/subdistrict/add">Add new Subdistrict</a></li>
+                </ul>
+            </li>
+            <!-- TYPE DELIVERY -->
+            <li class="treeview">
+                <a><i class="fa fa-link"></i> <span>Delivery type</span>
+                    <span class="pull-right-container">
+                    <i class="fa fa-angle-left pull-right"></i>
+                </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="admin/deliverytype/list">List Type Delivery</a></li>
+                    <li><a href="admin/deliverytype/add">Add new Type Delivery</a></li>
                 </ul>
             </li>
             <!-- Customer -->

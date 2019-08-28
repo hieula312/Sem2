@@ -44,9 +44,12 @@
                         <!-- / header top left -->
                         <div class="aa-header-top-right">
                             <ul class="aa-head-top-nav-right">
-                                <li><a href="">Check Your Order</a></li>
+                                <li><a href="checkOrder">Check Your Order</a></li>
                                 @if(!\Illuminate\Support\Facades\Auth::check())
                                 <li><a href="" data-toggle="modal" data-target="#login-modal">Login</a></li>
+                                @endif
+                                @if(!\Illuminate\Support\Facades\Auth::check())
+                                    <li><a href="register">Register</a></li>
                                 @endif
                                 @if(\Illuminate\Support\Facades\Auth::check())
                                 <li class="dropdown">
@@ -134,8 +137,9 @@
                         <!-- / cart box -->
                         <!-- search box -->
                         <div class="aa-search-box">
-                            <form action="">
-                                <input type="text" name="" id="" placeholder="Search here ex. 'Teddy Bear' ">
+                            <form action="search" method="get">
+                                {{csrf_field()}}
+                                <input required type="text" name="search" id="search" placeholder="Search here ex. 'Teddy Bear' ">
                                 <button type="submit"><span class="fa fa-search"></span></button>
                             </form>
                         </div>

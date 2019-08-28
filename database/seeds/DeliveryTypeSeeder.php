@@ -12,9 +12,9 @@ class DeliveryTypeSeeder extends Seeder
     public function run()
     {
         DB::table('deliverytype')->insert([
-            ['name'=>'Fast', 'abbr'=>'F', 'price'=>1.2],
-            ['name'=>'Normal', 'abbr'=>'N', 'price'=>1],
-            ['name'=>'Save', 'abbr'=>'S', 'price'=>0.8],
+            ['name'=>'Fast', 'abbr'=>'F', 'factor'=>1.2],
+            ['name'=>'Normal', 'abbr'=>'N', 'factor'=>1],
+            ['name'=>'Save', 'abbr'=>'S', 'factor'=>0.8],
         ]);
     }
 }

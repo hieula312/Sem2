@@ -26,7 +26,7 @@ class PageController extends Controller
         session(['links' => $links]); // Saving links array to the session
     }
     public function getHomepage(Request $request){
-        $request->session()->forget('cart');
+//        $request->session()->forget('cart');
         $wholeProducts = WholeProducts::where('active', 1)->get();
         $productsArray = null;
         $bigsArray = null;
@@ -71,13 +71,45 @@ class PageController extends Controller
         return view('pages.homepage')->with(['bigsArray' => $bigsArray, 'productsArray' => $productsArray, 'wholeProducts' => $wholeProducts, 'popularProducts' => $popularProducts, 'featureProducts' => $featureProducts, 'latestProducts' => $latestProducts]);
     }
 
-    public function getTypeProductPage($id){
+    public function getTypeProductPage($id, Request $request){
         $typeProduct = TypeProducts::find($id);
-        $products = Products::where([
-            ['active', 1],
-            ['unit', '>', 1],
-            ['id_type', $id]
-        ])->orderBy('created_at', 'desc')->paginate(12);
+        if($request->has('sort')) {
+            if ($request->sort == 'low-to-high') {
+                $products = Products::where([
+                    ['active', 1],
+                    ['unit', '>', 1],
+                    ['id_type', $request->id]
+                ])->orderBy('unit_price', 'asc')->paginate(12);
+                $products->setPath('typeProduct/' . $typeProduct->id . '/?sort=' . $request->sort);
+            } else if ($request->sort == 'high-to-low') {
+                $products = Products::where([
+                    ['active', 1],
+                    ['unit', '>', 1],
+                    ['id_type', $request->id]
+                ])->orderBy('unit_price', 'desc')->paginate(12);
+                $products->setPath('typeProduct/' . $typeProduct->id . '/?sort=' . $request->sort);
+            } else if ($request->sort == 'newest') {
+                $products = Products::where([
+                    ['active', 1],
+                    ['unit', '>', 1],
+                    ['id_type', $request->id]
+                ])->orderBy('new', 'desc')->paginate(12);
+                $products->setPath('typeProduct/' . $typeProduct->id . '/?sort=' . $request->sort);
+            } else if ($request->sort == 'top-selling') {
+                $products = Products::where([
+                    ['active', 1],
+                    ['unit', '>', 1],
+                    ['id_type', $request->id]
+                ])->orderBy('sellIndex', 'desc')->paginate(12);
+                $products->setPath('typeProduct/' . $typeProduct->id . '/?sort=' . $request->sort);
+            }
+        }else{
+            $products = Products::where([
+                ['active', 1],
+                ['unit', '>', 1],
+                ['id_type', $id]
+            ])->paginate(12);
+        }
         return view('pages.typeProduct')->with(['typeProduct' => $typeProduct, 'products' => $products]);
     }
 
@@ -136,7 +168,7 @@ class PageController extends Controller
         $bill->customerAddress = $request->address;
         $bill->customerCity = City::find($request->city)->name;
         $bill->customerDistrict = District::find($request->district)->name;
-        $bill->customerSubdistrict = SubDistrict::find($request->city)->name;
+        $bill->customerSubdistrict = SubDistrict::find($request->subdistrict)->name;
         $bill->note = $request->note;
         $bill->payment = $request->payment;
         $bill->total = $request->totalPrice;
@@ -149,17 +181,19 @@ class PageController extends Controller
         $bill->save();
         $cart = $request->session()->get('cart');
         $deliveryType = DeliveryType::find($request->deliveryType);
-        foreach($cart->items as $item){
-            $billDetail = new BillDetail();
-            $billDetail->id_product = $item['item']['id'];
-            $billDetail->quantity = $item['qty'];
-            $billDetail->price = $item['price'];
-            $billDetail->id_bill = $bill->id;
-            $billDetail->id = $deliveryType->abbr.''.$billDetail->id_product.''.$bill->id;
-            $billDetail->save();
+        if ($request->session()->has('cart')){
+            foreach($cart->items as $item){
+                $billDetail = new BillDetail();
+                $billDetail->id_product = $item['item']['id'];
+                $billDetail->quantity = $item['qty'];
+                $billDetail->price = $item['price'];
+                $billDetail->id_bill = $bill->id;
+                $billDetail->id = $deliveryType->abbr.''.$billDetail->id_product.''.$bill->id;
+                $billDetail->save();
+            }
         }
         $request->session()->forget('cart');
-        return redirect()->back()->with('alert', 'Your order is created success');
+        return view('pages.checkOrder')->with('alert', 'Your order is created success');
     }
 
     public function getRegister(){
@@ -214,12 +248,23 @@ class PageController extends Controller
         $user->address = $request->address;
         $user->customerCity = City::find($request->city)->name;
         $user->customerDistrict = District::find($request->district)->name;
-        $user->customerSubdistrict = SubDistrict::find($request->city)->name;
+        $user->customerSubdistrict = SubDistrict::find($request->subdistrict)->name;
         $user->save();
         Auth::login($user);
         return redirect()->back()->with('alert', 'Register success!');
     }
 
+    public function getSearch(Request $request){
+        $search = $request->search;
+        $products = Products::where('name', 'like', '%'.$search.'%')->orWhere('description', 'like', '%'.$search.'%')->paginate(12);
+        $count = count(Products::where('name', 'like', '%'.$search.'%')->orWhere('description', 'like', '%'.$search.'%')->get());
+        $products->setPath('search/?search='.$search);
+        return view('pages.search')->with(['products' => $products, 'count' => $count, 'search' => $search]);
+    }
+
+    public function checkOrder(){
+        return view('pages.checkOrder');
+    }
     public function postSignIn(Request $request){
         $validator = Validator::make($request->all(), [
             'information' => 'required',

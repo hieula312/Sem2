@@ -4,12 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Cart;
 use App\City;
+use App\Comment;
 use App\District;
 use App\Products;
 use App\User;
 use App\WholeProducts;
+use Carbon\Carbon;
 use http\Env\Response;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
 class AjaxController extends Controller
@@ -19,6 +22,15 @@ class AjaxController extends Controller
         $output = '';
         foreach($wholeProduct->TypeProducts as $typeProduct){
             $output .= "<option value=".$typeProduct->id.">".$typeProduct->name."</option>";
+        }
+        return response()->json(['output'=>$output]);
+    }
+
+    public function getDistrictAd(Request $request){
+        $city = City::find($request->id);
+        $output = '';
+        foreach($city->District as $district){
+            $output .= "<option value=".$district->id.">".$district->name."</option>";
         }
         return response()->json(['output'=>$output]);
     }
@@ -39,6 +51,17 @@ class AjaxController extends Controller
             }else{
                 $x = "No";
             }
+            if($item->feature == 1){
+                $y = "Yes";
+            }else{
+                $y = "No";
+            }
+            $time = new Carbon($item->created_at);
+            if($time->isToday()){
+                $z =  "Today - ".$time->format('h:i jS F');
+            }else{
+                $z = $time->diffForHumans(Carbon::now())." - ".$time->format('h:i jS F');
+            }
             $output .=
             '
                 <tr>
@@ -49,12 +72,18 @@ class AjaxController extends Controller
                         <td>'.$item->unit_price.'</td>
                         <td>'.$item->promotion_price.'</td>
                         <td>'.$item->unit.'</td>
+                        <td>'.$item->sellIndex.'</td>
                         <td>
                             <p>'.$item->description.'</p>
-                            <img width="100px" src="images/product/'.$item->image.'" alt="">
                         </td>
                         <td>'
                             .$x.'
+                        </td>
+                        <td>'
+                            .$y.'
+                        </td>
+                        <td>'
+                            .$z.'
                         </td>
                         <td>
                             <a  href="admin/product/update/'.$item->id.'"><button type="submit" class="btn btn-block btn-primary">Update</button></a>
@@ -110,7 +139,11 @@ class AjaxController extends Controller
             $left = intval($product->unit);
             if($request->session()->has('cart')) {
                 $cart = $request->session()->get('cart');
-                $oldQty = $cart->items[$request->id]['qty'];
+                if(array_key_exists($request->id, $cart->items)){
+                    $oldQty = $cart->items[$request->id]['qty'];
+                }else{
+                    $oldQty = 0;
+                }
                 $left = intval($product->unit) - intval($oldQty);
             }
             return response()->json(['left' => $left, 'check'=> 1]);
@@ -257,6 +290,58 @@ class AjaxController extends Controller
             $output .=
                 '
                     <option data-num='.$SubDistrict->shippingfee.' value='.$SubDistrict->id.'>'.$SubDistrict->name.'</option>
+                ';
+        }
+        return response()->json(['output' => $output]);
+    }
+
+    public function addComment(Request $request){
+        $comment = new Comment();
+        $comment->message = $request->message;
+        if($request->rate == 0){
+            $comment->rate = 5;
+        }else{
+            $comment->rate = $request->rate;
+        }
+        $comment->id_product = $request->id;
+
+        if (Auth::check()){
+            $comment->name = Auth::user()->name;
+            $comment->id_user = Auth::user()->id;
+        }else{
+            $comment->name = $request->name;
+        }
+        $comment->save();
+        $output = '';
+        $product = Products::find($request->id);
+        foreach ($product->Comment as $item){
+            $now = Carbon::now();
+            $DBtime = $item->created_at;
+            $interval = $now->diffForHumans($DBtime);
+            $star = '';
+            for($i = 0; $i < 5; $i++){
+                if($i < intval($item->rate)){
+                    $star .= '<span class="fa fa-star"></span>';
+                }else{
+                    $star .= '<span class="fa fa-star-o"></span>';
+                }
+            }
+            $output .=
+                '
+                    <li>
+                        <div class="media">
+                            <div class="media-left">
+                                <a href="#">
+                                <img class="media-object" src="images/UserDef.jpg" alt="ProfileImage">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading"><strong>'.$item->name.'</strong> - <span>'.$interval.'</span></h4>
+                                <div class="aa-product-rating">'.$star.'</div>
+                                <p>'.$item->message.'</p>
+                            </div>
+                        </div>
+                    </li>
                 ';
         }
         return response()->json(['output' => $output]);

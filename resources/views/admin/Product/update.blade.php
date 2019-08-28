@@ -69,6 +69,15 @@
                             <input name="new" value="0" <?php if($product->new==0){echo "checked";} ?> type="radio">No
                         </label>
                     </div>
+                    <div class="form-group">
+                        <label>Feature:&nbsp</label>
+                        <label class="radio-inline">
+                            <input  name="feature" value="1" <?php if($product->feature==1){echo "checked";} ?> type="radio">Yes
+                        </label>
+                        <label class="radio-inline">
+                            <input name="feature" value="0" <?php if($product->feature==0){echo "checked";} ?> type="radio">No
+                        </label>
+                    </div>
                     <button type="submit" class="btn btn-block btn-primary">Update now</button>
                 </form>
             </div>

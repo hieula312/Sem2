@@ -16,4 +16,8 @@ class Products extends Model
     public function TypeProduct(){
         return $this->belongsTo('App\TypeProducts', 'id_type', 'id');
     }
+
+    public function Comment(){
+        return $this->hasMany('App\Comment', 'id_product', 'id');
+    }
 }

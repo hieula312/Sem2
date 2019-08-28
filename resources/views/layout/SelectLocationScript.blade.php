@@ -108,11 +108,13 @@
             var y = parseFloat($('#inputSubTotal').val());
             y = y.toFixed(2);
             y = parseFloat(y);
-            var z = x + y;
-            $('#shippingfee').val(x);
-            $('#shippingfee').html(x + '$');
-            $('#total').val(z);
-            $('#totalPrice').val(z);
-            $('#total').html(z + '$');
+            if(isNaN(x) == false){
+                var z = x + y;
+                $('#shippingfee').val(x);
+                $('#shippingfee').html(x + '$');
+                $('#total').val(z);
+                $('#totalPrice').val(z);
+                $('#total').html(z + '$');
+            }
         }
     </script>
