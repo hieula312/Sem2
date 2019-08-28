@@ -61,16 +61,6 @@
                                             </td>
                                         </tr>
                                         @endforeach
-                                        <tr>
-                                            <td colspan="6" class="aa-cart-view-bottom">
-                                                <div class="aa-cart-coupon">
-                                                    <input class="aa-cart-view-btn" type="submit" value="Apply Coupon">
-                                                    <input class="aa-coupon-code" type="text" placeholder="Coupon">
-                                                </div>
-                                                <input class="aa-cart-view-btn" type="submit" value="Update Cart">
-                                            </td>
-                                        </tr>
-                                        </tbody>
                                         @endif
                                     </table>
                                 </div>
@@ -85,18 +75,6 @@
                                         <th>Subtotal</th>
                                         <td>
                                             <span id="totalSubPrice">{{$cart->totalPrice}}$</span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th>Shipping fee</th>
-                                        <td>0</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Total</th>
-                                        <td>
-                                            <b>
-                                                <span id="totalPrice">{{$cart->totalPrice}}$</span>
-                                            </b>
                                         </td>
                                     </tr>
                                     </tbody>

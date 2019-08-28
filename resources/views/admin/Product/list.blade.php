@@ -3,7 +3,7 @@
     @include('alert')
     <section class="content-header">
         <h1>
-            <span>TYPE PRODUCT</span>
+            <span>PRODUCT</span>
             <small>List</small>
         </h1>
     </section>
@@ -22,8 +22,11 @@
                         <th>Unit Price</th>
                         <th>Promotion Price</th>
                         <th>Unit</th>
+                        <th>Sell Index</th>
                         <th>Description</th>
-                        <th>new</th>
+                        <th>New</th>
+                        <th>Feature</th>
+                        <th>Date</th>
                         <th>Update</th>
                         <th>Delete</th>
                     </tr>
@@ -38,9 +41,9 @@
                         <td>{{$item->unit_price}}</td>
                         <td>{{$item->promotion_price}}</td>
                         <td>{{$item->unit}}</td>
+                        <td>{{$item->sellIndex}}</td>
                         <td>
                             <p>{!! $item->description !!}</p>
-                            <img width="100px" src="images/product/{{$item->image}}" alt="">
                         </td>
                         <td>
                             <?php
@@ -48,6 +51,25 @@
                                     echo "Yes";
                                 }else{
                                     echo "No";
+                                }
+                            ?>
+                        </td>
+                        <td>
+                            <?php
+                            if($item->feature == 1){
+                                echo "Yes";
+                            }else{
+                                echo "No";
+                            }
+                            ?>
+                        </td>
+                        <td>
+                            <?php
+                                $time = new \Carbon\Carbon($item->created_at);
+                                if($time->isToday()){
+                                    echo "Today - ".$time->format('h:i jS F');
+                                }else{
+                                    echo $time->diffForHumans(\Carbon\Carbon::now())." - ".$time->format('h:i jS F');
                                 }
                             ?>
                         </td>

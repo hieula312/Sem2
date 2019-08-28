@@ -36,7 +36,7 @@
                             <a  href="admin/slide/update/{{$slide->id}}"><button type="submit" class="btn btn-block btn-primary">Update</button></a>
                         </td>
                         <td>
-                            <a onclick="return confirm('Are you sure to delete?')" href="admin/slide/delete/{{$slide->id}}"><button type="button" class="btn btn-block btn-danger">Delete</button></a>
+                            <a href="admin/slide/delete/{{$slide->id}}"><button type="button" class="btn btn-block btn-danger">Delete</button></a>
                         </td>
                     </tr>
                     @endforeach

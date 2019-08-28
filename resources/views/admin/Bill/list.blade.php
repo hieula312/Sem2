@@ -25,6 +25,7 @@
                         <th>Delivery Type</th>
                         <th>Status</th>
                         <th>Note</th>
+                        <th>Bill Detail</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -32,14 +33,34 @@
                     <tr>
                         <td>{{$bill->id}}</td>
                         <td>{{$bill->customerName}}</td>
-                        <td>{{$bill->customerAddress}}</td>
+                        <td>{{$bill->customerAddress}} - {{$bill->customerSubdistrict}} - {{$bill->customerDistrict}} - {{$bill->customerCity}}</td>
                         <td>{{$bill->customerPhoneNumber}}</td>
-                        <td>{{$bill->created_at}}</td>
-                        <td>{{$bill->total}}</td>
-                        <td>{{$bill->payment}}</td>
+                        <td>
+                            <?php
+                            $time = new \Carbon\Carbon($bill->created_at);
+                            if($time->isToday()){
+                                echo "Today - ".$time->format('jS F Y h:i:s A');
+                            }else{
+                                echo $time->diffForHumans(\Carbon\Carbon::now())." - ".$time->format('h:i A jS F');
+                            }
+                            ?>
+                        </td>
+                        <td>{{$bill->total}}$</td>
+                        <td>
+                            <?php
+                                if($bill->payment == 0){
+                                    echo "COD";
+                                }else{
+                                    echo "Paypal";
+                                }
+                            ?>
+                        </td>
                         <td>{{$bill->deliveryType}}</td>
                         <td>{{$bill->status}}</td>
                         <td>{{$bill->note}}</td>
+                        <td>
+                            <a  href="admin/billdetail/list?idBill={{$bill->id}}"><button type="submit" class="btn btn-block btn-primary">See detail</button></a>
+                        </td>
                     </tr>
                     @endforeach
                     </tbody>

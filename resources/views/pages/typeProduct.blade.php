@@ -22,36 +22,28 @@
     <section id="aa-product-category">
         <div class="container">
              <div class="aa-product-catg-content">
-                        <!-- START SORT AND SHOW BAR -->
-                        <div class="aa-product-catg-head">
+                <!-- START SORT AND SHOW BAR -->
+                <div class="aa-product-catg-head">
                             <div class="aa-product-catg-head-left">
-                                <form action="" class="aa-sort-form">
-                                    <label for="">Sort by</label>
-                                    <select name="">
-                                        <option value="1" selected="Default">Default</option>
-                                        <option value="2">Name</option>
-                                        <option value="3">Price</option>
-                                        <option value="4">Date</option>
-                                    </select>
-                                </form>
-                                <form action="" class="aa-show-form">
-                                    <label for="">Show</label>
-                                    <select name="">
-                                        <option value="1" selected="12">10</option>
-                                        <option value="2">20</option>
-                                        <option value="3">30</option>
-                                    </select>
-                                </form>
+                                <label for="">Sort by</label>
+                                <select data-id = "@if(isset($typeProduct)){{$typeProduct->id}}@endif" name="filterProduct" id="filterProduct">
+                                    <option value="default">Default</option>
+                                    <option @if(request()->has('sort'))@if(request('sort') == 'low-to-high') selected @endif @endif value="low-to-high">Price: Low to high</option>
+                                    <option @if(request()->has('sort'))@if(request('sort') == 'high-to-low') selected @endif @endif value="high-to-low">Price: High to low</option>
+                                    <option @if(request()->has('sort'))@if(request('sort') == 'newest') selected @endif @endif value="newest">Newest</option>
+                                    <option @if(request()->has('sort'))@if(request('sort') == 'top-selling') selected @endif @endif value="top-selling">Top of selling</option>
+                                </select>
                             </div>
                             <div class="aa-product-catg-head-right">
                                 <a id="grid-catg" href="#"><span class="fa fa-th"></span></a>
                                 <a id="list-catg" href="#"><span class="fa fa-list"></span></a>
                             </div>
                         </div>
-                        <!-- END SORT AND SHOW BAR -->
-                        <!-- START BODY CONTENT -->
-                        <div class="aa-product-catg-body">
-                            <ul class="aa-product-catg">
+                <!-- END SORT AND SHOW BAR -->
+                <!-- START BODY CONTENT -->
+                <div class="aa-product-catg-body">
+                            <ul class="aa-product-catg infinite-scroll" id="containerData">
+
                                 <!-- start single product item -->
                                 @foreach($products as $item)
                                 <li>
@@ -69,7 +61,7 @@
                                     </figure>
                                     <div class="aa-product-hvr-content">
                                         {{csrf_field()}}
-                                        <a class="buyProduct" id="buy{{$item->id}}" href="#" data-toggle="modal"   data-placement="top" title="Add to Cart"  data-target="#add-cart-view-modal{{$item->id}}">
+                                        <a class="buyProduct" id="buy{{$item->id}}" href="#" data-toggle="modal" data-placement="top" title="Add to Cart"  data-target="#add-cart-view-modal{{$item->id}}">
                                             <input type="hidden" value="{{$item->id}}" id="idProduct">
                                             <input type="hidden" value="1" id="num">
                                             <span class="fa fa-shopping-cart"></span>
@@ -137,9 +129,9 @@
                                         </div><!-- /.modal-content -->
                                     </div><!-- /.modal-dialog -->
                                 </div>
-                            <!-- / quick view modal -->
                             @endforeach
-                        <!-- add cart modal -->
+                            <!-- / quick view modal -->
+                            <!-- add cart modal -->
                             @foreach($products as $item)
                                     <div  class="modal fade" id="add-cart-view-modal{{$item->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                         <div class="modal-dialog">
@@ -198,21 +190,43 @@
                                         </div><!-- /.modal-dialog -->
                                     </div>
                             @endforeach
-                        <!-- / add cart modal -->
+                            <!-- / add cart modal -->
                         </div>
-                        <!-- END BODY CONTENT -->
-                        <!-- pagination -->
-                        <div class="aa-product-catg-pagination">
+                <!-- END BODY CONTENT -->
+                <!-- pagination -->
+                <div class="aa-product-catg-pagination">
                             {!! $products->links() !!}
-                        </div>
-                        <!-- End pagination -->
-                    </div>
+                </div>
+                <!-- End pagination -->
+             </div>
         </div>
     </section>
     <!-- / product category -->
 @endsection
 @section('script')
     @include('layout.CartScript')
+    <script>
+        $(document).ready(function() {
+            $(document).on('change','#filterProduct', function (e) {
+                e.preventDefault();
+                var typeFilter = $(this).val();
+                var url = window.location.href;
+                if (url.indexOf('?') > -1){
+                    url = url.split('?')[0];
+                    if(typeFilter != 'default'){
+                        url += '?sort='+typeFilter;
+                    }
+                }else{
+                    if(typeFilter == 'default'){
+                        url = url.split('?')[0];
+                    }else{
+                        url += '?sort='+typeFilter;
+                    }
+                }
+                window.location.href = url;
+            });
+        });
+    </script>
 @endsection
 @section('css')
     <style>

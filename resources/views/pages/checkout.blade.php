@@ -45,7 +45,7 @@
                                                                 <div class="col-md-6">
                                                                     <div class="aa-checkout-single-bill">
                                                                         <input value="@if(isset($user)){{$user->phoneNumber}}@else{{old('tel')}}@endif" id="tel" name="tel" type="tel" placeholder="Phone*">
-                                                                        <input type="hidden" value="0" name="checkTel" id="checkTel">
+                                                                        <input type="hidden" value="2" name="checkTel" id="checkTel">
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -98,7 +98,7 @@
                                                                         <select name="deliveryType" id="deliveryType">
                                                                             <option data-num="0" selected value="0">Select Type of Delivery</option>
                                                                             @foreach($deliveryTypes as $deliveryType)
-                                                                            <option @if(old('deliveryType') == $deliveryType->id) selected @endif data-num={{$deliveryType->price}} value={{$deliveryType->id}}>{{$deliveryType->name}}</option>
+                                                                            <option @if(old('deliveryType') == $deliveryType->id) selected @endif data-num={{($deliveryType->factor)}} value={{$deliveryType->id}}>{{$deliveryType->name}}</option>
                                                                             @endforeach
                                                                         </select>
                                                                     </div>
@@ -118,11 +118,12 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
+                                                            <hr style=" height:1px ; background-color: #ff6666;">
                                                             <div class="row">
                                                                 <div class="col-lg-4"></div>
-                                                                <div class="col-lg-4">
+                                                                <div class="col-lg-4 text-center">
                                                                     <a href="" data-toggle="modal" data-target="#login-modal">Login</a>
-                                                                    OR <a href="register">Register</a>
+                                                                    <b>OR</b> <a href="register">Register</a>
                                                                 </div>
                                                             </div>
                                                         </div>

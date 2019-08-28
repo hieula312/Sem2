@@ -42,7 +42,7 @@
                                                 </figure>
                                                 <div class="aa-product-hvr-content">
                                                     {{csrf_field()}}
-                                                    <a class="buyProduct" id="buy{{$item->id}}" href="#" data-toggle="modal"   data-placement="top" title="Add to Cart"  data-target="#add-cart-view-modal{{$item->id}}">
+                                                    <a class="buyProduct" id="buy{{$item->id}}" href="#" data-toggle="modal"  data-placement="top" title="Add to Cart"  data-target="#add-cart-view-modal{{$item->id}}">
                                                         <input type="hidden" value="{{$item->id}}" id="idProduct">
                                                         <input type="hidden" value="1" id="num">
                                                         <span class="fa fa-shopping-cart"></span>
@@ -237,7 +237,7 @@
                                             </figure>
                                             <div class="aa-product-hvr-content">
                                                 {{csrf_field()}}
-                                                <a id="buy" href="#" data-toggle="modal" data-placement="top" title="Add to Cart"  data-target="#add-cart-view-modal{{$popular->id}}">
+                                                <a class="buyProduct" id="buy{{$popular->id}}" href="#" data-toggle="modal" data-placement="top" title="Add to Cart"  data-target="#add-cart-view-modal{{$popular->id}}">
                                                     <input type="hidden" value="{{$popular->id}}" id="idProduct">
                                                     <input type="hidden" value="1" id="num">
                                                     <span class="fa fa-shopping-cart"></span>
@@ -274,8 +274,8 @@
                                                 </figure>
                                                 <div class="aa-product-hvr-content">
                                                     {{csrf_field()}}
-                                                    <a id="buy" href="#" data-toggle="modal" data-placement="top" title="Add to Cart"  data-target="#add-cart-view-modal{{$feature->id}}">
-                                                        <input type="hidden" value="{{$feature->id}}"id="idProduct">
+                                                    <a class="buyProduct" id="buy{{$feature->id}}" href="#" data-toggle="modal" data-placement="top" title="Add to Cart"  data-target="#add-cart-view-modal{{$feature->id}}">
+                                                        <input type="hidden" value="{{$feature->id}}" id="idProduct">
                                                         <input type="hidden" value="1" id="num">
                                                         <span class="fa fa-shopping-cart"></span>
                                                     </a>
@@ -311,7 +311,7 @@
                                                 </figure>
                                                 <div class="aa-product-hvr-content">
                                                     {{csrf_field()}}
-                                                    <a id="buy" href="#" data-toggle="modal" data-placement="top" title="Add to Cart"  data-target="#add-cart-view-modal{{$latest->id}}">
+                                                    <a class="buyProduct" id="buy{{$latest->id}}" href="#" data-toggle="modal" data-placement="top" title="Add to Cart"  data-target="#add-cart-view-modal{{$latest->id}}">
                                                         <input type="hidden" value="{{$latest->id}}" id="idProduct">
                                                         <input type="hidden" value="1" id="num">
                                                         <span class="fa fa-shopping-cart"></span>

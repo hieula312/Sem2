@@ -31,7 +31,7 @@
                         <td>{{$billDetail->id_product}}</td>
                         <td>{{$billDetail->Products->name}}</td>
                         <td>{{$billDetail->quantity}}</td>
-                        <td>{{$billDetail->price}}</td>
+                        <td>{{$billDetail->price}}$</td>
                     </tr>
                     @endforeach
                     </tbody>

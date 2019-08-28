@@ -2,7 +2,7 @@
 @section('content')
         <section class="content-header col-lg-7" style="margin-bottom: 15px;">
             <h1 style="border-bottom: 2px solid black;">
-                <span><b>SLIDE</b></span>
+                <span><b>Delivery Type</b></span>
                 <small>Update</small>
             </h1>
         </section>
@@ -13,26 +13,21 @@
                     @include('Error')
                     @include('success')
                     @include('alert')
-                    <form action="admin/slide/add" method="post" enctype="multipart/form-data">
+                    <form action="admin/deliverytype/update/{{$deliveryType->id}}" method="post" enctype="multipart/form-data">
                         {{csrf_field()}}
                         <div class="form-group">
                             <label>Name</label>
-                            <input value="{{old('name')}}" name="name" type="text" class="form-control" placeholder="Enter the slide name">
+                            <input value="{{$deliveryType->name}}" name="name" type="text" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label>Image</label>
-                            <input value="{{old('image')}}"  name="image" type="file" class="form-control" >
+                            <label>Abbreviation</label>
+                            <input value="{{$deliveryType->abbr}}" name="abbr" type="text" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label>New:&nbsp</label>
-                            <label class="radio-inline">
-                                <input name="priority" value="1" checked type="radio">Yes
-                            </label>
-                            <label class="radio-inline">
-                                <input name="priority" value="0" type="radio">No
-                            </label>
+                            <label>Factor</label>
+                            <input value="{{$deliveryType->factor}}" name="factor" type="text" class="form-control">
                         </div>
-                        <button type="submit" class="btn btn-block btn-primary">Add new</button>
+                        <button type="submit" class="btn btn-block btn-primary">Update now</button>
                     </form>
                 </section>
             </div>

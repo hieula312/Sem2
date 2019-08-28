@@ -38,11 +38,11 @@
                         </div>
                         <div class="form-group">
                             <label>Unit Price</label>
-                            <input value="{{old('unitprice')}}" name="unitprice" type="number" class="form-control" placeholder="Enter unit price of product">
+                            <input value="{{old('unitprice')}}" name="unitprice" type="text" class="form-control" placeholder="Enter unit price of product">
                         </div>
                         <div class="form-group">
                             <label>Promotion Price</label>
-                            <input value="{{old('promotionprice')}}" name="promotionprice" type="number" class="form-control" placeholder="Enter promotion price of product">
+                            <input value="{{old('promotionprice')}}" name="promotionprice" type="text" class="form-control" placeholder="Enter promotion price of product">
                         </div>
                         <div class="form-group">
                             <label>Quantity</label>
@@ -63,6 +63,15 @@
                             </label>
                             <label class="radio-inline">
                                 <input name="new" value="0" type="radio">No
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label>Feature:&nbsp</label>
+                            <label class="radio-inline">
+                                <input name="feature" value="1" checked type="radio">Yes
+                            </label>
+                            <label class="radio-inline">
+                                <input name="feature" value="0" type="radio">No
                             </label>
                         </div>
                         <button type="submit" class="btn btn-block btn-primary">Add new</button>

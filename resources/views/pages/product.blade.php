@@ -56,79 +56,77 @@
 
                             <!-- Tab panes -->
                             <div class="tab-content">
-                                <div class="tab-pane fade in active" id="description">
+                                <div class="tab-pane fade" id="description">
                                     <p>{!! $product->description !!}</p>
                                 </div>
-                                <div class="tab-pane fade " id="review">
+                                <div class="tab-pane fade in active"" id="review">
                                     <div class="aa-product-review-area">
-                                        <h4>2 Reviews for T-Shirt</h4>
-                                        <ul class="aa-review-nav">
+                                        <ul class="aa-review-nav" id="reviewContainer">
+                                            @foreach($product->Comment as $item)
                                             <li>
                                                 <div class="media">
                                                     <div class="media-left">
                                                         <a href="#">
-                                                            <img class="media-object" src="client_asset/img/testimonial-img-3.jpg" alt="girl image">
+                                                            <img class="media-object" src="images/UserDef.jpg" alt="ProfileImage">
                                                         </a>
                                                     </div>
                                                     <div class="media-body">
-                                                        <h4 class="media-heading"><strong>Marla Jobs</strong> - <span>March 26, 2016</span></h4>
+                                                        <?php
+                                                        $now = \Carbon\Carbon::now();
+                                                        $DBtime = $item->created_at;
+                                                        $interval = $now->diffForHumans($DBtime);
+                                                        $star = '';
+                                                        for($i = 0; $i < 5; $i++){
+                                                            if($i < intval($item->rate)){
+                                                                $star .= '<span class="fa fa-star"></span>';
+                                                            }else{
+                                                                $star .= '<span class="fa fa-star-o"></span>';
+                                                            }
+                                                        }
+                                                        ?>
+                                                        <h4 class="media-heading"><strong>{{$item->name}}</strong> - <span>{{$interval}}</span></h4>
                                                         <div class="aa-product-rating">
-                                                            <span class="fa fa-star"></span>
-                                                            <span class="fa fa-star"></span>
-                                                            <span class="fa fa-star"></span>
-                                                            <span class="fa fa-star"></span>
-                                                            <span class="fa fa-star-o"></span>
+                                                            {!! $star !!}
                                                         </div>
-                                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                                                        <p>{{$item->message}}</p>
                                                     </div>
                                                 </div>
                                             </li>
-                                            <li>
-                                                <div class="media">
-                                                    <div class="media-left">
-                                                        <a href="#">
-                                                            <img class="media-object" src="client_asset/img/testimonial-img-3.jpg" alt="girl image">
-                                                        </a>
-                                                    </div>
-                                                    <div class="media-body">
-                                                        <h4 class="media-heading"><strong>Marla Jobs</strong> - <span>March 26, 2016</span></h4>
-                                                        <div class="aa-product-rating">
-                                                            <span class="fa fa-star"></span>
-                                                            <span class="fa fa-star"></span>
-                                                            <span class="fa fa-star"></span>
-                                                            <span class="fa fa-star"></span>
-                                                            <span class="fa fa-star-o"></span>
-                                                        </div>
-                                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                                                    </div>
-                                                </div>
-                                            </li>
+                                            @endforeach
                                         </ul>
-                                        <h4>Add a review</h4>
-                                        <div class="aa-your-rating">
-                                            <p>Your Rating</p>
-                                            <a href="#"><span class="fa fa-star-o"></span></a>
-                                            <a href="#"><span class="fa fa-star-o"></span></a>
-                                            <a href="#"><span class="fa fa-star-o"></span></a>
-                                            <a href="#"><span class="fa fa-star-o"></span></a>
-                                            <a href="#"><span class="fa fa-star-o"></span></a>
+                                        <hr style="height: 1px; color: #ddd">
+                                        <h4><b>Add review</b></h4>
+                                        <label for="rating">Your rate:</label>
+                                        <div class="col-lg-12 no-padding" style="height: 40px">
+                                            <div class="rating">
+                                                <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+                                                <input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+                                                <input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
+                                                <input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+                                                <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+                                            </div>
                                         </div>
-                                        <!-- review form -->
-                                        <form action="" class="aa-review-form">
+                                        <form action="" class="col-lg-12 no-padding aa-review-form" style="margin-top: 0px;">
+                                            <!-- review form -->
+                                            @if(!\Illuminate\Support\Facades\Auth::check())
                                             <div class="form-group">
-                                                <label for="message">Your Review</label>
-                                                <textarea class="form-control" rows="3" id="message"></textarea>
+                                                <label for="name">Name:</label>
+                                                <input required type="text" class="form-control" name="name" id="name" placeholder="Name">
+                                            </div>
+                                            @endif
+                                            <input type="hidden" name="rate" id="rate" value="0">
+                                            <div class="form-group">
+                                                <label for="message">Your Review:</label>
+                                                <textarea required class="form-control" name="message" rows="3" id="message"></textarea>
                                             </div>
                                             <div class="form-group">
-                                                <label for="name">Name</label>
-                                                <input type="text" class="form-control" id="name" placeholder="Name">
+                                                <div class="row">
+                                                    <div class="col-lg-5"></div>
+                                                    <div class="col-lg-2">
+                                                        <button id="submitComment" type="submit" class="btn btn-default aa-review-submit">Submit</button>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="form-group">
-                                                <label for="email">Email</label>
-                                                <input type="email" class="form-control" id="email" placeholder="example@gmail.com">
-                                            </div>
-
-                                            <button type="submit" class="btn btn-default aa-review-submit">Submit</button>
                                         </form>
                                     </div>
                                 </div>
@@ -294,6 +292,42 @@
     <!-- / product category -->
 @endsection
 @section('script')
+    <script>
+        $(document).ready(function () {
+            $('input[name=rating]').change(function () {
+                $('#rate').val($(this).val());
+            });
+
+            $(document).on('click','#submitComment', function (e) {
+                e.preventDefault();
+                var rate = $('#rate').val();
+                var idProduct = $('#idProduct').val();
+                var name = $('#name').val();
+                var message = $('#message').val();
+                var _token = $('input[name="_token"]').val();
+                $.ajax({
+                    url: "{{route('addComment')}}",
+                    method: 'POST',
+                    data: {id:idProduct, _token:_token, rate:rate, name:name, message:message},
+                    dataType: 'json',
+                    success: function (data) {
+                        $('#reviewContainer').html(data.output);
+                    },
+                    error: function(jqXHR, textStatus, errorThrown) {
+                        alert('An error occurred... Look at the console (F12 or Ctrl+Shift+I, Console tab) for more information!');
+
+                        $('#result').html('<p>status code: '+jqXHR.status+'</p><p>errorThrown: ' + errorThrown + '</p><p>jqXHR.responseText:</p><div>'+jqXHR.responseText + '</div>');
+                        console.log('jqXHR:');
+                        console.log(jqXHR);
+                        console.log('textStatus:');
+                        console.log(textStatus);
+                        console.log('errorThrown:');
+                        console.log(errorThrown);
+                    },
+                });
+            });
+        });
+    </script>
     @include('layout.CartScript')
 @endsection
 @section('css')
@@ -301,5 +335,42 @@
         .aa-cart-quantity {
             padding: 5px;
             width: 50px;
+        }
+        @import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+
+        .rating {
+            border: none;
+            float: left;
+        }
+
+        .rating > input { display: none; }
+        .rating > label:before {
+            margin: 5px;
+            font-size: 1.25em;
+            font-family: FontAwesome;
+            display: inline-block;
+            content: "\f005";
+        }
+
+        .rating > .half:before {
+            content: "\f089";
+            position: absolute;
+        }
+
+        .rating > label {
+            color: #ddd;
+            float: right;
+        }
+
+        /***** CSS Magic to Highlight Stars on Hover *****/
+
+        .rating > input:checked ~ label, /* show gold star when clicked */
+        .rating:not(:checked) > label:hover, /* hover current star */
+        .rating:not(:checked) > label:hover ~ label { color: #ff6600;  } /* hover previous stars in list */
+
+        .rating > input:checked + label:hover, /* hover current star when changing rating */
+        .rating > input:checked ~ label:hover,
+        .rating > label:hover ~ input:checked ~ label, /* lighten current selection */
+        .rating > input:checked ~ label:hover ~ label { color: #f99c5d;  }
     </style>
 @endsection

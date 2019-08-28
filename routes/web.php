@@ -11,8 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+
+Route::fallback(function(){
+    return response()->view('404', [], 404);
 });
 //ADMIN
 Route::get('admin/signin', 'UserController@getSignInAdmin');
@@ -60,6 +61,41 @@ Route::group(['prefix'=>'admin', 'middleware'=>'adminLogin'], function (){
         Route::post('update/{id}', 'SlideController@postUpdate');
         Route::get('delete/{id}', 'SlideController@getDelete');
     });
+    Route::group(['prefix'=>'deliverytype'],function() {
+        Route::get('list', 'DeliveryTypeController@getList');
+        Route::get('add', 'DeliveryTypeController@getAdd');
+        Route::post('add', 'DeliveryTypeController@postAdd');
+        Route::get('update/{id}', 'DeliveryTypeController@getUpdate');
+        Route::post('update/{id}', 'DeliveryTypeController@postUpdate');
+        Route::get('delete/{id}', 'DeliveryTypeController@getDelete');
+    });
+
+    Route::group(['prefix'=>'city'],function() {
+        Route::get('list', 'CityController@getList');
+        Route::get('add', 'CityController@getAdd');
+        Route::post('add', 'CityController@postAdd');
+        Route::get('update/{id}', 'CityController@getUpdate');
+        Route::post('update/{id}', 'CityController@postUpdate');
+        Route::get('delete/{id}', 'CityController@getDelete');
+    });
+
+    Route::group(['prefix'=>'district'],function() {
+        Route::get('list', 'DistrictController@getList');
+        Route::get('add', 'DistrictController@getAdd');
+        Route::post('add', 'DistrictController@postAdd');
+        Route::get('update/{id}', 'DistrictController@getUpdate');
+        Route::post('update/{id}', 'DistrictController@postUpdate');
+        Route::get('delete/{id}', 'DistrictController@getDelete');
+    });
+
+    Route::group(['prefix'=>'subdistrict'],function() {
+        Route::get('list', 'SubDistrictController@getList');
+        Route::get('add', 'SubDistrictController@getAdd');
+        Route::post('add', 'SubDistrictController@postAdd');
+        Route::get('update/{id}', 'SubDistrictController@getUpdate');
+        Route::post('update/{id}', 'SubDistrictController@postUpdate');
+        Route::get('delete/{id}', 'SubDistrictController@getDelete');
+    });
 
     Route::group(['prefix'=>'bill'],function() {
         Route::get('list', 'BillController@getList');
@@ -84,6 +120,7 @@ Route::group(['prefix'=>'admin', 'middleware'=>'adminLogin'], function (){
 
     Route::group(['prefix'=>'ajax'],function (){
        Route::post('typeProduct', 'AjaxController@getTypeProduct')->name('getTypeProduct');
+       Route::post('district', 'AjaxController@getDistrictAd')->name('getDistrictAd');
        Route::post('deleteProduct', 'AjaxController@deleteProduct')->name('deleteProduct');
        Route::post('deleteEmployee', 'AjaxController@deleteEmployee')->name('deleteEmployee');
     });
@@ -108,3 +145,6 @@ Route::post('register', 'PageController@postRegister');
 Route::get('logout', 'PageController@SignOut');
 Route::get('editProfile', 'PageController@editProfile');
 Route::post('signIn', 'PageController@postSignIn')->name('signIn');
+Route::get('search', 'PageController@getSearch');
+Route::post('addComment', 'AjaxController@addComment')->name('addComment');
+Route::get('checkOrder', 'PageController@checkOrder')->name('checkOrder');

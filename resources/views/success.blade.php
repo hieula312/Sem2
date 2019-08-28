@@ -2,7 +2,7 @@
     <div class="alert alert-success">
         <ul>
             <li>
-                {{session('success')}}
+                <span class="fa fa-check"></span>&nbsp;{{session('success')}}
             </li>
         </ul>
     </div>

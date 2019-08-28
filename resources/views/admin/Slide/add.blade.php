@@ -13,6 +13,22 @@
                     @include('Error')
                     @include('success')
                     @include('alert')
+                    <form action="admin/deliverytype/update/{{$deliveryType->id}}" method="post" enctype="multipart/form-data">
+                        {{csrf_field()}}
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input value="{{$deliveryType->name}}" name="name" type="text" class="form-control" placeholder="Enter the delivery type name">
+                        </div>
+                        <div class="form-group">
+                            <label>Abbreviation</label>
+                            <input value="{{$deliveryType->abbr}}" name="abbr" type="text" class="form-control" placeholder="Enter the abbreviation of delivery type">
+                        </div>
+                        <div class="form-group">
+                            <label>Factor</label>
+                            <input value="{{$deliveryType->factor}}" name="factor" type="number" class="form-control" placeholder="Enter the factor of delivery type">
+                        </div>
+                        <button type="submit" class="btn btn-block btn-primary">Update now</button>
+                    </form>
                     <form action="admin/slide/add" method="post" enctype="multipart/form-data">
                         {{csrf_field()}}
                         <div class="form-group">
