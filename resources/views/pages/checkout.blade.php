@@ -107,7 +107,11 @@
                                                             <div class="row">
                                                                 <div class="col-md-12">
                                                                     <div class="aa-checkout-single-bill">
-                                                                        <input value="{{old('address')}}" type="text" name="address" placeholder="Detail Address*">
+                                                                        @if(isset($user))
+                                                                            <input value="{{$user->address}}" type="text" name="address" placeholder="Detail Address*">
+                                                                        @else
+                                                                            <input value="{{old('address')}}" type="text" name="address" placeholder="Detail Address*">
+                                                                        @endif
                                                                     </div>
                                                                 </div>
                                                             </div>

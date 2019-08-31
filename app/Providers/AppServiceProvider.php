@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\City;
 use App\DeliveryType;
 use App\District;
+use App\Notification;
 use App\Products;
 use App\Slide;
 use App\SubDistrict;
@@ -34,9 +35,11 @@ class AppServiceProvider extends ServiceProvider
     {
         Schema::defaultStringLength(191);
         view()->composer('admin.layout.header', function ($view){
+            $notifications = Notification::orderBy('created_at', 'desc')->get();
+            $num = count(Notification::where('seen', 0)->get());
             if(Auth::check()){
                 $user = Auth::user();
-                $view->with(['user' => $user]);
+                $view->with(['user' => $user, 'notifications' => $notifications, 'num' => $num]);
             }
         });
         view()->composer('admin.layout.sidebar', function ($view){

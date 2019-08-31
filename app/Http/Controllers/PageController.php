@@ -5,6 +5,10 @@ use App\BillDetail;
 use App\Bills;
 use App\Cart;
 use App\City;
+use App\Comment;
+use App\Events\BillEvent;
+use App\Events\MyEvent1;
+use App\Notification;
 use App\User;
 use App\DeliveryType;
 use App\District;
@@ -16,6 +20,7 @@ use http\Env\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use Pusher\Pusher;
 
 class PageController extends Controller
 {
@@ -120,7 +125,11 @@ class PageController extends Controller
             ['unit', '>', 1],
             ['id_type', $product->TypeProduct->id]
         ])->orderBy('created_at', 'desc')->take(8)->get();
-        return view('pages.product')->with(['product' => $product, 'relatedProducts' => $relatedProducts]);
+        $comments = Comment::where([
+            ['active', 1],
+            ['id_product', $id]
+        ])->orderBy('created_at', 'desc')->get();
+        return view('pages.product')->with(['product' => $product, 'relatedProducts' => $relatedProducts, 'comments' => $comments]);
     }
 
     public function showCart(){
@@ -192,8 +201,15 @@ class PageController extends Controller
                 $billDetail->save();
             }
         }
+        $notification = new Notification();
+        $notification->type = 2;
+        $notification->seen = 0;
+        $notification->message = $bill->customerName." has just ordered";
+        $notification->link = 'admin/bill/list';
+        $notification->save();
+        event(new BillEvent($bill, $notification));
         $request->session()->forget('cart');
-        return view('pages.checkOrder')->with('alert', 'Your order is created success');
+        return redirect('homepage')->with('alert', 'Your order is created success!');
     }
 
     public function getRegister(){
@@ -302,5 +318,8 @@ class PageController extends Controller
         }
     }
 
+    public function testPusher(){
+        return view('testpusher');
+    }
 
 }

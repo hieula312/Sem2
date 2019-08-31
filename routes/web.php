@@ -148,3 +148,4 @@ Route::post('signIn', 'PageController@postSignIn')->name('signIn');
 Route::get('search', 'PageController@getSearch');
 Route::post('addComment', 'AjaxController@addComment')->name('addComment');
 Route::get('checkOrder', 'PageController@checkOrder')->name('checkOrder');
+Route::post('updateNoti', 'AjaxController@updateNoti')->name('updateNoti');
