@@ -62,7 +62,8 @@
                                 <div class="tab-pane fade in active"" id="review">
                                     <div class="aa-product-review-area">
                                         <ul class="aa-review-nav" id="reviewContainer">
-                                            @foreach($product->Comment as $item)
+                                            @if(isset($comments))
+                                            @foreach($comments as $item)
                                             <li>
                                                 <div class="media">
                                                     <div class="media-left">
@@ -93,6 +94,7 @@
                                                 </div>
                                             </li>
                                             @endforeach
+                                            @endif
                                         </ul>
                                         <hr style="height: 1px; color: #ddd">
                                         <h4><b>Add review</b></h4>
@@ -292,8 +294,48 @@
     <!-- / product category -->
 @endsection
 @section('script')
+    <script src="https://js.pusher.com/5.0/pusher.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/moment@2.24.0/moment.min.js"></script>
     <script>
         $(document).ready(function () {
+            // Enable pusher logging - don't include this in production
+            Pusher.logToConsole = true;
+
+            var pusher = new Pusher('167dbf995abf10d6ce5e', {
+                cluster: 'ap1',
+                forceTLS: true
+            });
+
+            var channel = pusher.subscribe('comment');
+            channel.bind('comment-event', function(data) {
+                var time = moment().startOf(data.comment.created_at).fromNow();
+                var star = '';
+                for(var i = 0; i < 5; i++){
+                    if(i < parseInt(data.comment.rate)){
+                        star += '<span class="fa fa-star"></span>';
+                    }else{
+                        star += '<span class="fa fa-star-o"></span>';
+                    }
+                }
+                var liTag = " '\n" +
+                    "                    <li>\n" +
+                    "                        <div class=\"media\">\n" +
+                    "                            <div class=\"media-left\">\n" +
+                    "                                <a href=\"#\">\n" +
+                    "                                <img class=\"media-object\" src=\"images/UserDef.jpg\" alt=\"ProfileImage\">\n" +
+                    "                                </a>\n" +
+                    "                            </div>\n" +
+                    "                            <div class=\"media-body\">\n" +
+                    "                                <h4 class=\"media-heading\"><strong>"+data.comment.name+"</strong> - <span>"+time+"</span></h4>\n" +
+                    "                                <div class=\"aa-product-rating\">"+star+"</div>\n" +
+                    "                                <p>"+data.comment.message+"</p>\n" +
+                    "                            </div>\n" +
+                    "                        </div>\n" +
+                    "                    </li>\n" +
+                    "                "
+                $('#reviewContainer').prepend(liTag);
+            });
+
             $('input[name=rating]').change(function () {
                 $('#rate').val($(this).val());
             });
@@ -311,7 +353,13 @@
                     data: {id:idProduct, _token:_token, rate:rate, name:name, message:message},
                     dataType: 'json',
                     success: function (data) {
-                        $('#reviewContainer').html(data.output);
+                        $('#name').val('');
+                        $('#message').val('');
+                        Swal.fire(
+                            'Your comment is created success',
+                            '',
+                            'success',
+                        );
                     },
                     error: function(jqXHR, textStatus, errorThrown) {
                         alert('An error occurred... Look at the console (F12 or Ctrl+Shift+I, Console tab) for more information!');

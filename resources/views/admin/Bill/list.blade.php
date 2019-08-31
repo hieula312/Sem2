@@ -23,8 +23,9 @@
                         <th>Total</th>
                         <th>Payment</th>
                         <th>Delivery Type</th>
-                        <th>Status</th>
                         <th>Note</th>
+                        <th>Status</th>
+                        <th></th>
                         <th>Bill Detail</th>
                     </tr>
                     </thead>
@@ -56,8 +57,13 @@
                             ?>
                         </td>
                         <td>{{$bill->deliveryType}}</td>
-                        <td>{{$bill->status}}</td>
                         <td>{{$bill->note}}</td>
+                        <td>
+                            <span id="showStatus">{{$bill->status}}</span>
+                        </td>
+                        <td>
+                            <button id="changeStatus" data-id="{{$bill->id}}" type="submit" class="btn btn-block btn-danger">Pick Up</button>
+                        </td>
                         <td>
                             <a  href="admin/billdetail/list?idBill={{$bill->id}}"><button type="submit" class="btn btn-block btn-primary">See detail</button></a>
                         </td>
@@ -73,6 +79,8 @@
     <!-- STYLE -->
 @endsection
 @section('script')
+    <script src="https://js.pusher.com/5.0/pusher.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/moment@2.24.0/moment.min.js"></script>
     <!-- DataTables -->
     <script src="admin_asset/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
     <script src="admin_asset/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
@@ -85,9 +93,7 @@
     <!-- page script -->
     <script>
         $(function () {
-            $('#example1').DataTable({
-
-            })
-        })
+            $('#example1').DataTable({});
+        });
     </script>
 @endsection

@@ -89,6 +89,99 @@ desired effect
      Both of these plugins are recommended to enhance the
      user experience. -->
 @yield('script')
+<script src="https://js.pusher.com/5.0/pusher.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.24.0/moment.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // Enable pusher logging - don't include this in production
+        Pusher.logToConsole = true;
+
+        var pusher = new Pusher('167dbf995abf10d6ce5e', {
+            cluster: 'ap1',
+            forceTLS: true
+        });
+
+        var channel = pusher.subscribe('comment');
+        channel.bind('comment-event', function (data) {
+            var background = '';
+            if(data.notification.seen == 0){
+               background = "style=\"background-color: #ecf0f5;\"";
+            }
+            var time = moment().startOf(data.comment.created_at).fromNow();
+            var LiTag = " <li "+ background +" >\n" +
+                "                                    <a data-seen=\""+data.notification.seen+"\" id=\""+data.notification.id+"\" class= \"notiLink\" target=\"_blank\" href=\""+data.notification.link+"\">\n" +
+                "                                        <p>" + data.notification.message + "</p>\n" +
+                "                                        <i class=\"fa fa-comment text-aqua\"></i> <small>" + time + "</small>\n" +
+                "\n" +
+                "                                    </a>\n" +
+                "                                </li>";
+            var x = $('#numNoti').html();
+            x++;
+            $('#numNoti').val(x);
+            $('#numNoti').html(x);
+            $('#menuNoti').prepend(LiTag);
+            ClickNoti();
+        });
+
+        var channel1 = pusher.subscribe('bill');
+        channel1.bind('bill-event', function (data) {
+            var background = '';
+            if(data.notification.seen == 0){
+                background = "style=\"background-color: #edf2fa;\"";
+            }
+            var time = moment().startOf(data.bill.created_at).fromNow();
+            var LiTag = " <li "+ background +" >\n" +
+                "                                    <a data-seen=\""+data.notification.seen+"\" id=\""+data.notification.id+"\" class= \"notiLink\" target=\"_blank\" href=\""+data.notification.link+"\">\n" +
+                "                                        <p>" + data.notification.message + "</p>\n" +
+                "                                        <i class=\"fa fa-comment text-aqua\"></i> <small>" + time + "</small>\n" +
+                "\n" +
+                "                                    </a>\n" +
+                "                                </li>";
+            var x = $('#numNoti').html();
+            x++;
+            $('#numNoti').val(x);
+            $('#numNoti').html(x);
+            $('#menuNoti').prepend(LiTag);
+            ClickNoti();
+        });
+
+        ClickNoti();
+
+        function ClickNoti(){
+            $('.notiLink').click(function () {
+                if($(this).attr('data-seen') == 1){
+                    return true;
+                }
+                $(this).parent().css('background-color', '');
+                var id = $(this).attr('id');
+                var _token = $('input[name="_token"]').val();
+                $.ajax({
+                    url: "{{route('updateNoti')}}",
+                    method: 'POST',
+                    data: {id:id, _token:_token},
+                    dataType: 'json',
+                    success: function (data) {
+                        var x = $('#numNoti').html();
+                        x--;
+                        $('#numNoti').val(x);
+                        $('#numNoti').html(x);
+                    },
+                    error: function(jqXHR, textStatus, errorThrown) {
+                        alert('An error occurred... Look at the console (F12 or Ctrl+Shift+I, Console tab) for more information!');
+
+                        $('#result').html('<p>status code: '+jqXHR.status+'</p><p>errorThrown: ' + errorThrown + '</p><p>jqXHR.responseText:</p><div>'+jqXHR.responseText + '</div>');
+                        console.log('jqXHR:');
+                        console.log(jqXHR);
+                        console.log('textStatus:');
+                        console.log(textStatus);
+                        console.log('errorThrown:');
+                        console.log(errorThrown);
+                    },
+                });
+            })
+        }
+    });
+</script>
 </body>
 @yield('css')
 </html>
@@ -107,5 +200,10 @@ desired effect
     }
     .alert-danger ul{
         padding-left: 0px;
+    }
+    #menuNoti{
+        height: 500px;
+        overflow: auto;
+        overflow-x: hidden;
     }
 </style>

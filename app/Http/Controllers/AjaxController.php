@@ -6,6 +6,8 @@ use App\Cart;
 use App\City;
 use App\Comment;
 use App\District;
+use App\Events\CommentEvent;
+use App\Notification;
 use App\Products;
 use App\User;
 use App\WholeProducts;
@@ -312,38 +314,24 @@ class AjaxController extends Controller
             $comment->name = $request->name;
         }
         $comment->save();
+        $notification = new Notification();
+        $notification->type = 1;
+        $notification->seen = 0;
+        $notification->message = $comment->name." commented in your post";
+        $notification->link = 'product/'.$comment->id_product;
+        $notification->save();
+        event(new CommentEvent($comment, $notification));
         $output = '';
-        $product = Products::find($request->id);
-        foreach ($product->Comment as $item){
-            $now = Carbon::now();
-            $DBtime = $item->created_at;
-            $interval = $now->diffForHumans($DBtime);
-            $star = '';
-            for($i = 0; $i < 5; $i++){
-                if($i < intval($item->rate)){
-                    $star .= '<span class="fa fa-star"></span>';
-                }else{
-                    $star .= '<span class="fa fa-star-o"></span>';
-                }
-            }
-            $output .=
-                '
-                    <li>
-                        <div class="media">
-                            <div class="media-left">
-                                <a href="#">
-                                <img class="media-object" src="images/UserDef.jpg" alt="ProfileImage">
-                                </a>
-                            </div>
-                            <div class="media-body">
-                                <h4 class="media-heading"><strong>'.$item->name.'</strong> - <span>'.$interval.'</span></h4>
-                                <div class="aa-product-rating">'.$star.'</div>
-                                <p>'.$item->message.'</p>
-                            </div>
-                        </div>
-                    </li>
-                ';
-        }
         return response()->json(['output' => $output]);
+    }
+
+    public function updateNoti(Request $request){
+        $noti = Notification::find($request->id);
+        if($noti->seen = 1){
+
+        }
+        $noti->seen = 1;
+        $noti->save();
+        return response()->json([]);
     }
 }
