@@ -107,6 +107,10 @@ Route::group(['prefix'=>'admin', 'middleware'=>'adminLogin'], function (){
 
     Route::group(['prefix'=>'customer'],function() {
         Route::get('list', 'UserController@getListCustomer');
+        Route::get('follower', 'UserController@getFollower');
+        Route::get('listMail', 'UserController@getListMail');
+        Route::get('sendMail', 'UserController@getsendMail');
+        Route::post('sendMail', 'UserController@postsendMail');
     });
 
     Route::group(['prefix'=>'employee'],function() {
@@ -147,5 +151,9 @@ Route::get('editProfile', 'PageController@editProfile');
 Route::post('signIn', 'PageController@postSignIn')->name('signIn');
 Route::get('search', 'PageController@getSearch');
 Route::post('addComment', 'AjaxController@addComment')->name('addComment');
-Route::get('checkOrder', 'PageController@checkOrder')->name('checkOrder');
+Route::get('checkOrder', 'PageController@checkOrder')->name('checkOrder')->middleware('checkOrder');
 Route::post('updateNoti', 'AjaxController@updateNoti')->name('updateNoti');
+Route::post('orderProcess', 'AjaxController@orderProcess')->name('orderProcess');
+Route::get('checkBill','PageController@getCheckBill')->name('checkBill');
+Route::post('checkBill','PageController@postCheckBill');
+Route::post('postSubscribe', 'AjaxController@postSubscribe')->name('postSubscribe');

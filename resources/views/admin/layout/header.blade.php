@@ -5,7 +5,7 @@
         <!-- mini logo for sidebar mini 50x50 pixels -->
         <span class="logo-mini"><b>A</b></span>
         <!-- logo for regular state and mobile devices -->
-        <span class="logo-lg"><b>ADMIN</b></span>
+        <span class="logo-lg"><b>ARTS ADMIN</b></span>
     </a>
 
     <!-- Header Navbar -->
@@ -18,39 +18,12 @@
         <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
                 {{--<!-- Messages: style can be found in dropdown.less-->--}}
-                {{--<li class="dropdown messages-menu">--}}
-                    {{--<!-- Menu toggle button -->--}}
-                    {{--<a href="#" class="dropdown-toggle" data-toggle="dropdown">--}}
-                        {{--<i class="fa fa-envelope-o"></i>--}}
-                        {{--<span class="label label-success">4</span>--}}
-                    {{--</a>--}}
-                    {{--<ul class="dropdown-menu">--}}
-                        {{--<li class="header">You have 4 messages</li>--}}
-                        {{--<li>--}}
-                            {{--<!-- inner menu: contains the messages -->--}}
-                            {{--<ul class="menu">--}}
-                                {{--<li><!-- start message -->--}}
-                                    {{--<a href="#">--}}
-                                        {{--<div class="pull-left">--}}
-                                            {{--<!-- Customer Image -->--}}
-                                            {{--<img src="admin_asset/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">--}}
-                                        {{--</div>--}}
-                                        {{--<!-- Message title and timestamp -->--}}
-                                        {{--<h4>--}}
-                                            {{--Support Team--}}
-                                            {{--<small><i class="fa fa-clock-o"></i> 5 mins</small>--}}
-                                        {{--</h4>--}}
-                                        {{--<!-- The message -->--}}
-                                        {{--<p>Why not buy a new awesome theme?</p>--}}
-                                    {{--</a>--}}
-                                {{--</li>--}}
-                                {{--<!-- end message -->--}}
-                            {{--</ul>--}}
-                            {{--<!-- /.menu -->--}}
-                        {{--</li>--}}
-                        {{--<li class="footer"><a href="#">See All Messages</a></li>--}}
-                    {{--</ul>--}}
-                {{--</li>--}}
+                <li class="dropdown messages-menu">
+                    <!-- Menu toggle button -->
+                    <a href="admin/customer/sendMail">
+                        <i class="fa fa-envelope-o"></i>
+                    </a>
+                </li>
                 {{--<!-- /.messages-menu -->--}}
 
                 <!-- Notifications Menu -->

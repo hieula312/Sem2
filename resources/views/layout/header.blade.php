@@ -44,7 +44,7 @@
                         <!-- / header top left -->
                         <div class="aa-header-top-right">
                             <ul class="aa-head-top-nav-right">
-                                <li><a href="checkOrder">Check Your Order</a></li>
+                                <li><a href="checkOrder">Check Order</a></li>
                                 @if(!\Illuminate\Support\Facades\Auth::check())
                                 <li><a href="" data-toggle="modal" data-target="#login-modal">Login</a></li>
                                 @endif

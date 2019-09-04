@@ -31,6 +31,7 @@ class CreateBillsTable extends Migration
             $table->string('customerPhoneNumber');
             $table->string('customerEmail');
             $table->text('note')->nullable();
+            $table->string('otp');
         });
     }
 

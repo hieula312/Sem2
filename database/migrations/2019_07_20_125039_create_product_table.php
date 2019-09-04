@@ -17,7 +17,7 @@ class CreateProductTable extends Migration
             $table->string('id', 7)->unique();
             $table->integer('id_type')->unsigned();
             $table->foreign('id_type')->references('id')->on('type_products');
-            $table->string('name');
+            $table->text('name');
             $table->text('description');
             $table->float('unit_price');
             $table->float('promotion_price');
