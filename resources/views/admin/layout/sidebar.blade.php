@@ -89,6 +89,17 @@
                     <li><a href="admin/slide/add">Add new Slide</a></li>
                 </ul>
             </li>
+            <!-- POST -->
+            <li class="treeview">
+                <a><i class="fa fa-link"></i> <span>Mail</span>
+                    <span class="pull-right-container">
+                    <i class="fa fa-angle-left pull-right"></i>
+                </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="admin/customer/listMail">List Sended Mail</a></li>
+                </ul>
+            </li>
             <!-- CITY -->
             <li class="treeview">
                 <a><i class="fa fa-link"></i> <span>City</span>
@@ -146,6 +157,7 @@
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="admin/customer/list">List Customer</a></li>
+                    <li><a href="admin/customer/follower">List Follower</a></li>
                 </ul>
             </li>
             <!-- EMPLOYEE -->

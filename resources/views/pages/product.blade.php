@@ -205,7 +205,7 @@
                                                                         </span>
                                                                     <p class="aa-product-avilability">Avilability: <span>In stock</span></p>
                                                                 </div>
-                                                                <p>{!!  $item->description !!}</p>
+                                                                {{--<p>{!!  $item->description !!}</p>--}}
                                                                 <div class="aa-prod-view-bottom">
                                                                     {{csrf_field()}}
                                                                     <span>Quantity: </span>

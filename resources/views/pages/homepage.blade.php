@@ -97,7 +97,7 @@
                                                                         </span>
                                                                         <p class="aa-product-avilability">Avilability: <span>In stock</span></p>
                                                                     </div>
-                                                                    <p>{!!  $item->description !!}</p>
+                                                                    {{--<p>{!!  $item->description !!}</p>--}}
                                                                     <div class="aa-prod-view-bottom">
                                                                         {{csrf_field()}}
                                                                         <span>Quantity: </span>
@@ -346,16 +346,16 @@
                         <div class="col-md-4 col-sm-4 col-xs-12">
                             <div class="aa-support-single">
                                 <span class="fa fa-truck"></span>
-                                <h4>FREE SHIPPING</h4>
-                                <P>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam, nobis.</P>
+                                <h4>FAST SHIPPING</h4>
+                                <P>Enjoy out shipping policy with various package and very convenience for customer.</P>
                             </div>
                         </div>
                         <!-- single support -->
                         <div class="col-md-4 col-sm-4 col-xs-12">
                             <div class="aa-support-single">
                                 <span class="fa fa-clock-o"></span>
-                                <h4>30 DAYS MONEY BACK</h4>
-                                <P>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam, nobis.</P>
+                                <h4>3 DAYS MONEY BACK</h4>
+                                <P>Can you bilieve it? Back product in three days first without any reason.</P>
                             </div>
                         </div>
                         <!-- single support -->
@@ -363,7 +363,7 @@
                             <div class="aa-support-single">
                                 <span class="fa fa-phone"></span>
                                 <h4>SUPPORT 24/7</h4>
-                                <P>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam, nobis.</P>
+                                <P>We're alaways here to support you everytime you need. Don't hesitate if you have any quesition.</P>
                             </div>
                         </div>
                     </div>

@@ -13,23 +13,23 @@
                     @include('Error')
                     @include('success')
                     @include('alert')
-                    <form action="admin/slide/add" method="post" enctype="multipart/form-data">
+                    <form action="admin/slide/update" method="post" enctype="multipart/form-data">
                         {{csrf_field()}}
                         <div class="form-group">
                             <label>Name</label>
-                            <input value="{{old('name')}}" name="name" type="text" class="form-control" placeholder="Enter the slide name">
+                            <input value="{{$slide->name}}" name="name" type="text" class="form-control" placeholder="Enter the slide name">
                         </div>
                         <div class="form-group">
                             <label>Image</label>
-                            <input value="{{old('image')}}"  name="image" type="file" class="form-control" >
+                            <input value="{{$slide->image}}"  name="image" type="file" class="form-control" >
                         </div>
                         <div class="form-group">
                             <label>New:&nbsp</label>
                             <label class="radio-inline">
-                                <input name="priority" value="1" checked type="radio">Yes
+                                <input @if($slide->priority == 1) checked @endif name="priority" value="1" type="radio">Yes
                             </label>
                             <label class="radio-inline">
-                                <input name="priority" value="0" type="radio">No
+                                <input @if($slide->priority == 1) checked @endif name="priority" value="0" type="radio">No
                             </label>
                         </div>
                         <button type="submit" class="btn btn-block btn-primary">Add new</button>

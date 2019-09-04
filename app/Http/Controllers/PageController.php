@@ -8,6 +8,9 @@ use App\City;
 use App\Comment;
 use App\Events\BillEvent;
 use App\Events\MyEvent1;
+use App\Follower;
+use App\Jobs\SendOrderEmail;
+use App\Mail\OrderShipped;
 use App\Notification;
 use App\User;
 use App\DeliveryType;
@@ -19,6 +22,7 @@ use App\Products;
 use http\Env\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use Pusher\Pusher;
 
@@ -179,6 +183,7 @@ class PageController extends Controller
         $bill->customerDistrict = District::find($request->district)->name;
         $bill->customerSubdistrict = SubDistrict::find($request->subdistrict)->name;
         $bill->note = $request->note;
+        $bill->otp = getRandomStringNumber(8);
         $bill->payment = $request->payment;
         $bill->total = $request->totalPrice;
         $bill->deliveryType = DeliveryType::find($request->deliveryType)->name;
@@ -188,6 +193,8 @@ class PageController extends Controller
             $bill->id = getRandomStringNumber(8);
         }
         $bill->save();
+//        Mail::to($bill->customerEmail)->send(new OrderShipped($bill));
+        dispatch(new SendOrderEmail($bill));
         $cart = $request->session()->get('cart');
         $deliveryType = DeliveryType::find($request->deliveryType);
         if ($request->session()->has('cart')){
@@ -256,6 +263,9 @@ class PageController extends Controller
         $user->phoneNumber = $request->phoneNumber;
         $user->email = $request->email;
         $user->password = bcrypt($request->password);
+        $follower = new Follower();
+        $follower->mail = $user->email;
+        $follower->save();
         if($request->sex == 1){
             $user->sex = 'M';
         }elseif($request->sex == 2){
@@ -279,8 +289,41 @@ class PageController extends Controller
     }
 
     public function checkOrder(){
-        return view('pages.checkOrder');
+        if(Auth::check()){
+            $bill = Bills::where('id_user', Auth::user()->id)->orderBy('created_at', 'desc')->get();
+            return view('pages.checkOrder')->with(['bill' => $bill]);
+        }else{
+            return view('pages.checkOrder');
+        }
     }
+
+    public function getCheckBill(){
+        return view('pages.checkBill');
+    }
+
+    public function postCheckBill(Request $request){
+        $this->validate($request,
+            [
+                'id' => 'required',
+                'otp' => 'required',
+            ],
+            [
+                'id.required' => 'Please fill out your bill information',
+                'otp.required' => 'Please fill out your bill information',
+            ]
+        );
+        $bill = Bills::where([
+            ['id', $request->id],
+            ['otp', $request->otp]
+        ])->get();
+
+        if(!$bill->isEmpty()){
+            return view('pages.checkOrder')->with(['bill' => $bill]);
+        }else{
+            return redirect()->back()->withErrors('Your bill information isn\'t correct!');
+        }
+    }
+
     public function postSignIn(Request $request){
         $validator = Validator::make($request->all(), [
             'information' => 'required',

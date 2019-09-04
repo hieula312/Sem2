@@ -12,7 +12,7 @@ class TypeProductSeeder extends Seeder
     public function run()
     {
         DB::table('type_products')->insert([
-            ['id_whole' => 1, 'name' => 'Hot product', 'abbreviation' => 'HP'],
+            ['id_whole' => 1, 'name' => 'LovelyBear', 'abbreviation' => 'LB'],
             ['id_whole' => 1, 'name' => 'Teddy Bear', 'abbreviation' => 'TB'],
             ['id_whole' => 1, 'name' => 'Doraemon', 'abbreviation' => 'DR'],
             ['id_whole' => 1, 'name' => 'Pillow', 'abbreviation' => 'PL'],
@@ -32,7 +32,6 @@ class TypeProductSeeder extends Seeder
             ['id_whole' => 5, 'name' => 'Bowl Starfish', 'abbreviation' => 'BS'],
             ['id_whole' => 5, 'name' => 'Glass Globe', 'abbreviation' => 'GG'],
             ['id_whole' => 5, 'name' => 'Rose Wax', 'abbreviation' => 'RW'],
-            ['id_whole' => 5, 'name' => 'Music Box', 'abbreviation' => 'MB']
         ]);
     }
 }

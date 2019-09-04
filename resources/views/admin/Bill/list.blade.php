@@ -25,7 +25,6 @@
                         <th>Delivery Type</th>
                         <th>Note</th>
                         <th>Status</th>
-                        <th></th>
                         <th>Bill Detail</th>
                     </tr>
                     </thead>
@@ -41,7 +40,11 @@
                             $time = new \Carbon\Carbon($bill->created_at);
                             if($time->isToday()){
                                 echo "Today - ".$time->format('jS F Y h:i:s A');
-                            }else{
+                            }
+                            else if($time->isYesterday()){
+                                echo "Yesterday - ".$time->format('jS F Y h:i:s A');
+                            }
+                            else{
                                 echo $time->diffForHumans(\Carbon\Carbon::now())." - ".$time->format('h:i A jS F');
                             }
                             ?>
@@ -59,10 +62,22 @@
                         <td>{{$bill->deliveryType}}</td>
                         <td>{{$bill->note}}</td>
                         <td>
-                            <span id="showStatus">{{$bill->status}}</span>
-                        </td>
-                        <td>
-                            <button id="changeStatus" data-id="{{$bill->id}}" type="submit" class="btn btn-block btn-danger">Pick Up</button>
+                            {{csrf_field()}}
+                            <button id="changeStatus{{$bill->id}}" data-id="{{$bill->id}}" type="submit" class="btn btn-block btn-danger changeStatus">
+                                <?php
+                                if($bill->status == 1){
+                                    echo "Confirm";
+                                }else if($bill->status == 2){
+                                    echo "Processing";
+                                }else if($bill->status == 3){
+                                    echo "Packaging";
+                                }else if($bill->status == 4){
+                                    echo "Dispatching";
+                                }else{
+                                    echo "Delivery";
+                                }
+                                ?>
+                            </button>
                         </td>
                         <td>
                             <a  href="admin/billdetail/list?idBill={{$bill->id}}"><button type="submit" class="btn btn-block btn-primary">See detail</button></a>
@@ -94,6 +109,54 @@
     <script>
         $(function () {
             $('#example1').DataTable({});
+            
+            $(document).ready(function () {
+                // Enable pusher logging - don't include this in production
+                Pusher.logToConsole = true;
+
+                var pusher = new Pusher('167dbf995abf10d6ce5e', {
+                    cluster: 'ap1',
+                    forceTLS: true
+                });
+
+                var channel = pusher.subscribe('order');
+                channel.bind('order-event', function(data) {
+                    if(data.bill.status == 2){
+                        $('#changeStatus'+data.bill.id).html('Processing');
+                    }else if(data.bill.status == 3){
+                        $('#changeStatus'+data.bill.id).html('Packaging');
+                    }else if(data.bill.status == 4){
+                        $('#changeStatus'+data.bill.id).html('Dispatching');
+                    }else{
+                        $('#changeStatus'+data.bill.id).html('Delivery');
+                    }
+                })
+
+                $('.changeStatus').click(function (e) {
+                    e.preventDefault();
+                    var id = $(this).attr('data-id');
+                    var _token = $('input[name="_token"]').val();
+                    $.ajax({
+                        url: "{{route('orderProcess')}}",
+                        method: 'POST',
+                        data: {id:id, _token:_token},
+                        dataType: 'json',
+                        success: function (data) {
+                        },
+                        error: function(jqXHR, textStatus, errorThrown) {
+                            alert('An error occurred... Look at the console (F12 or Ctrl+Shift+I, Console tab) for more information!');
+
+                            $('#result').html('<p>status code: '+jqXHR.status+'</p><p>errorThrown: ' + errorThrown + '</p><p>jqXHR.responseText:</p><div>'+jqXHR.responseText + '</div>');
+                            console.log('jqXHR:');
+                            console.log(jqXHR);
+                            console.log('textStatus:');
+                            console.log(textStatus);
+                            console.log('errorThrown:');
+                            console.log(errorThrown);
+                        },
+                    });
+                })
+            })
         });
     </script>
 @endsection

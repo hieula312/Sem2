@@ -76,6 +76,13 @@ input[type="text"], input[type="password"], textarea, select {
 #aa-product-details .aa-product-details-area .aa-product-details-bottom .aa-product-review-area .aa-review-nav li .media-body .aa-product-rating span {
     color: #ff6600;
 }
+.trackingInf{
+    text-align: center;
+}
+.trackingInf span{
+    color: #ff6666;
+}
+
 
 
 

@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Bills;
 use App\Cart;
 use App\City;
 use App\Comment;
 use App\District;
 use App\Events\CommentEvent;
+use App\Events\OrderEvent;
+use App\Follower;
 use App\Notification;
 use App\Products;
 use App\User;
@@ -333,5 +336,25 @@ class AjaxController extends Controller
         $noti->seen = 1;
         $noti->save();
         return response()->json([]);
+    }
+
+    public function orderProcess(Request $request){
+        $bill = Bills::find($request->id);
+        if($bill->status < 6){
+            $bill->status++;
+        }
+        $bill->save();
+        event(new OrderEvent($bill));
+        return response()->json(['status' => $bill->status]);
+    }
+
+    public function postSubscribe(Request $request){
+        $DBfollower = Follower::where('mail', $request->email)->get();
+        if($DBfollower->isEmpty()){
+            $follower = new Follower();
+            $follower->mail = $request->email;
+            $follower->save();
+        }
+        return response()->json();
     }
 }

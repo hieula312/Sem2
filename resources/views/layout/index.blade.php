@@ -82,6 +82,46 @@
 <script src="client_asset/js/custom.js"></script>
 @yield('script')
 @include('layout.logInModalScript')
+<script>
+    $(document).ready(function () {
+        $('#subscribe').click(function (e) {
+            e.preventDefault();
+            var email = $('#emailSubscribe').val();
+            var _token = $('input[name="_token"]').val();
+            var email_regex = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+            if(email_regex.test(email) == true){
+                $.ajax({
+                    url: "{{route('postSubscribe')}}",
+                    method: 'POST',
+                    data: {email:email, _token:_token},
+                    dataType: 'json',
+                    success: function () {
+                        Swal.fire(
+                            'Thank for your subscribe!',
+                            '',
+                            'success',
+                        );
+                    },
+                    error: function(jqXHR, textStatus, errorThrown) {
+                        alert('An error occurred... Look at the console (F12 or Ctrl+Shift+I, Console tab) for more information!');
+                        $('#result').html('<p>status code: '+jqXHR.status+'</p><p>errorThrown: ' + errorThrown + '</p><p>jqXHR.responseText:</p><div>'+jqXHR.responseText + '</div>');
+                        console.log('jqXHR:');
+                        console.log(jqXHR);
+                        console.log('textStatus:');
+                        console.log(textStatus);
+                        console.log('errorThrown:');
+                        console.log(errorThrown);
+                    },
+                });
+            }else{
+                $('#emailSubscribe').css('border', '1px solid #ff6666')
+                $('#emailSubscribe').mouseleave(function () {
+                    $(this).css('border', '');
+                })
+            }
+        })
+    })
+</script>
 </body>
 @yield('css')
 </html>

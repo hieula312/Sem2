@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Follower;
+use App\Jobs\SendPostEmail;
+use App\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\User;
@@ -38,11 +41,32 @@ class UserController extends Controller
         }
     }
 
-    public function SignOutAdmin(){
-        if(Auth::check()){
-            Auth::logout();
-            return redirect('admin/signin');
-        }
+    public function getFollower(){
+        $followers = Follower::all();
+        return view('admin.customer.follower')->with(['followers' => $followers]);;
+    }
+
+    public function getsendMail(){
+        return view('admin.customer.sendMail');
+    }
+
+    public function postsendMail(Request $request){
+        $this->validate($request,
+            [
+                'title' => 'required',
+                'body' => 'required'
+            ],
+            [
+                'title.required' => 'Your must fill out title of mail',
+                'body.required' => 'Your must fill out body of mail',
+            ]
+        );
+        $post = new Post();
+        $post->title = $request->title;
+        $post->body = $request->body;
+        $post->save();
+        dispatch(new SendPostEmail($post));
+        return redirect()->back()->with(['alert' => 'Send mail success!']);
     }
 
     public function getListCustomer(){
@@ -51,5 +75,17 @@ class UserController extends Controller
             ['level', 1]
         ])->get();
         return view('admin.customer.list')->with(['customers' => $customers]);
+    }
+
+    public function getListMail(){
+        $posts = Post::all();
+        return view('admin.customer.listMail')->with(['posts' => $posts]);
+    }
+
+    public function SignOutAdmin(){
+        if(Auth::check()){
+            Auth::logout();
+            return redirect('admin/signin');
+        }
     }
 }
