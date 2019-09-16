@@ -1,0 +1,168 @@
+
+.module,
+.module-small {
+  position: relative;
+  padding: 70px 0;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: cover;
+}
+
+/* Module header */
+.module-small {
+  padding: 70px 0;
+}
+
+.module-extra-small {
+  padding: 25px 0px;
+}
+
+.module-medium {
+  padding: 75px 0px;
+}
+
+/* Dark background */
+.bg-dark,
+.bg-dark-60,
+.bg-dark .module-title,
+.bg-dark-60 .module-title,
+.bg-dark .module-subtitle,
+.bg-dark-60 .module-subtitle,
+.bg-dark .alt-module-subtitle h5,
+.bg-dark-60 .alt-module-subtitle h5{
+  color: #fff;
+}
+.bg-dark-60:before {
+  position: absolute;
+  background: rgba(34, 34, 34, 0.8);
+  content: " ";
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+}
+.parallax-bg {
+  /*background-image: url(//theme.hstatic.net/1000069863/1000429927/14/parallax_2.jpg?v=262);*/
+  background-image:url(images/nen.jpg);
+  background-attachment: fixed;
+  background-size: cover;
+}
+#aa-banner {
+  background-image:url(images/nen.jpg);
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: 50% 50%;
+
+}
+#aa-banner{
+  padding: 30px;
+  padding-bottom: 0px;
+}
+/*#parallax_2 > div {*/
+/*  position:relative;*/
+/*}*/
+/*#parallax_2 > div::before {*/
+/*  background-color: #333333;*/
+/*  content: "";*/
+/*  height: 100%;*/
+/*  left: 0;*/
+/*  opacity: 0.7;*/
+/*  position: absolute;*/
+/*  top: 0;*/
+/*  width: 100%;*/
+/*  z-index: 2;*/
+/*}*/
+.support-area-wrapper {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.support-area-wrapper .support-area-inner {
+  display: block;
+  width: 100%;
+  float: left
+}
+.support-area-wrapper .support-area-inner .support-area {
+  display: block;
+  width: 100%;
+  float: left
+}
+.support-area-wrapper .support-area-inner .support-area>div {
+  display: table
+}
+.support-area-wrapper .support-area-inner .support-area>div .sa-icon {
+  display: table-cell;
+  float: left;
+  vertical-align: middle;
+  height: 80px;
+  line-height: 80px
+}
+.support-area-wrapper .support-area-inner .support-area>div .sa-icon span {
+  width: 50px;
+  height: 50px;
+  position: relative
+}
+.support-area-wrapper .support-area-inner .support-area>div .sa-icon span i.fa-stack-2x {
+  height: 50px;
+  font-size: 46px;
+  color: transparent;
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  transition: ease color 0.5s;
+  -webkit-transition: ease color 0.5s;
+  -moz-transition: ease color 0.5s;
+  -o-transition: ease color 0.5s
+}
+.support-area-wrapper .support-area-inner .support-area>div .sa-icon span i.fa-inverse {
+  height: 50px;
+  line-height: 50px !important;
+  font-size: 15px;
+  color: #ffffff;
+}
+.support-area-wrapper .support-area-inner .support-area>div .sa-icon span:before {
+  position: absolute;
+  content: '';
+  width: 50px;
+  height: 50px;
+  left: 0px;
+  border: 3px solid transparent;
+  border-radius: 50%;
+  transition: ease all 0.5s;
+  -webkit-transition: ease all 0.5s;
+  -moz-transition: ease all 0.5s;
+  -o-transition: ease all 0.5s
+}
+.support-area-wrapper .support-area-inner .support-area>div .sa-icon span:hover i.fa-stack-2x {
+  color: #ffffff;
+  border-style: dotted
+}
+.support-area-wrapper .support-area-inner .support-area>div .sa-icon span:hover i.fa-inverse {
+  color: #d80000;
+}
+.support-area-wrapper .support-area-inner .support-area>div .sa-icon span:hover:before {
+  border-color: #d80000;
+}
+.support-area-wrapper .support-area-inner .support-area>div .sa-des {
+  display: table-cell;
+  vertical-align: middle;
+  height: 110px;
+  text-align: left;
+  padding: 0 0 0 15px;
+}
+.support-area-wrapper .support-area-inner .support-area>div .sa-des .sa-title {
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+  color: #ffffff;
+  text-transform: uppercase;
+  line-height: 26px;
+  margin-top: 0px;
+  margin-bottom: 0;
+  text-align: left;
+}
+.support-area-wrapper .support-area-inner .support-area>div .sa-des .sa-subtext {
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  line-height: 26px;
+  color: #ffffff;
+  text-align: left;
+}
