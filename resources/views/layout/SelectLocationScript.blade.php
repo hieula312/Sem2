@@ -53,8 +53,6 @@
 
                     },
                     error: function(jqXHR, textStatus, errorThrown) {
-                        alert('An error occurred... Look at the console (F12 or Ctrl+Shift+I, Console tab) for more information!');
-
                         $('#result').html('<p>status code: '+jqXHR.status+'</p><p>errorThrown: ' + errorThrown + '</p><p>jqXHR.responseText:</p><div>'+jqXHR.responseText + '</div>');
                         console.log('jqXHR:');
                         console.log(jqXHR);
@@ -89,7 +87,6 @@
                         counting(0);
                     },
                     error: function(jqXHR, textStatus, errorThrown) {
-                        alert('An error occurred... Look at the console (F12 or Ctrl+Shift+I, Console tab) for more information!');
 
                         $('#result').html('<p>status code: '+jqXHR.status+'</p><p>errorThrown: ' + errorThrown + '</p><p>jqXHR.responseText:</p><div>'+jqXHR.responseText + '</div>');
                         console.log('jqXHR:');

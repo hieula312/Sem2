@@ -51,19 +51,10 @@ class AjaxController extends Controller
         $dbProducts = Products::where('active', 1)->get();
         $output = '';
         foreach($dbProducts as $item){
-            if($item->new == 1){
-                $x = "Yes";
-            }else{
-                $x = "No";
-            }
-            if($item->feature == 1){
-                $y = "Yes";
-            }else{
-                $y = "No";
-            }
+
             $time = new Carbon($item->created_at);
             if($time->isToday()){
-                $z =  "Today - ".$time->format('h:i jS F');
+                $z =  "Today - ".$time->format('h:i');
             }else{
                 $z = $time->diffForHumans(Carbon::now())." - ".$time->format('h:i jS F');
             }
@@ -71,22 +62,14 @@ class AjaxController extends Controller
             '
                 <tr>
                         <td>'.$item->id.'</td>
-                        <td>'.$item->name.'</td>
-                        <td>'.$item->TypeProduct->WholeProducts->name.'</td>
-                        <td>'.$item->TypeProduct->name.'</td>
+                        <td>
+                            <a href="admin/product/update/'.$item->id.'">'.$item->name.'</a>
+                        </td>
+                    
                         <td>'.$item->unit_price.'</td>
                         <td>'.$item->promotion_price.'</td>
                         <td>'.$item->unit.'</td>
                         <td>'.$item->sellIndex.'</td>
-                        <td>
-                            <p>'.$item->description.'</p>
-                        </td>
-                        <td>'
-                            .$x.'
-                        </td>
-                        <td>'
-                            .$y.'
-                        </td>
                         <td>'
                             .$z.'
                         </td>
