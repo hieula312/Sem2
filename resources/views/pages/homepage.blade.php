@@ -189,13 +189,60 @@
     </section>
     <!-- / Products section -->
     <!-- banner section -->
-    <section id="aa-banner">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="row">
-                        <div class="aa-banner-area">
-                            <a href="#"><img src="client_asset/img/fashion-banner.jpg" alt="fashion banner img"></a>
+    <section id="aa-banner" class="module parallax white support-area-wrapper bg-dark-60">
+        <div>
+            <div class="container">
+                <div class="row">
+                    <div class="support-area-inner">
+                        <div class="support-area">
+                            <div class="support-area-item col-md-3">
+                                <div class="sa-icon">
+								<span class="fa-stack fa-lg">
+									<i class="fa fa-circle fa-stack-2x"></i>
+									<i class="fa fa-paper-plane fa-stack-1x fa-inverse"></i>
+								</span>
+                                </div>
+                                <div class="sa-des">
+                                    <h3 class="sa-title">Miễn phí giao hàng</h3>
+                                    <div class="sa-subtext">Cho hóa đơn từ 499K</div>
+                                </div>
+                            </div>
+                            <div class="support-area-item col-md-3">
+                                <div class="sa-icon">
+								<span class="fa-stack fa-lg">
+									<i class="fa fa-circle fa-stack-2x"></i>
+									<i class="fa fa-truck fa-stack-1x fa-inverse"></i>
+								</span>
+                                </div>
+                                <div class="sa-des">
+                                    <h3 class="sa-title">Miễn phí gói quà</h3>
+                                    <div class="sa-subtext">Áp dụng tất cả đơn hàng bạn muốn</div>
+                                </div>
+                            </div>
+                            <div class="support-area-item col-md-3">
+                                <div class="sa-icon">
+								<span class="fa-stack fa-lg">
+									<i class="fa fa-circle fa-stack-2x"></i>
+									<i class="fa fa-tag fa-stack-1x fa-inverse"></i>
+								</span>
+                                </div>
+                                <div class="sa-des">
+                                    <h3 class="sa-title">Hoàn tiền 100%</h3>
+                                    <div class="sa-subtext">Nếu không thấy hài lòng</div>
+                                </div>
+                            </div>
+                            <div class="support-area-item col-md-3">
+                                <div class="sa-icon">
+								<span class="fa-stack fa-lg">
+									<i class="fa fa-circle fa-stack-2x"></i>
+									<i class="fa fa-tag fa-stack-1x fa-inverse"></i>
+								</span>
+                                </div>
+                                <div class="sa-des">
+                                    <h3 class="sa-title">Thanh toán khi nhận</h3>
+                                    <div class="sa-subtext">Giao hàng lấy tiền tại nhà</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
