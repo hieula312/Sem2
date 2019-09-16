@@ -26,7 +26,7 @@
                         </li>
                         @endforeach
                         @endif
-                        <li><a href="">Contact</a></li>
+                        {{--<li><a href="">Contact</a></li>--}}
                     </ul>
                 </div><!--/.nav-collapse -->
             </div>

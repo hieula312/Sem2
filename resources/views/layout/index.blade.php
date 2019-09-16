@@ -84,6 +84,35 @@
 @include('layout.logInModalScript')
 <script>
     $(document).ready(function () {
+        var $filter = $('#menu');
+        var $filterSpacer = $('<div />', {
+            "class": "vnovernight",
+            "height": $filter.outerHeight()
+        });
+        <!-- var $down-menu = $('#menu-js-digital,#menu-js-home,#menu-js-kids,#menu-js-men,#menu-js-sports,#menu-js-women'); -->
+        if ($filter.size())
+        {
+            $(window).scroll(function ()
+            {
+                if (!$filter.hasClass('fix') && $(window).scrollTop() > $filter.offset().top)
+                {
+                    $filter.before($filterSpacer);
+                    $filter.addClass("fix");
+                    $("#aa-search").fadeToggle(300,'swing');
+                    $("#aa-cartbox-menu").fadeToggle(300,'swing');
+                    <!-- $('#menu-js-digital,#menu-js-home,#menu-js-kids,#menu-js-men,#menu-js-sports,#menu-js-women').css('margin-top','15px');		 -->
+                }
+                else if ($filter.hasClass('fix')  && $(window).scrollTop() <= $filterSpacer.offset().top)
+                {
+                    $filter.removeClass("fix");
+                    $filterSpacer.remove();
+                    $("#aa-search").fadeToggle(0,'linear');
+                    $("#aa-cartbox-menu").fadeToggle(0,'linear');
+                    <!-- $('#menu-js-digital,#menu-js-home,#menu-js-kids,#menu-js-men,#menu-js-sports,#menu-js-women').css('padding-bottom','15px');		 -->
+                }
+            });
+        }
+
         $('#subscribe').click(function (e) {
             e.preventDefault();
             var email = $('#emailSubscribe').val();
@@ -101,6 +130,7 @@
                             '',
                             'success',
                         );
+                        $('#emailSubscribe').val('');
                     },
                     error: function(jqXHR, textStatus, errorThrown) {
                         alert('An error occurred... Look at the console (F12 or Ctrl+Shift+I, Console tab) for more information!');
@@ -121,6 +151,14 @@
             }
         })
     })
+
+    jQuery(".aa-cartbox-menu").hover(function(){
+            jQuery(this).find(".aa-cartbox-summary-menu").fadeIn(500);
+        }
+        ,function(){
+            jQuery(this).find(".aa-cartbox-summary-menu").fadeOut(500);
+        }
+    );
 </script>
 </body>
 @yield('css')

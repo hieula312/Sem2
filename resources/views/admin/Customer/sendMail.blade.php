@@ -2,7 +2,7 @@
 @section('content')
     <section class="content-header col-lg-7" style="margin-bottom: 15px;">
         <h1 style="border-bottom: 2px solid black;">
-            <span><b>SEND MAIL</b></span>
+            <span><b>SEND MAIL TO FOLLOWER</b></span>
         </h1>
     </section>
     <!-- Main content -->

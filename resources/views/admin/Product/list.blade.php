@@ -17,15 +17,10 @@
                     <tr>
                         <th>ID</th>
                         <th>Name</th>
-                        <th>Whole Product</th>
-                        <th>Type Product</th>
                         <th>Unit Price</th>
                         <th>Promotion Price</th>
                         <th>Unit</th>
                         <th>Sell Index</th>
-                        <th>Description</th>
-                        <th>New</th>
-                        <th>Feature</th>
                         <th>Date</th>
                         <th>Update</th>
                         <th>Delete</th>
@@ -35,39 +30,18 @@
                     @foreach($products as $item)
                     <tr>
                         <td>{{$item->id}}</td>
-                        <td>{{$item->name}}</td>
-                        <td>{{$item->TypeProduct->WholeProducts->name}}</td>
-                        <td>{{$item->TypeProduct->name}}</td>
-                        <td>{{$item->unit_price}}</td>
-                        <td>{{$item->promotion_price}}</td>
+                        <td>
+                            <a href="admin/product/update/{{$item->id}}">{{$item->name}}</a>
+                        </td>
+                        <td>{{$item->unit_price}}$</td>
+                        <td>{{$item->promotion_price}}$</td>
                         <td>{{$item->unit}}</td>
                         <td>{{$item->sellIndex}}</td>
-                        <td>
-                            <p>{!! $item->description !!}</p>
-                        </td>
-                        <td>
-                            <?php
-                                if($item->new == 1){
-                                    echo "Yes";
-                                }else{
-                                    echo "No";
-                                }
-                            ?>
-                        </td>
-                        <td>
-                            <?php
-                            if($item->feature == 1){
-                                echo "Yes";
-                            }else{
-                                echo "No";
-                            }
-                            ?>
-                        </td>
                         <td>
                             <?php
                                 $time = new \Carbon\Carbon($item->created_at);
                                 if($time->isToday()){
-                                    echo "Today - ".$time->format('h:i jS F');
+                                    echo "Today - ".$time->format('h:i');
                                 }else{
                                     echo $time->diffForHumans(\Carbon\Carbon::now())." - ".$time->format('h:i jS F');
                                 }
@@ -143,8 +117,6 @@
                                 location.reload();
                             },
                             error: function(jqXHR, textStatus, errorThrown) {
-                                alert('An error occurred... Look at the console (F12 or Ctrl+Shift+I, Console tab) for more information!');
-
                                 $('#result').html('<p>status code: '+jqXHR.status+'</p><p>errorThrown: ' + errorThrown + '</p><p>jqXHR.responseText:</p><div>'+jqXHR.responseText + '</div>');
                                 console.log('jqXHR:');
                                 console.log(jqXHR);
