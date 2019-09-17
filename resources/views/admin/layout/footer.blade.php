@@ -2,7 +2,7 @@
 <footer class="main-footer">
     <!-- To the right -->
     <div class="pull-right hidden-xs">
-        Anything you want
+        Arts Station Shop
     </div>
     <!-- Default to the left -->
     <strong>Copyright &copy; 2019 <a href="#">Company</a>.</strong> All rights reserved.

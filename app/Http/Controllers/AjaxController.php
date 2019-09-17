@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\BillDetail;
 use App\Bills;
 use App\Cart;
 use App\City;
@@ -325,6 +326,14 @@ class AjaxController extends Controller
         $bill = Bills::find($request->id);
         if($bill->status < 6){
             $bill->status++;
+        }
+        $billDetails = BillDetail::where('id_bill', $bill->id)->get();
+        if($bill->status == 5){
+            foreach ($billDetails as $item){
+                $product = Products::find($item->id_product);
+                $product->sellIndex = $item->quantity;
+                $product->save();
+            }
         }
         $bill->save();
         event(new OrderEvent($bill));

@@ -2,22 +2,6 @@
 @section('title', 'Type Product')
 @section('content')
     <!-- SLIDE -->
-    <!-- catg header banner section -->
-    <section id="aa-catg-head-banner">
-        <img src="client_asset/img/fashion/fashion-header-bg-8.jpg" alt="fashion img">
-        <div class="aa-catg-head-banner-area">
-            <div class="container">
-                <div class="aa-catg-head-banner-content">
-                    <h2>Fashion</h2>
-                    <ol class="breadcrumb">
-                        <li><a href="index.html">Home</a></li>
-                        <li class="active">{{$typeProduct->name}}</li>
-                    </ol>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- / catg header banner section -->
     <!-- product category -->
     <section id="aa-product-category">
         <div class="container">
