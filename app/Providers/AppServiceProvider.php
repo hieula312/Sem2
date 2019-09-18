@@ -2,13 +2,16 @@
 
 namespace App\Providers;
 
+use App\Bills;
 use App\City;
 use App\DeliveryType;
 use App\District;
+use App\Follower;
 use App\Notification;
 use App\Products;
 use App\Slide;
 use App\SubDistrict;
+use App\User;
 use App\WholeProducts;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\ServiceProvider;
@@ -34,6 +37,13 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Schema::defaultStringLength(191);
+        view()->composer('admin.homepage', function ($view){
+            $orderNum = count(Bills::all());
+            $userNum = count(User::where('level', 1)->get());
+            $followerNum = count(Follower::all());
+            $productNum = count(Products::where('active', 1)->get());
+            $view->with(['orderNum' => $orderNum, 'userNum' => $userNum, 'followerNum' => $followerNum, 'productNum' => $productNum]);
+        });
         view()->composer('admin.layout.header', function ($view){
             $notifications = Notification::orderBy('created_at', 'desc')->get();
             $num = count(Notification::where('seen', 0)->get());
