@@ -137,10 +137,10 @@
   border-style: dotted
 }
 .support-area-wrapper .support-area-inner .support-area>div .sa-icon span:hover i.fa-inverse {
-  color: #d80000;
+  color: #ff6666;
 }
 .support-area-wrapper .support-area-inner .support-area>div .sa-icon span:hover:before {
-  border-color: #d80000;
+  border-color: #ff6666;
 }
 .support-area-wrapper .support-area-inner .support-area>div .sa-des {
   display: table-cell;

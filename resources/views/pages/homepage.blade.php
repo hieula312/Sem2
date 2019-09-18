@@ -203,8 +203,8 @@
 								</span>
                                 </div>
                                 <div class="sa-des">
-                                    <h3 class="sa-title">Miễn phí giao hàng</h3>
-                                    <div class="sa-subtext">Cho hóa đơn từ 499K</div>
+                                    <h3 class="sa-title">Free shipping</h3>
+                                    <div class="sa-subtext">For bill up to 100$</div>
                                 </div>
                             </div>
                             <div class="support-area-item col-md-3">
@@ -215,8 +215,8 @@
 								</span>
                                 </div>
                                 <div class="sa-des">
-                                    <h3 class="sa-title">Miễn phí gói quà</h3>
-                                    <div class="sa-subtext">Áp dụng tất cả đơn hàng bạn muốn</div>
+                                    <h3 class="sa-title">Free Packaging</h3>
+                                    <div class="sa-subtext">For every single bill</div>
                                 </div>
                             </div>
                             <div class="support-area-item col-md-3">
@@ -227,8 +227,8 @@
 								</span>
                                 </div>
                                 <div class="sa-des">
-                                    <h3 class="sa-title">Hoàn tiền 100%</h3>
-                                    <div class="sa-subtext">Nếu không thấy hài lòng</div>
+                                    <h3 class="sa-title">Back 100%</h3>
+                                    <div class="sa-subtext">If don't catch your requirement</div>
                                 </div>
                             </div>
                             <div class="support-area-item col-md-3">
@@ -239,8 +239,8 @@
 								</span>
                                 </div>
                                 <div class="sa-des">
-                                    <h3 class="sa-title">Thanh toán khi nhận</h3>
-                                    <div class="sa-subtext">Giao hàng lấy tiền tại nhà</div>
+                                    <h3 class="sa-title">Support COD</h3>
+                                    <div class="sa-subtext">Cast on delivery</div>
                                 </div>
                             </div>
                         </div>
