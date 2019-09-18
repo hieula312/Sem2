@@ -161,6 +161,7 @@
                 </ul>
             </li>
             <!-- EMPLOYEE -->
+            @if(\Illuminate\Support\Facades\Auth::user()->level == 3)
             <li class="treeview">
                 <a href="#"><i class="fa fa-link"></i> <span>Employee</span>
                 <span class="pull-right-container">
@@ -172,6 +173,7 @@
                     <li><a href="admin/employee/add">Add new Employee</a></li>
                 </ul>
             </li>
+            @endif
         </ul>
         <!-- /.sidebar-menu -->
     </section>
